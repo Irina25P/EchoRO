@@ -1,18 +1,9 @@
 package com.example.echoro.ui.screens.feedback
 
+import android.media.MediaPlayer
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -23,23 +14,57 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-
+import kotlinx.coroutines.delay
 
 @Composable
-fun AudioPlayerCard(navyBlue: Color, teal: Color) {
+fun AudioPlayerCard(
+    audioUrl: String,
+    navyBlue: Color,
+    teal: Color
+) {
     var isPlaying by remember { mutableStateOf(false) }
-    var progress by remember { mutableFloatStateOf(0.1f) }
+    var progress by remember { mutableFloatStateOf(0f) }
+    var isPrepared by remember { mutableStateOf(false) }
+
+    var mediaPlayer by remember { mutableStateOf<MediaPlayer?>(null) }
+
+    DisposableEffect(audioUrl) {
+        val mp = MediaPlayer().apply {
+            val fullUrl = if (audioUrl.startsWith("http")) audioUrl else "http://10.0.2.2:8000$audioUrl"
+            setDataSource(fullUrl)
+            prepareAsync()
+
+            setOnPreparedListener {
+                isPrepared = true
+            }
+
+            setOnCompletionListener {
+                isPlaying = false
+                progress = 1f
+            }
+        }
+        mediaPlayer = mp
+
+        onDispose {
+            mp.release()
+        }
+    }
+
+    LaunchedEffect(isPlaying) {
+        while (isPlaying && mediaPlayer != null) {
+            val mp = mediaPlayer!!
+            if (mp.duration > 0) {
+                progress = mp.currentPosition.toFloat() / mp.duration.toFloat()
+            }
+            delay(50)
+        }
+    }
 
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -52,7 +77,9 @@ fun AudioPlayerCard(navyBlue: Color, teal: Color) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().height(60.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(60.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -74,14 +101,28 @@ fun AudioPlayerCard(navyBlue: Color, teal: Color) {
                 modifier = Modifier
                     .size(64.dp)
                     .clip(CircleShape)
-                    .background(navyBlue)
-                    .clickable { isPlaying = !isPlaying },
+                    .background(navyBlue.copy(alpha = if (isPrepared) 1f else 0.5f))
+                    .clickable(enabled = isPrepared) {
+                        mediaPlayer?.let { mp ->
+                            if (mp.isPlaying) {
+                                mp.pause()
+                                isPlaying = false
+                            } else {
+                                if (progress >= 1f) {
+                                    mp.seekTo(0)
+                                    progress = 0f
+                                }
+                                mp.start()
+                                isPlaying = true
+                            }
+                        }
+                    },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
                     imageVector = if (isPlaying) Icons.Filled.Pause else Icons.Filled.PlayArrow,
                     contentDescription = "Play/Pause",
-                    tint = Color.White,
+                    tint = Color.White.copy(alpha = if (isPrepared) 1f else 0.5f),
                     modifier = Modifier.size(36.dp)
                 )
             }
@@ -90,7 +131,13 @@ fun AudioPlayerCard(navyBlue: Color, teal: Color) {
 
             Slider(
                 value = progress,
-                onValueChange = { progress = it },
+                onValueChange = { newValue ->
+                    progress = newValue
+                    mediaPlayer?.let { mp ->
+                        val newPosition = (newValue * mp.duration).toInt()
+                        mp.seekTo(newPosition)
+                    }
+                },
                 colors = SliderDefaults.colors(
                     thumbColor = teal,
                     activeTrackColor = teal,

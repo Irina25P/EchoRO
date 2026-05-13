@@ -1,33 +1,15 @@
 package com.example.echoro.ui.screens.login
 
-import android.util.Patterns
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -35,10 +17,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.echoro.R
+import com.example.echoro.viewmodel.auth.AuthScreenEvent
+import com.example.echoro.viewmodel.auth.AuthScreenOSE
+import com.example.echoro.viewmodel.auth.AuthViewModel
 import com.example.echoro.ui.theme.BackgroundGray
 import com.example.echoro.ui.theme.NavyBlue
 import com.example.echoro.ui.theme.Teal
@@ -46,15 +31,24 @@ import com.example.echoro.ui.theme.Teal
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
-    onLoginClick: (String, String) -> Unit,
+    viewModel: AuthViewModel = viewModel(),
+    onNavigateToApp: (Int, String) -> Unit,
     onCreateAccountClick: () -> Unit
 ) {
+
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
 
-    var emailError by remember { mutableStateOf<String?>(null) }
-    var passwordError by remember { mutableStateOf<String?>(null) }
+    val authState by viewModel.authState.collectAsState()
+
+    LaunchedEffect(Unit) {
+        viewModel.authOSE.collect { ose ->
+            if (ose is AuthScreenOSE.NavigateToApp) {
+                onNavigateToApp(ose.userId, ose.role)
+            }
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -64,6 +58,7 @@ fun LoginScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
         Image(
             painter = painterResource(id = R.drawable.logo_echoro),
             contentDescription = "EchoRO Logo",
@@ -81,26 +76,31 @@ fun LoginScreen(
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        if (authState.generalError != null) {
+            Text(
+                text = authState.generalError!!,
+                color = Color.Red,
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
+        }
+
         OutlinedTextField(
             value = email,
             onValueChange = {
                 email = it
-                emailError = null
+                viewModel.sendEvent(AuthScreenEvent.EmailChanged(it))
             },
             placeholder = { Text("Email", color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            isError = emailError != null,
-            supportingText = {
-                if (emailError != null) Text(text = emailError!!, color = Color.Red)
-            },
+            isError = authState.emailError != null,
+            supportingText = { if (authState.emailError != null) Text(authState.emailError!!, color = Color.Red) },
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = BackgroundGray,
-                unfocusedContainerColor = BackgroundGray,
-                focusedBorderColor = NavyBlue,
-                unfocusedBorderColor = Color.Transparent,
-                errorContainerColor = BackgroundGray,
-                errorBorderColor = Color.Red
+                focusedContainerColor = BackgroundGray, unfocusedContainerColor = BackgroundGray,
+                focusedBorderColor = NavyBlue, unfocusedBorderColor = Color.Transparent,
+                errorContainerColor = BackgroundGray, errorBorderColor = Color.Red
             ),
             singleLine = true
         )
@@ -111,22 +111,17 @@ fun LoginScreen(
             value = password,
             onValueChange = {
                 password = it
-                passwordError = null
+                viewModel.sendEvent(AuthScreenEvent.PasswordChanged(it))
             },
             placeholder = { Text("Password", color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
-            isError = passwordError != null,
-            supportingText = {
-                if (passwordError != null) Text(text = passwordError!!, color = Color.Red)
-            },
+            isError = authState.passwordError != null,
+            supportingText = { if (authState.passwordError != null) Text(authState.passwordError!!, color = Color.Red) },
             colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = BackgroundGray,
-                unfocusedContainerColor = BackgroundGray,
-                focusedBorderColor = NavyBlue,
-                unfocusedBorderColor = Color.Transparent,
-                errorContainerColor = BackgroundGray,
-                errorBorderColor = Color.Red
+                focusedContainerColor = BackgroundGray, unfocusedContainerColor = BackgroundGray,
+                focusedBorderColor = NavyBlue, unfocusedBorderColor = Color.Transparent,
+                errorContainerColor = BackgroundGray, errorBorderColor = Color.Red
             ),
             singleLine = true,
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
@@ -138,41 +133,33 @@ fun LoginScreen(
             }
         )
 
-        Spacer(modifier = Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(32.dp))
 
         Button(
             onClick = {
-                var isValid = true
-
-                if (email.isBlank()) {
-                    emailError = "Email is required"
-                    isValid = false
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    emailError = "Invalid email format"
-                    isValid = false
-                }
-
-                if (password.isBlank()) {
-                    passwordError = "Password is required"
-                    isValid = false
-                }
-
-                if (isValid) {
-                    onLoginClick(email, password)
-                }
+                viewModel.sendEvent(AuthScreenEvent.SignInWithCredentials(email, password))
             },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(52.dp),
             shape = RoundedCornerShape(12.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = NavyBlue)
+            colors = ButtonDefaults.buttonColors(containerColor = NavyBlue),
+            enabled = !authState.isLoading
         ) {
-            Text(
-                text = "LOGIN",
-                color = Color.White,
-                fontWeight = FontWeight.Bold,
-                fontSize = 14.sp
-            )
+            if (authState.isLoading) {
+                CircularProgressIndicator(
+                    color = Color.White,
+                    modifier = Modifier.size(24.dp),
+                    strokeWidth = 2.dp
+                )
+            } else {
+                Text(
+                    text = "LOGIN",
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 14.sp
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(24.dp))

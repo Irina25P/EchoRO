@@ -2,69 +2,74 @@ package com.example.echoro.ui.screens.feedback
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.StarOutline
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Slider
-import androidx.compose.material3.SliderDefaults
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.echoro.viewmodel.feedback.FeedbackEvent
+import com.example.echoro.viewmodel.feedback.FeedbackOSE
+import com.example.echoro.viewmodel.feedback.FeedbackViewModel
 import com.example.echoro.ui.screens.generatevoice.EchoRoPrimaryButton
 import com.example.echoro.ui.screens.generatevoice.EchoRoTopBar
 import com.example.echoro.ui.theme.BackgroundGray
 import com.example.echoro.ui.theme.NavyBlue
 import com.example.echoro.ui.theme.Teal
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FeedbackScreen(
+    audioUrl: String,
+    textUsed: String,
+    modelType: String,
     isGuest: Boolean = false,
+    userId: Int = 1,
+    viewModel: FeedbackViewModel = viewModel(),
     onLogoutClick: () -> Unit = {},
-    onSubmitFeedback: (Int, Int, Int, Float, String) -> Unit
+    onNavigateBack: () -> Unit
 ) {
-
     var intelligibility by remember { mutableIntStateOf(0) }
     var naturalness by remember { mutableIntStateOf(0) }
     var accent by remember { mutableIntStateOf(0) }
     var wordAccuracy by remember { mutableFloatStateOf(85f) }
     var comments by remember { mutableStateOf("") }
+    var genderRespected by remember { mutableStateOf<Boolean?>(null) }
+
+    val state by viewModel.state.collectAsState()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    LaunchedEffect(Unit) {
+        viewModel.ose.collect { ose ->
+            when (ose) {
+                is FeedbackOSE.ShowMessage -> {
+                    launch {
+                        snackbarHostState.showSnackbar(
+                            message = ose.message,
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                }
+                is FeedbackOSE.NavigateBack -> {
+                    onNavigateBack()
+                }
+                else -> {}
+            }
+        }
+    }
 
     Scaffold(
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             EchoRoTopBar(
                 actions = {
@@ -73,20 +78,12 @@ fun FeedbackScreen(
                             onClick = onLogoutClick,
                             colors = ButtonDefaults.buttonColors(containerColor = Teal),
                             shape = RoundedCornerShape(8.dp)
-                        ) {
-                            Text("Login", fontWeight = FontWeight.Bold, color = Color.White)
-                        }
+                        ) { Text("Login", fontWeight = FontWeight.Bold, color = Color.White) }
                     } else {
                         IconButton(
                             onClick = onLogoutClick,
                             modifier = Modifier.background(Teal, RoundedCornerShape(8.dp))
-                        ) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                                contentDescription = "Logout",
-                                tint = Color.White
-                            )
-                        }
+                        ) { Icon(imageVector = Icons.AutoMirrored.Filled.ExitToApp, contentDescription = "Logout", tint = Color.White) }
                     }
                 }
             )
@@ -102,7 +99,39 @@ fun FeedbackScreen(
         ) {
             Spacer(modifier = Modifier.height(24.dp))
 
-            AudioPlayerCard(navyBlue = NavyBlue, teal = Teal)
+            AudioPlayerCard(
+                audioUrl = audioUrl,
+                navyBlue = NavyBlue,
+                teal = Teal
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Text(
+                text = "Did the voice match the selected gender?",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = NavyBlue
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                RadioButton(
+                    selected = genderRespected == true,
+                    onClick = { genderRespected = true },
+                    colors = RadioButtonDefaults.colors(selectedColor = Teal, unselectedColor = Color.Gray)
+                )
+                Text("Yes", fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = true })
+
+                Spacer(modifier = Modifier.width(32.dp))
+
+                RadioButton(
+                    selected = genderRespected == false,
+                    onClick = { genderRespected = false },
+                    colors = RadioButtonDefaults.colors(selectedColor = Teal, unselectedColor = Color.Gray)
+                )
+                Text("No", fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = false })
+            }
 
             Spacer(modifier = Modifier.height(32.dp))
 
@@ -194,11 +223,23 @@ fun FeedbackScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             EchoRoPrimaryButton(
-                text = "Submit Feedback",
+                text = if (state.isLoading) "Submitting..." else "Submit Feedback",
                 onClick = {
-                    onSubmitFeedback(intelligibility, naturalness, accent, wordAccuracy, comments)
+                    viewModel.sendEvent(
+                        FeedbackEvent.SubmitClicked(
+                            userId = userId,
+                            audioUrl = audioUrl,
+                            modelType = modelType,
+                            intelligibility = intelligibility,
+                            naturalness = naturalness,
+                            accent = accent,
+                            wordAccuracy = wordAccuracy,
+                            genderRespected = genderRespected!!,
+                            comments = comments
+                        )
+                    )
                 },
-                isEnabled = intelligibility > 0 && naturalness > 0 && accent > 0
+                isEnabled = intelligibility > 0 && naturalness > 0 && accent > 0 && genderRespected != null && !state.isLoading
             )
 
             Spacer(modifier = Modifier.height(32.dp))

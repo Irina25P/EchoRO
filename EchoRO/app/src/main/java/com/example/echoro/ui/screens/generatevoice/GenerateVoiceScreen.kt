@@ -1,30 +1,58 @@
 package com.example.echoro.ui.screens.generatevoice
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.echoro.viewmodel.generateVoice.GenerateScreenEvent
+import com.example.echoro.viewmodel.generateVoice.GenerateScreenOSE
+import com.example.echoro.ui.screens.generate.GenerateViewModel
 import com.example.echoro.ui.theme.BackgroundGray
 import com.example.echoro.ui.theme.NavyBlue
 import com.example.echoro.ui.theme.Teal
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GenerateVoiceScreen(
     isGuest: Boolean,
-    onGenerateClick: (String) -> Unit,
+    userId: Int = 1,
+    viewModel: GenerateViewModel = viewModel(),
+    onNavigateToFeedback: (String, String, String) -> Unit,
     onLoginClick: () -> Unit,
     onLogoutClick: () -> Unit
 ) {
@@ -39,20 +67,36 @@ fun GenerateVoiceScreen(
     val moodOptions = listOf("clear", "natural", "steady", "professional", "calm", "crisp", "warm")
     var selectedMood by remember { mutableStateOf("natural") }
 
-    var speechPace by remember { mutableFloatStateOf(50f) } // 0 to 100
+    var speechPace by remember { mutableFloatStateOf(50f) }
 
-    var isLoading by remember { mutableStateOf(false) }
+    val state by viewModel.state.collectAsState()
 
-    if (isLoading) {
-        LoadingScreen()
+    val snackbarHostState = remember { SnackbarHostState() }
 
-        LaunchedEffect(Unit) {
-            delay(5000)
-            isLoading = false
-            onGenerateClick(textInput)
+    LaunchedEffect(Unit) {
+        viewModel.ose.collect { ose ->
+            when (ose) {
+                is GenerateScreenOSE.ShowError -> {
+                    launch {
+                        snackbarHostState.showSnackbar(
+                            message = ose.message,
+                            duration = SnackbarDuration.Short
+                        )
+                    }
+                }
+                is GenerateScreenOSE.NavigateToFeedback -> {
+                    onNavigateToFeedback(ose.audioUrl, ose.textUsed, ose.modelType)
+                }
+                else -> {}
+            }
         }
+    }
+
+    if (state.isLoading) {
+        LoadingScreen()
     } else {
         Scaffold(
+            snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
             topBar = {
                 EchoRoTopBar(
                     actions = {
@@ -93,22 +137,26 @@ fun GenerateVoiceScreen(
 
                 OutlinedTextField(
                     value = textInput,
-                    onValueChange = { textInput = it },
+                    onValueChange = {
+                        textInput = it
+                        viewModel.sendEvent(GenerateScreenEvent.TextChanged(it))
+                    },
                     placeholder = {
-                        Text(
-                            "Type text to synthesize in romanian",
-                            color = Color.Gray
-                        )
+                        Text("Type text to synthesize in romanian", color = Color.Gray)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(150.dp),
                     shape = RoundedCornerShape(16.dp),
+                    isError = state.textError != null,
+                    supportingText = { if (state.textError != null) Text(state.textError!!, color = Color.Red) },
                     colors = OutlinedTextFieldDefaults.colors(
                         focusedContainerColor = BackgroundGray,
                         unfocusedContainerColor = BackgroundGray,
                         focusedBorderColor = NavyBlue,
-                        unfocusedBorderColor = Color.Transparent
+                        unfocusedBorderColor = Color.Transparent,
+                        errorContainerColor = BackgroundGray,
+                        errorBorderColor = Color.Red
                     )
                 )
 
@@ -142,10 +190,24 @@ fun GenerateVoiceScreen(
                     text = "Generate Voice",
                     onClick = {
                         if (textInput.isNotBlank()) {
-                            isLoading = true
+                            val paceWord = when {
+                                speechPace < 25f -> "slow"
+                                speechPace > 75f -> "fast"
+                                else -> "fluent"
+                            }
+                            val dynamicDescription = "A ${selectedGender.lowercase()} Romanian speaker delivers the text with a $selectedMood voice, $paceWord pace in a clean background."
+
+                            viewModel.sendEvent(
+                                GenerateScreenEvent.GenerateClicked(
+                                    userId = userId,
+                                    text = textInput,
+                                    description = dynamicDescription,
+                                    modelType = selectedModel
+                                )
+                            )
                         }
                     },
-                    isEnabled = textInput.isNotBlank()
+                    isEnabled = textInput.isNotBlank() && !state.isLoading
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
