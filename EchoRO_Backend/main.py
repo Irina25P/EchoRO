@@ -18,17 +18,36 @@ if not os.path.exists("generated_audio"):
 
 app.mount("/static", StaticFiles(directory="generated_audio"), name="static")
 
-print("Încărcăm modelul Parler-TTS... (poate dura)")
+print("Încărcăm modelele Parler-TTS... (poate dura)")
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-model_dir = "../../DATADRIVEN_MINI/output_dir_training"
+
+mini_dir = "../../DATADRIVEN_MINI/output_dir_training"
+large_dir = "../../DATADRIVEN_LARGE_5E-6/output_dir_training"
+
+models = {"Mini": None, "Large": None}
+tokenizers = {"Mini": None, "Large": None}
 
 try:
-    model = ParlerTTSForConditionalGeneration.from_pretrained(model_dir).to(device)
-    tokenizer = AutoTokenizer.from_pretrained(model_dir)
-    print(f"Modelul a fost încărcat cu succes pe {device}!")
+    print("Se încarcă modelul Mini...")
+    models["Mini"] = ParlerTTSForConditionalGeneration.from_pretrained(
+        mini_dir,
+        torch_dtype=torch.float16
+    ).to(device)
+    tokenizers["Mini"] = AutoTokenizer.from_pretrained(mini_dir)
+    print(f"Modelul Mini a fost încărcat cu succes pe {device}!")
 except Exception as e:
-    print(f"Eroare la încărcarea modelului: {e}")
-    model = None
+    print(f"Eroare la încărcarea modelului Mini: {e}")
+
+try:
+    print("Se încarcă modelul Large...")
+    models["Large"] = ParlerTTSForConditionalGeneration.from_pretrained(
+        large_dir,
+        torch_dtype=torch.float16
+    ).to(device)
+    tokenizers["Large"] = AutoTokenizer.from_pretrained(large_dir)
+    print(f"Modelul Large a fost încărcat cu succes pe {device}!")
+except Exception as e:
+    print(f"Eroare la încărcarea modelului Large: {e}")
 
 def normalizare_text_romana(text):
     def inlocuieste_numar(match):
@@ -47,23 +66,31 @@ class GenerateRequest(BaseModel):
 
 @app.post("/generate-voice")
 async def generate_voice(request: GenerateRequest):
-    if model is None:
-        raise HTTPException(status_code=500, detail="Modelul AI nu este încărcat pe server.")
+    requested_model = request.model_type
+
+    if requested_model == "Large" and request.user_id == 0:
+        raise HTTPException(status_code=403, detail="Trebuie să fii logat pentru a utiliza modelul Large.")
+
+    if requested_model not in models or models[requested_model] is None:
+        raise HTTPException(status_code=500, detail=f"Modelul AI '{requested_model}' nu este disponibil pe server.")
+
+    active_model = models[requested_model]
+    active_tokenizer = tokenizers[requested_model]
 
     try:
         text_normalizat = normalizare_text_romana(request.text)
 
-        input_ids = tokenizer(request.description, return_tensors="pt").input_ids.to(device)
-        prompt_input_ids = tokenizer(text_normalizat, return_tensors="pt").input_ids.to(device)
+        input_ids = active_tokenizer(request.description, return_tensors="pt").input_ids.to(device)
+        prompt_input_ids = active_tokenizer(text_normalizat, return_tensors="pt").input_ids.to(device)
 
         with torch.no_grad():
-            generation = model.generate(input_ids=input_ids, prompt_input_ids=prompt_input_ids)
+            generation = active_model.generate(input_ids=input_ids, prompt_input_ids=prompt_input_ids)
 
-        audio_arr = generation.cpu().numpy().squeeze()
+        audio_arr = generation.cpu().numpy().squeeze().astype("float32")
 
-        file_name = f"voice_{uuid.uuid4()}.wav"
+        file_name = f"voice_{uuid.uuidTest4()}.wav"
         file_path = os.path.join("generated_audio", file_name)
-        sf.write(file_path, audio_arr, model.config.sampling_rate)
+        sf.write(file_path, audio_arr, active_model.config.sampling_rate)
 
         conn = sqlite3.connect("echoro.db")
         cursor = conn.cursor()
@@ -78,7 +105,7 @@ async def generate_voice(request: GenerateRequest):
             )
         """)
         cursor.execute("INSERT INTO history (user_id, text_original, file_name, model_type) VALUES (?, ?, ?, ?)",
-                       (request.user_id, request.text, file_name, request.model_type))
+                       (request.user_id, request.text, file_name, requested_model))
         conn.commit()
         conn.close()
 
@@ -88,20 +115,13 @@ async def generate_voice(request: GenerateRequest):
             "text_used": text_normalizat
         }
 
-
     except Exception as e:
         import traceback
-
         print(f"\n======================================")
-
-        print(f"EROARE FATALĂ LA GENERARE:")
-
+        print(f"EROARE FATALĂ LA GENERARE ({requested_model}):")
         print(traceback.format_exc())
-
         print(f"DATE PRIMITE: {request}")
-
         print(f"======================================\n")
-
         raise HTTPException(status_code=500, detail=f"Eroare la generare: {str(e)}")
 
 def init_db():
@@ -269,18 +289,15 @@ def get_admin_stats(start_date: str = None, end_date: str = None):
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
-        # 1. Gestionarea filtrelor de timp (DOAR PENTRU GRAFICUL DE TREND)
         date_filter = ""
         params = []
         if start_date and end_date:
             date_filter = "WHERE date(created_at) BETWEEN date(?) AND date(?)"
             params = [start_date, end_date]
 
-        # 2. Total Generări (TOATĂ BAZA DE DATE - fără filtru)
         cursor.execute("SELECT COUNT(*) as total FROM history")
         total_generations = cursor.fetchone()["total"]
 
-        # 3. Media Generală MOS (TOATĂ BAZA DE DATE - fără filtru)
         cursor.execute("""
             SELECT AVG((intelligibility + naturalness + accent) / 3.0) as avg_mos
             FROM feedback
@@ -288,7 +305,6 @@ def get_admin_stats(start_date: str = None, end_date: str = None):
         avg_mos_row = cursor.fetchone()
         overall_mos = round(avg_mos_row["avg_mos"], 1) if avg_mos_row["avg_mos"] else 0.0
 
-        # 4. Statistici per Model (TOATĂ BAZA DE DATE - fără filtru)
         cursor.execute("""
             SELECT 
                 model_type,
@@ -318,7 +334,6 @@ def get_admin_stats(start_date: str = None, end_date: str = None):
                     "gender_match": round(row["gender_match_pct"] or 0, 1)
                 }
 
-        # 5. Evoluția în Timp (FILTRATĂ CU date_filter)
         cursor.execute(f"""
             SELECT 
                 date(created_at) as day,

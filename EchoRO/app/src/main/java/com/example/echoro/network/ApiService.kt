@@ -109,8 +109,8 @@ object RetrofitClient {
 
     private val okHttpClient = OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(300, TimeUnit.SECONDS)
-        .writeTimeout(300, TimeUnit.SECONDS)
+        .readTimeout(1000, TimeUnit.SECONDS)
+        .writeTimeout(1000, TimeUnit.SECONDS)
         .build()
 
     val instance: EchoRoApi by lazy {
