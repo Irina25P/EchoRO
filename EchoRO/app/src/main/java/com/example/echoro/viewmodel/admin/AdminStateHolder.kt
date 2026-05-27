@@ -1,6 +1,8 @@
 package com.example.echoro.viewmodel.admin
 
-import com.example.echoro.network.AdminStatsResponse
+import com.example.echoro.network.ModelsStatsResponse
+import com.example.echoro.network.OverviewResponse
+import com.example.echoro.network.TrendResponse
 
 data class AdminStateHolder(
     val isInitialLoading: Boolean = true,
@@ -26,19 +28,22 @@ data class AdminStateHolder(
     val trendMini: List<Float> = emptyList(),
     val trendLarge: List<Float> = emptyList()
 ) {
+    fun showInitialLoading(): AdminStateHolder = this.copy(isInitialLoading = true, error = null)
+
     fun showTrendLoading(): AdminStateHolder = this.copy(isTrendLoading = true, error = null)
 
     fun showError(msg: String): AdminStateHolder = this.copy(isInitialLoading = false, isTrendLoading = false, error = msg)
 
-    fun success(data: AdminStatsResponse): AdminStateHolder {
-        val mini = data.models["Mini"]
-        val large = data.models["Large"]
+    fun successAll(overview: OverviewResponse, modelsRes: ModelsStatsResponse, trendRes: TrendResponse): AdminStateHolder {
+        val mini = modelsRes.models["Mini"]
+        val large = modelsRes.models["Large"]
 
         return this.copy(
-            isInitialLoading = false, // Oprim ambele loading-uri
+            isInitialLoading = false,
             isTrendLoading = false,
-            totalGenerations = "%,d".format(data.total_generations),
-            overallMos = data.overall_mos.toString(),
+
+            totalGenerations = "%,d".format(overview.total_generations),
+            overallMos = overview.overall_mos.toString(),
 
             miniIntelligibility = mini?.intelligibility ?: 0f,
             miniNaturalness = mini?.naturalness ?: 0f,
@@ -52,9 +57,18 @@ data class AdminStateHolder(
             largeWordAccuracy = large?.word_accuracy ?: 0f,
             largeGenderMatch = large?.gender_match ?: 0f,
 
-            trendDates = data.trend.dates,
-            trendMini = data.trend.mini,
-            trendLarge = data.trend.large
+            trendDates = trendRes.trend.dates,
+            trendMini = trendRes.trend.mini,
+            trendLarge = trendRes.trend.large
+        )
+    }
+
+    fun successTrend(trendRes: TrendResponse): AdminStateHolder {
+        return this.copy(
+            isTrendLoading = false,
+            trendDates = trendRes.trend.dates,
+            trendMini = trendRes.trend.mini,
+            trendLarge = trendRes.trend.large
         )
     }
 }

@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class GenerateRepository {
-    suspend fun generateVoice(userId: Int, text: String, description: String, modelType: String): Flow<Resource<GenerateResponse>> = flow {
+    suspend fun generateVoice(text: String, description: String, modelType: String): Flow<Resource<GenerateResponse>> = flow {
         emit(Resource.Loading)
         try {
             val response = RetrofitClient.instance.generateVoice(
-                GenerateRequest(user_id = userId, text = text, description = description, model_type = modelType)
+                GenerateRequest(text = text, description = description, model_type = modelType)
             )
             if (response.status == "success") {
                 emit(Resource.Success(response))

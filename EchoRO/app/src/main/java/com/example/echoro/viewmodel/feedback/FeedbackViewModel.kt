@@ -31,7 +31,6 @@ class FeedbackViewModel : ViewModel() {
     private fun handleSubmit(event: FeedbackEvent.SubmitClicked) {
         viewModelScope.launch {
             val request = FeedbackRequest(
-                user_id = event.userId,
                 audio_url = event.audioUrl,
                 model_type = event.modelType,
                 intelligibility = event.intelligibility,

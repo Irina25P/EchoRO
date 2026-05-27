@@ -3,6 +3,7 @@ package com.example.echoro.viewmodel.auth
 import com.example.echoro.network.LoginRequest
 import com.example.echoro.network.RegisterRequest
 import com.example.echoro.network.RetrofitClient
+import com.example.echoro.network.TokenStore
 import com.example.echoro.network.User
 import com.example.echoro.viewmodel.Resource
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +16,7 @@ class AuthRepository {
         try {
             val response = RetrofitClient.instance.login(LoginRequest(email, password))
             if (response.status == "success" && response.user != null) {
+                TokenStore.token = response.access_token
                 emit(Resource.Success(response.user))
             } else {
                 emit(Resource.Error(Exception("Eroare necunoscută la conectare.")))
@@ -29,6 +31,7 @@ class AuthRepository {
         try {
             val response = RetrofitClient.instance.register(RegisterRequest(fullName, email, password))
             if (response.status == "success" && response.user != null) {
+                TokenStore.token = response.access_token
                 emit(Resource.Success(response.user))
             } else {
                 emit(Resource.Error(Exception("Eroare necunoscută la înregistrare.")))

@@ -1,7 +1,6 @@
 package com.example.echoro.viewmodel.feedback
 sealed class FeedbackEvent {
     data class SubmitClicked(
-        val userId: Int,
         val audioUrl: String,
         val modelType: String,
         val intelligibility: Int,

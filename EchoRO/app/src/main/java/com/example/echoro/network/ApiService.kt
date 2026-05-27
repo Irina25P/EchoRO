@@ -1,6 +1,8 @@
 package com.example.echoro.network
 
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
@@ -30,11 +32,11 @@ data class User(
 data class AuthResponse(
     val status: String,
     val message: String?,
-    val user: User?
+    val user: User?,
+    val access_token: String? = null
 )
 
 data class GenerateRequest(
-    val user_id: Int,
     val text: String,
     val description: String,
     val model_type: String
@@ -47,7 +49,6 @@ data class GenerateResponse(
 )
 
 data class FeedbackRequest(
-    val user_id: Int,
     val audio_url: String,
     val model_type: String,
     val intelligibility: Int,
@@ -63,14 +64,6 @@ data class FeedbackResponse(
     val message: String
 )
 
-data class AdminStatsResponse(
-    val status: String,
-    val total_generations: Int,
-    val overall_mos: Float,
-    val models: Map<String, ModelStats>,
-    val trend: TrendData
-)
-
 data class ModelStats(
     val intelligibility: Float,
     val naturalness: Float,
@@ -84,6 +77,23 @@ data class TrendData(
     val mini: List<Float>,
     val large: List<Float>
 )
+
+data class OverviewResponse(
+    val status: String,
+    val total_generations: Int,
+    val overall_mos: Float
+)
+
+data class ModelsStatsResponse(
+    val status: String,
+    val models: Map<String, ModelStats>
+)
+
+data class TrendResponse(
+    val status: String,
+    val trend: TrendData
+)
+
 interface EchoRoApi {
     @POST("login")
     suspend fun login(@Body request: LoginRequest): AuthResponse
@@ -97,20 +107,47 @@ interface EchoRoApi {
     @POST("feedback")
     suspend fun submitFeedback(@Body request: FeedbackRequest): FeedbackResponse
 
-    @GET("admin/stats")
-    suspend fun getAdminStats(
+    @GET("admin/stats/overview")
+    suspend fun getOverviewStats(): OverviewResponse
+
+    @GET("admin/stats/models")
+    suspend fun getModelsStats(): ModelsStatsResponse
+
+    @GET("admin/stats/trend")
+    suspend fun getTrendStats(
         @Query("start_date") startDate: String? = null,
         @Query("end_date") endDate: String? = null
-    ): AdminStatsResponse
+    ): TrendResponse
+}
+
+object TokenStore {
+    var token: String? = null
 }
 
 object RetrofitClient {
     private const val BASE_URL = "http://10.0.2.2:8000/"
 
+    private class AuthInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain): Response {
+            val request = chain.request()
+            val token = TokenStore.token
+            return if (token != null) {
+                chain.proceed(
+                    request.newBuilder()
+                        .addHeader("Authorization", "Bearer $token")
+                        .build()
+                )
+            } else {
+                chain.proceed(request)
+            }
+        }
+    }
+
     private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(AuthInterceptor())
         .connectTimeout(60, TimeUnit.SECONDS)
-        .readTimeout(1000, TimeUnit.SECONDS)
-        .writeTimeout(1000, TimeUnit.SECONDS)
+        .readTimeout(1500, TimeUnit.SECONDS)
+        .writeTimeout(1500, TimeUnit.SECONDS)
         .build()
 
     val instance: EchoRoApi by lazy {

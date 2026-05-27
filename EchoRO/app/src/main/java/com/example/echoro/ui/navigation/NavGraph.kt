@@ -1,6 +1,7 @@
 package com.example.echoro.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -11,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.echoro.network.TokenStore
 import com.example.echoro.ui.screens.admin.AdminDashboardScreen
 import com.example.echoro.ui.screens.feedback.FeedbackScreen
 import com.example.echoro.ui.screens.generatevoice.GenerateVoiceScreen
@@ -30,6 +32,11 @@ fun NavGraph() {
     val coroutineScope = rememberCoroutineScope()
 
     val currentUserId by sessionManager.userIdFlow.collectAsState(initial = 0)
+    val currentToken by sessionManager.tokenFlow.collectAsState(initial = null)
+
+    LaunchedEffect(currentToken) {
+        currentToken?.let { TokenStore.token = it }
+    }
 
     NavHost(
         navController = navController,
@@ -62,6 +69,7 @@ fun NavGraph() {
                 onNavigateToApp = { userId, role ->
                     coroutineScope.launch {
                         sessionManager.saveSession(userId, false)
+                        sessionManager.saveToken(TokenStore.token)
                     }
                     if (role == "admin") {
                         navController.navigate(Screen.AdminDashboard.route) { popUpTo(Screen.Landing.route) { inclusive = true } }
@@ -76,7 +84,10 @@ fun NavGraph() {
         composable(Screen.Register.route) {
             RegisterScreen(
                 onNavigateToApp = { userId, role ->
-                    coroutineScope.launch { sessionManager.saveSession(userId, false) }
+                    coroutineScope.launch {
+                        sessionManager.saveSession(userId, false)
+                        sessionManager.saveToken(TokenStore.token)
+                    }
                     if (role == "admin") {
                         navController.navigate(Screen.AdminDashboard.route) { popUpTo(Screen.Landing.route) { inclusive = true } }
                     } else {
@@ -117,8 +128,7 @@ fun NavGraph() {
         }
 
         composable(
-            route = "feedback_route?audioUrl={audioUrl}&textUsed={textUsed}",
-            arguments = listOf(
+            route = "feedback_route?audioUrl={audioUrl}&textUsed={textUsed}&modelType={modelType}",            arguments = listOf(
                 navArgument("audioUrl") {
                     type = NavType.StringType
                     defaultValue = ""
@@ -127,7 +137,10 @@ fun NavGraph() {
                     type = NavType.StringType
                     defaultValue = ""
                 },
-                navArgument("modelType") { defaultValue = "Mini" }
+                navArgument("modelType") {
+                    type = NavType.StringType
+                    defaultValue = "Mini"
+                }
             )
         ) { backStackEntry ->
             val encodedUrl = backStackEntry.arguments?.getString("audioUrl") ?: ""

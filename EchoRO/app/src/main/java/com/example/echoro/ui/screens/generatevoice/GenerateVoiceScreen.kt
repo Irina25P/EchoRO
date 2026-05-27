@@ -199,7 +199,6 @@ fun GenerateVoiceScreen(
 
                             viewModel.sendEvent(
                                 GenerateScreenEvent.GenerateClicked(
-                                    userId = userId,
                                     text = textInput,
                                     description = dynamicDescription,
                                     modelType = selectedModel

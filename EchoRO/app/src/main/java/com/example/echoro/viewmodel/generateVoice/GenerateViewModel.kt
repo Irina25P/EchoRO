@@ -1,5 +1,6 @@
 package com.example.echoro.ui.screens.generate
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.echoro.viewmodel.Resource
@@ -22,7 +23,7 @@ class GenerateViewModel : ViewModel() {
     private val _state = MutableStateFlow(GenerateScreenStateHolder())
     val state: StateFlow<GenerateScreenStateHolder> = _state.asStateFlow()
 
-    private val _ose = Channel<GenerateScreenOSE>()
+    private val _ose = Channel<GenerateScreenOSE>(Channel.BUFFERED)
     val ose = _ose.receiveAsFlow()
 
     fun sendEvent(event: GenerateScreenEvent) {
@@ -31,19 +32,19 @@ class GenerateViewModel : ViewModel() {
                 _state.update { it.copy(textError = null) }
             }
             is GenerateScreenEvent.GenerateClicked -> {
-                handleGeneration(event.userId, event.text, event.description, event.modelType)
+                handleGeneration(event.text, event.description, event.modelType)
             }
         }
     }
 
-    private fun handleGeneration(userId: Int, text: String, description: String, modelType: String) {
+    private fun handleGeneration(text: String, description: String, modelType: String) {
         if (text.isBlank()) {
             _state.update { it.showError("Textul nu poate fi gol.") }
             return
         }
 
         viewModelScope.launch {
-            repository.generateVoice(userId, text, description, modelType).collectLatest { result ->
+            repository.generateVoice(text, description, modelType).collectLatest { result ->
                 when (result) {
                     is Resource.Loading -> {
                         _state.update { it.showLoading() }
@@ -61,6 +62,7 @@ class GenerateViewModel : ViewModel() {
                     }
                     is Resource.Error -> {
                         _state.update { it.hideLoading() }
+                        Log.e("GenerateVoice", "Eroare reală Retrofit: ", result.exception)
                         emitOSE(GenerateScreenOSE.ShowError(result.exception.message ?: "Eroare la generare"))
                     }
                 }

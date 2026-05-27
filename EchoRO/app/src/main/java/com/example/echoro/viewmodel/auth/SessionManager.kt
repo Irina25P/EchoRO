@@ -13,15 +13,23 @@ class SessionManager(private val context: Context) {
     companion object {
         val USER_ID = intPreferencesKey("user_id")
         val IS_GUEST = booleanPreferencesKey("is_guest")
+        val TOKEN = stringPreferencesKey("token")
     }
 
     val userIdFlow: Flow<Int> = context.dataStore.data.map { it[USER_ID] ?: 0 }
     val isGuestFlow: Flow<Boolean> = context.dataStore.data.map { it[IS_GUEST] ?: true }
+    val tokenFlow: Flow<String?> = context.dataStore.data.map { it[TOKEN] }
 
     suspend fun saveSession(userId: Int, isGuest: Boolean) {
         context.dataStore.edit { prefs ->
             prefs[USER_ID] = userId
             prefs[IS_GUEST] = isGuest
+        }
+    }
+
+    suspend fun saveToken(token: String?) {
+        context.dataStore.edit { prefs ->
+            if (token != null) prefs[TOKEN] = token else prefs.remove(TOKEN)
         }
     }
 

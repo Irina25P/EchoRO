@@ -2,18 +2,18 @@ package com.example.echoro.viewmodel.admin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.echoro.viewmodel.Resource
+import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+
 
 class AdminViewModel : ViewModel() {
     private val repository = AdminRepository()
@@ -25,45 +25,65 @@ class AdminViewModel : ViewModel() {
     val ose = _ose.receiveAsFlow()
 
     init {
-        loadDefault7DaysStats()
+        loadInitialData()
     }
 
     fun sendEvent(event: AdminEvent) {
         when (event) {
             is AdminEvent.LoadStats -> {
-                _state.update { it.showTrendLoading() }
-                fetchStats(event.startDate, event.endDate)
+                fetchTrendOnly(event.startDate, event.endDate)
             }
         }
     }
 
-    private fun loadDefault7DaysStats() {
+    private fun getDefaultDateRange(): Pair<String, String> {
         val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val calendar = Calendar.getInstance()
 
-        val endDate = formatter.format(calendar.time) // Azi
-
+        val endDate = formatter.format(calendar.time)
         calendar.add(Calendar.DAY_OF_YEAR, -7)
-        val startDate = formatter.format(calendar.time) // Acum 7 zile
+        val startDate = formatter.format(calendar.time)
 
-        fetchStats(startDate, endDate)
+        return Pair(startDate, endDate)
     }
 
-    private fun fetchStats(startDate: String?, endDate: String?) {
+    private fun loadInitialData() {
+        val (startDate, endDate) = getDefaultDateRange()
+
         viewModelScope.launch {
-            repository.getAdminStats(startDate, endDate).collectLatest { result ->
-                when (result) {
-                    is Resource.Loading -> {
-                    }
-                    is Resource.Success -> {
-                        _state.update { it.success(result.data) }
-                    }
-                    is Resource.Error -> {
-                        val errorMsg = result.exception.message ?: "Eroare la încărcarea statisticilor"
-                        _state.update { it.showError(errorMsg) }
-                        emitOSE(AdminOSE.ShowMessage(errorMsg))
-                    }
-                }
+            _state.update { it.showInitialLoading() }
+
+            try {
+                val overviewDeferred = async { repository.getOverviewStats() }
+                val modelsDeferred = async { repository.getModelsStats() }
+                val trendDeferred = async { repository.getTrendStats(startDate, endDate) }
+
+                val overview = overviewDeferred.await()
+                val models = modelsDeferred.await()
+                val trend = trendDeferred.await()
+
+                _state.update { it.successAll(overview, models, trend) }
+
+            } catch (e: Exception) {
+                val errorMsg = e.message ?: "Eroare la încărcarea statisticilor inițiale"
+                _state.update { it.showError(errorMsg) }
+                emitOSE(AdminOSE.ShowMessage(errorMsg))
+            }
+        }
+    }
+
+    private fun fetchTrendOnly(startDate: String?, endDate: String?) {
+        viewModelScope.launch {
+            _state.update { it.showTrendLoading() }
+
+            try {
+                val trend = repository.getTrendStats(startDate, endDate)
+                _state.update { it.successTrend(trend) }
+
+            } catch (e: Exception) {
+                val errorMsg = e.message ?: "Eroare la încărcarea graficului de trend"
+                _state.update { it.showError(errorMsg) }
+                emitOSE(AdminOSE.ShowMessage(errorMsg))
             }
         }
     }

@@ -1,24 +1,21 @@
 package com.example.echoro.viewmodel.admin
 
-import com.example.echoro.network.AdminStatsResponse
+import com.example.echoro.network.ModelsStatsResponse
+import com.example.echoro.network.OverviewResponse
 import com.example.echoro.network.RetrofitClient
-import com.example.echoro.viewmodel.Resource
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import com.example.echoro.network.TrendResponse
+
 
 class AdminRepository {
-    suspend fun getAdminStats(startDate: String?, endDate: String?): Flow<Resource<AdminStatsResponse>> =
-        flow {
-            emit(Resource.Loading)
-            try {
-                val response = RetrofitClient.instance.getAdminStats(startDate, endDate)
-                if (response.status == "success") {
-                    emit(Resource.Success(response))
-                } else {
-                    emit(Resource.Error(Exception("Eroare la preluarea statisticilor.")))
-                }
-            } catch (e: Exception) {
-                emit(Resource.Error(Exception(e.message ?: "Eroare de conexiune la server.")))
-            }
-        }
+    suspend fun getOverviewStats(): OverviewResponse {
+        return RetrofitClient.instance.getOverviewStats()
+    }
+
+    suspend fun getModelsStats(): ModelsStatsResponse {
+        return RetrofitClient.instance.getModelsStats()
+    }
+
+    suspend fun getTrendStats(startDate: String?, endDate: String?): TrendResponse {
+        return RetrofitClient.instance.getTrendStats(startDate, endDate)
+    }
 }

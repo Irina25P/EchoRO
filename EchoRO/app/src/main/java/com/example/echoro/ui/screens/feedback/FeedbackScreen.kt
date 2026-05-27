@@ -227,7 +227,6 @@ fun FeedbackScreen(
                 onClick = {
                     viewModel.sendEvent(
                         FeedbackEvent.SubmitClicked(
-                            userId = userId,
                             audioUrl = audioUrl,
                             modelType = modelType,
                             intelligibility = intelligibility,
