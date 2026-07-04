@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "text_001",
+    "text": "Bună ziua, aș dori să fac o programare pentru consultația de mâine dimineață, vă rog.",
+    "description": "A Romanian male speaker with a very low-pitched voice delivers a quite monotone speech at a quite slowly pace. The recording has very clean with the voice sounding quite distant-sounding. The overall speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "very low",
+      "expressiveness": "monotone",
+      "noise": "very clean",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_002",
+    "text": "Trenul de la București întârzie cu douăzeci de minute din cauza condițiilor meteorologice nefavorabile.",
+    "description": "A Romanian female speaker with a very low-pitched voice speaks quite fast in a very expressive and animated manner. The environment is slightly noisy and the speaker sounds quite distant-sounding. The recording has moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "very low",
+      "expressiveness": "very expressive",
+      "noise": "slightly noisy",
+      "reverberation": "quite distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_003",
+    "text": "Am comandat o pizza cu mozzarella și ciuperci, dar au adus-o cu măsline în loc de ciuperci.",
+    "description": "A Romanian female speaker with quite high-pitched pitch talks quite fast. The delivery is slightly monotone with very noisy in the background. The voice sounds very close-sounding and the speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "high",
+      "expressiveness": "slightly monotone",
+      "noise": "very noisy",
+      "reverberation": "very close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_004",
+    "text": "Biblioteca centrală este deschisă de luni până vineri, între orele nouă și șaptesprezece.",
+    "description": "A Romanian female speaker delivers slightly monotone speech with a very fast speed and quite high-pitched pitch. The recording is very noisy, with the speaker's voice sounding slightly distant-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "high",
+      "expressiveness": "slightly monotone",
+      "noise": "very noisy",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_005",
+    "text": "Copiii se jucau în parc când a început să plouă și au fugit toți spre casă.",
+    "description": "A Romanian female speaker with a very high-pitched voice pronounces words quite fast. The speech is quite monotone with slightly noisy present. The voice sounds quite distant-sounding and the quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "very high",
+      "expressiveness": "monotone",
+      "noise": "slightly noisy",
+      "reverberation": "quite distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_006",
+    "text": "Poți să-mi trimiți documentul până la sfârșitul zilei? Am nevoie de el urgent.",
+    "description": "A Romanian male speaker with a slightly high-pitched voice delivers a slightly monotone speech at a moderate speed pace. The recording has very noisy with the voice sounding slightly distant-sounding. The overall speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "slightly high",
+      "expressiveness": "slightly monotone",
+      "noise": "very noisy",
+      "reverberation": "slightly distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_007",
+    "text": "Temperatura va scădea semnificativ în weekend, cu posibilitate de ninsoare în zonele montane.",
+    "description": "A Romanian female speaker with a quite high-pitched voice speaks quite slowly in a very monotone manner. The environment is very clean and the speaker sounds slightly distant-sounding. The recording has slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "high",
+      "expressiveness": "very monotone",
+      "noise": "very clean",
+      "reverberation": "slightly distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_008",
+    "text": "Restaurantul acesta are cea mai bună ciorbă de burtă din tot orașul, îți recomand.",
+    "description": "A Romanian male speaker with moderate pitch pitch talks moderate speed. The delivery is slightly monotone with clean in the background. The voice sounds quite distant-sounding and the speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly monotone",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_009",
+    "text": "Echipa națională a câștigat meciul cu trei la unu și s-a calificat în semifinale.",
+    "description": "A Romanian female speaker delivers very monotone speech with a slightly fast speed and slightly high-pitched pitch. The recording is clean, with the speaker's voice sounding very close-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "slightly high",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "very close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_010",
+    "text": "Nu am reușit să ajung la timp la aeroport și mi-am pierdut zborul spre Viena.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice pronounces words moderate speed. The speech is quite monotone with clean present. The voice sounds very distant-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "slightly low",
+      "expressiveness": "monotone",
+      "noise": "clean",
+      "reverberation": "very distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_011",
+    "text": "Florile din grădină au înflorit mai devreme anul acesta datorită primăverii calde și însorite.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice delivers a very expressive and animated speech at a quite slowly pace. The recording has moderate ambient sound with the voice sounding slightly close-sounding. The overall speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "slightly low",
+      "expressiveness": "very expressive",
+      "noise": "moderate noise",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_012",
+    "text": "Mâine este ziua mea de naștere și am invitat toți prietenii la o petrecere.",
+    "description": "A Romanian male speaker with a quite high-pitched voice speaks slightly fast in a quite monotone manner. The environment is quite noisy and the speaker sounds quite distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "high",
+      "expressiveness": "monotone",
+      "noise": "quite noisy",
+      "reverberation": "quite distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_013",
+    "text": "Prețul benzinei a crescut din nou luna aceasta, ajungând la un nivel record.",
+    "description": "A Romanian female speaker with very low-pitched pitch talks slightly slowly. The delivery is very expressive and animated with quite noisy in the background. The voice sounds slightly close-sounding and the speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "very low",
+      "expressiveness": "very expressive",
+      "noise": "quite noisy",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_014",
+    "text": "Muzeul de artă contemporană găzduiește o expoziție temporară cu lucrări ale artiștilor locali.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a slightly slowly speed and moderate pitch pitch. The recording is slightly noisy, with the speaker's voice sounding very distant-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "moderate",
+      "expressiveness": "very expressive",
+      "noise": "slightly noisy",
+      "reverberation": "very distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_015",
+    "text": "Am învățat să gătesc rețeta aceasta de la bunica mea când eram foarte mic.",
+    "description": "A Romanian male speaker with a slightly high-pitched voice pronounces words very slowly. The speech is very expressive and animated with very noisy present. The voice sounds very distant-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "slightly high",
+      "expressiveness": "very expressive",
+      "noise": "very noisy",
+      "reverberation": "very distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_016",
+    "text": "Sistemul de transport public din oraș a fost modernizat complet în ultimii doi ani.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice delivers a slightly monotone speech at a slightly fast pace. The recording has very clean with the voice sounding slightly close-sounding. The overall speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "slightly high",
+      "expressiveness": "slightly monotone",
+      "noise": "very clean",
+      "reverberation": "slightly close",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_017",
+    "text": "Filmul pe care l-am văzut aseară a fost foarte emoționant și bine regizat.",
+    "description": "A Romanian male speaker with a moderate pitch voice speaks very fast in a very expressive and animated manner. The environment is very clean and the speaker sounds slightly distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "moderate",
+      "expressiveness": "very expressive",
+      "noise": "very clean",
+      "reverberation": "slightly distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_018",
+    "text": "Doctorul mi-a recomandat să beau mai multă apă și să fac exerciții zilnic.",
+    "description": "A Romanian male speaker with moderate pitch pitch talks very slowly. The delivery is very expressive and animated with very noisy in the background. The voice sounds quite distant-sounding and the speech quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "moderate",
+      "expressiveness": "very expressive",
+      "noise": "very noisy",
+      "reverberation": "quite distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_019",
+    "text": "Strada principală va fi închisă pentru reparații începând de luni și până vineri.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a slightly slowly speed and quite high-pitched pitch. The recording is slightly clean, with the speaker's voice sounding slightly close-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "high",
+      "expressiveness": "very expressive",
+      "noise": "slightly clean",
+      "reverberation": "slightly close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_020",
+    "text": "Apartamentul are trei camere, bucătărie separată și un balcon mare cu vedere spre parc.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice pronounces words slightly slowly. The speech is quite monotone with slightly clean present. The voice sounds slightly close-sounding and the quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "monotone",
+      "noise": "slightly clean",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_021",
+    "text": "Am citit cartea aceasta într-o singură noapte pentru că era incredibil de captivantă.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice delivers a quite monotone speech at a quite fast pace. The recording has clean with the voice sounding slightly close-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "fast",
+      "pitch": "slightly low",
+      "expressiveness": "monotone",
+      "noise": "clean",
+      "reverberation": "slightly close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_022",
+    "text": "Universitatea oferă cursuri gratuite de programare pentru studenții din anul întâi și al doilea.",
+    "description": "A Romanian female speaker with a very high-pitched voice speaks moderate speed in a slightly monotone manner. The environment is slightly clean and the speaker sounds slightly distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "very high",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly clean",
+      "reverberation": "slightly distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_023",
+    "text": "Vremea de afară este perfectă pentru o plimbare lungă prin pădure sau pe malul lacului.",
+    "description": "A Romanian male speaker with quite high-pitched pitch talks quite slowly. The delivery is very monotone with very noisy in the background. The voice sounds slightly distant-sounding and the speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "high",
+      "expressiveness": "very monotone",
+      "noise": "very noisy",
+      "reverberation": "slightly distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_024",
+    "text": "Contractul trebuie semnat de ambele părți înainte de data de treizeci iunie.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a slightly fast speed and quite high-pitched pitch. The recording is very clean, with the speaker's voice sounding very distant-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "high",
+      "expressiveness": "very expressive",
+      "noise": "very clean",
+      "reverberation": "very distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_025",
+    "text": "Colegul meu de birou a primit o promovare după cinci ani de muncă asiduă.",
+    "description": "A Romanian male speaker with a very high-pitched voice pronounces words very slowly. The speech is very expressive and animated with very clean present. The voice sounds quite distant-sounding and the quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "very high",
+      "expressiveness": "very expressive",
+      "noise": "very clean",
+      "reverberation": "quite distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_026",
+    "text": "Magazinul de la colț vinde pâine proaspătă în fiecare dimineață începând cu ora șase.",
+    "description": "A Romanian female speaker with a very low-pitched voice delivers a very monotone speech at a quite fast pace. The recording has quite noisy with the voice sounding slightly distant-sounding. The overall speech quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "very low",
+      "expressiveness": "very monotone",
+      "noise": "quite noisy",
+      "reverberation": "slightly distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_027",
+    "text": "Am uitat să închid fereastra și acum toată camera este plină de țânțari.",
+    "description": "A Romanian female speaker with a quite low-pitched voice speaks moderate speed in a slightly monotone manner. The environment is slightly noisy and the speaker sounds very distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly noisy",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_028",
+    "text": "Concertul de muzică clasică de diseară începe la ora opt în sala mare.",
+    "description": "A Romanian male speaker with slightly low-pitched pitch talks slightly slowly. The delivery is slightly expressive and animated with quite noisy in the background. The voice sounds slightly close-sounding and the speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "quite noisy",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_029",
+    "text": "Bunicii mei locuiesc la țară și au o grădină mare cu legume și pomi fructiferi.",
+    "description": "A Romanian female speaker delivers slightly monotone speech with a quite slowly speed and quite low-pitched pitch. The recording is moderate ambient sound, with the speaker's voice sounding slightly distant-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "low",
+      "expressiveness": "slightly monotone",
+      "noise": "moderate noise",
+      "reverberation": "slightly distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_030",
+    "text": "Aplicația de pe telefon nu funcționează corect de când am făcut ultima actualizare.",
+    "description": "A Romanian female speaker with a very high-pitched voice pronounces words quite slowly. The speech is slightly expressive and animated with very noisy present. The voice sounds slightly close-sounding and the quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "very high",
+      "expressiveness": "slightly expressive",
+      "noise": "very noisy",
+      "reverberation": "slightly close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_031",
+    "text": "România are peisaje naturale superbe, de la munți înalți până la plaje la mare.",
+    "description": "A Romanian male speaker with a quite low-pitched voice delivers a slightly expressive and animated speech at a slightly slowly pace. The recording has very noisy with the voice sounding slightly close-sounding. The overall speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "low",
+      "expressiveness": "slightly expressive",
+      "noise": "very noisy",
+      "reverberation": "slightly close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_032",
+    "text": "Am nevoie de o pereche nouă de pantofi pentru nunta prietenului meu din august.",
+    "description": "A Romanian female speaker with a moderate pitch voice speaks slightly fast in a very monotone manner. The environment is moderate ambient sound and the speaker sounds quite distant-sounding. The recording has very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "very monotone",
+      "noise": "moderate noise",
+      "reverberation": "quite distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_033",
+    "text": "Proiectul pe care lucrăm va fi finalizat până la sfârșitul lunii septembrie.",
+    "description": "A Romanian female speaker with quite high-pitched pitch talks moderate speed. The delivery is slightly monotone with slightly clean in the background. The voice sounds quite distant-sounding and the speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly clean",
+      "reverberation": "quite distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_034",
+    "text": "Câinele vecinului latră în fiecare noapte și nu mă lasă să dorm deloc.",
+    "description": "A Romanian female speaker delivers slightly expressive and animated speech with a slightly slowly speed and slightly low-pitched pitch. The recording is slightly clean, with the speaker's voice sounding very close-sounding. The speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly clean",
+      "reverberation": "very close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_035",
+    "text": "Vânzările companiei au crescut cu douăzeci la sută față de trimestrul anterior.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice pronounces words slightly slowly. The speech is slightly expressive and animated with moderate ambient sound present. The voice sounds very distant-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_036",
+    "text": "Piața centrală este plină de producători locali care vând fructe și legume proaspete.",
+    "description": "A Romanian male speaker with a very high-pitched voice delivers a very monotone speech at a quite fast pace. The recording has slightly noisy with the voice sounding very distant-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "fast",
+      "pitch": "very high",
+      "expressiveness": "very monotone",
+      "noise": "slightly noisy",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_037",
+    "text": "Am făcut o rezervare la hotel pentru trei nopți, de vineri până luni.",
+    "description": "A Romanian male speaker with a moderate pitch voice speaks slightly fast in a slightly monotone manner. The environment is clean and the speaker sounds quite distant-sounding. The recording has slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "slightly monotone",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_038",
+    "text": "Profesoara de matematică ne-a dat un test surpriză și nimeni nu era pregătit.",
+    "description": "A Romanian male speaker with slightly high-pitched pitch talks very slowly. The delivery is slightly expressive and animated with very noisy in the background. The voice sounds slightly close-sounding and the speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very noisy",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_039",
+    "text": "Autobuzul numărul șapte trece prin centrul orașului la fiecare cincisprezece minute.",
+    "description": "A Romanian female speaker delivers very expressive and animated speech with a very slowly speed and moderate pitch pitch. The recording is very noisy, with the speaker's voice sounding very close-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "moderate",
+      "expressiveness": "very expressive",
+      "noise": "very noisy",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_040",
+    "text": "Casa părintească a fost renovată complet și acum arată ca nouă, este minunată.",
+    "description": "A Romanian male speaker with a very high-pitched voice pronounces words quite slowly. The speech is slightly monotone with slightly clean present. The voice sounds very close-sounding and the quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "very high",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_041",
+    "text": "Fetița mea a început școala anul acesta și îi place foarte mult să citească.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice delivers a slightly expressive and animated speech at a moderate speed pace. The recording has moderate ambient sound with the voice sounding slightly close-sounding. The overall speech quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "moderate noise",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_042",
+    "text": "Am primit un colet din străinătate dar trebuie să plătesc taxa de vamă.",
+    "description": "A Romanian female speaker with a very high-pitched voice speaks moderate speed in a very monotone manner. The environment is slightly clean and the speaker sounds very close-sounding. The recording has slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "very high",
+      "expressiveness": "very monotone",
+      "noise": "slightly clean",
+      "reverberation": "very close",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_043",
+    "text": "Parcul central al orașului este locul ideal pentru jogging dimineața devreme.",
+    "description": "A Romanian female speaker with slightly high-pitched pitch talks slightly slowly. The delivery is slightly expressive and animated with quite noisy in the background. The voice sounds very close-sounding and the speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "quite noisy",
+      "reverberation": "very close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_044",
+    "text": "Laptopul meu s-a stricat exact înainte de prezentarea importantă de la serviciu.",
+    "description": "A Romanian male speaker delivers slightly monotone speech with a quite slowly speed and very low-pitched pitch. The recording is very clean, with the speaker's voice sounding slightly close-sounding. The speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "very low",
+      "expressiveness": "slightly monotone",
+      "noise": "very clean",
+      "reverberation": "slightly close",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_045",
+    "text": "Vaccinul antigripal este disponibil gratuit la toate cabinetele medicilor de familie din județ.",
+    "description": "A Romanian male speaker with a quite high-pitched voice pronounces words quite slowly. The speech is quite monotone with moderate ambient sound present. The voice sounds very distant-sounding and the quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "high",
+      "expressiveness": "monotone",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_046",
+    "text": "Am găsit un portofel pe stradă și l-am dus imediat la secția de poliție.",
+    "description": "A Romanian male speaker with a quite low-pitched voice delivers a slightly monotone speech at a moderate speed pace. The recording has slightly noisy with the voice sounding very close-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly noisy",
+      "reverberation": "very close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_047",
+    "text": "Piesa de teatru a fost un succes extraordinar, cu toate biletele vândute în avans.",
+    "description": "A Romanian female speaker with a very low-pitched voice speaks slightly fast in a slightly monotone manner. The environment is quite noisy and the speaker sounds slightly distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "very low",
+      "expressiveness": "slightly monotone",
+      "noise": "quite noisy",
+      "reverberation": "slightly distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_048",
+    "text": "Compania oferă angajaților săi tichete de masă și abonament gratuit la sală.",
+    "description": "A Romanian male speaker with quite low-pitched pitch talks quite fast. The delivery is very expressive and animated with clean in the background. The voice sounds quite distant-sounding and the speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "fast",
+      "pitch": "low",
+      "expressiveness": "very expressive",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_049",
+    "text": "Primăria a anunțat că va construi o nouă parcare subterană în centrul orașului.",
+    "description": "A Romanian female speaker delivers slightly expressive and animated speech with a very slowly speed and slightly high-pitched pitch. The recording is moderate ambient sound, with the speaker's voice sounding very close-sounding. The speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "moderate noise",
+      "reverberation": "very close",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_050",
+    "text": "Examenul de admitere la facultate va avea loc în prima săptămână din luna iulie.",
+    "description": "A Romanian male speaker with a quite high-pitched voice pronounces words very slowly. The speech is slightly monotone with slightly noisy present. The voice sounds slightly distant-sounding and the quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "high",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly noisy",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_051",
+    "text": "Bunica face cele mai bune prăjituri cu mere pe care le-am gustat vreodată.",
+    "description": "A Romanian female speaker with a very high-pitched voice delivers a slightly expressive and animated speech at a very fast pace. The recording has slightly noisy with the voice sounding very close-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "very high",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly noisy",
+      "reverberation": "very close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_052",
+    "text": "Traficul de dimineață este infernal pe bulevardul principal, mai ales între orele șapte și nouă.",
+    "description": "A Romanian male speaker with a very low-pitched voice speaks moderate speed in a very expressive and animated manner. The environment is moderate ambient sound and the speaker sounds very close-sounding. The recording has moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "very low",
+      "expressiveness": "very expressive",
+      "noise": "moderate noise",
+      "reverberation": "very close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_053",
+    "text": "Am plantat zece copaci în curtea din spate pentru a crea un spațiu verde.",
+    "description": "A Romanian male speaker with very high-pitched pitch talks very fast. The delivery is slightly expressive and animated with very clean in the background. The voice sounds slightly close-sounding and the speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "very high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_054",
+    "text": "Reporterul a transmis în direct de la locul incidentului pentru știrile de seară.",
+    "description": "A Romanian female speaker delivers quite monotone speech with a quite fast speed and quite low-pitched pitch. The recording is slightly noisy, with the speaker's voice sounding slightly close-sounding. The speech quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "low",
+      "expressiveness": "monotone",
+      "noise": "slightly noisy",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_055",
+    "text": "Mașina mea are nevoie de o revizie completă înainte de călătoria lungă spre litoral.",
+    "description": "A Romanian male speaker with a moderate pitch voice pronounces words very fast. The speech is quite monotone with quite noisy present. The voice sounds slightly close-sounding and the quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "moderate",
+      "expressiveness": "monotone",
+      "noise": "quite noisy",
+      "reverberation": "slightly close",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_056",
+    "text": "Farmacia de pe strada Mihai Eminescu are program non-stop inclusiv în zilele de sărbătoare.",
+    "description": "A Romanian male speaker with a slightly high-pitched voice delivers a very expressive and animated speech at a very fast pace. The recording has moderate ambient sound with the voice sounding slightly distant-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "slightly high",
+      "expressiveness": "very expressive",
+      "noise": "moderate noise",
+      "reverberation": "slightly distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_057",
+    "text": "Sezonul de schi a început mai devreme anul acesta datorită ninsorilor abundente din noiembrie.",
+    "description": "A Romanian male speaker with a very high-pitched voice speaks very slowly in a slightly monotone manner. The environment is moderate ambient sound and the speaker sounds very distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "very high",
+      "expressiveness": "slightly monotone",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_058",
+    "text": "Am terminat de curățat întreaga casă și acum pot în sfârșit să mă relaxez.",
+    "description": "A Romanian male speaker with slightly high-pitched pitch talks quite slowly. The delivery is very monotone with quite noisy in the background. The voice sounds very distant-sounding and the speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "slightly high",
+      "expressiveness": "very monotone",
+      "noise": "quite noisy",
+      "reverberation": "very distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_059",
+    "text": "Conferința internațională de tehnologie va reuni experți din peste treizeci de țări.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a quite slowly speed and quite high-pitched pitch. The recording is very clean, with the speaker's voice sounding very close-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "high",
+      "expressiveness": "very expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_060",
+    "text": "Copilul a adormit în mașină pe drumul spre casă după o zi lungă la zoo.",
+    "description": "A Romanian male speaker with a quite high-pitched voice pronounces words very slowly. The speech is slightly expressive and animated with quite noisy present. The voice sounds very distant-sounding and the quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "high",
+      "expressiveness": "slightly expressive",
+      "noise": "quite noisy",
+      "reverberation": "very distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_061",
+    "text": "Rețeta originală cere două sute de grame de unt și trei ouă proaspete.",
+    "description": "A Romanian male speaker with a quite low-pitched voice delivers a very expressive and animated speech at a very fast pace. The recording has very noisy with the voice sounding slightly distant-sounding. The overall speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "low",
+      "expressiveness": "very expressive",
+      "noise": "very noisy",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_062",
+    "text": "Facultatea de medicină este cea mai greu de intrat din toată universitatea.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice speaks very slowly in a quite monotone manner. The environment is quite noisy and the speaker sounds slightly distant-sounding. The recording has moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "slightly low",
+      "expressiveness": "monotone",
+      "noise": "quite noisy",
+      "reverberation": "slightly distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_063",
+    "text": "Am descoperit o cafenea minunată lângă piața veche, cu prăjituri de casă extraordinare.",
+    "description": "A Romanian male speaker with quite low-pitched pitch talks very fast. The delivery is very expressive and animated with slightly noisy in the background. The voice sounds slightly close-sounding and the speech quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "low",
+      "expressiveness": "very expressive",
+      "noise": "slightly noisy",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_064",
+    "text": "Calculatorul de la birou trebuie înlocuit pentru că este prea vechi și lent.",
+    "description": "A Romanian female speaker delivers slightly expressive and animated speech with a slightly fast speed and quite low-pitched pitch. The recording is slightly clean, with the speaker's voice sounding very distant-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "low",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly clean",
+      "reverberation": "very distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_065",
+    "text": "Festivalul de film de la Cluj atrage mii de vizitatori din toată Europa.",
+    "description": "A Romanian male speaker with a quite high-pitched voice pronounces words moderate speed. The speech is quite monotone with very noisy present. The voice sounds quite distant-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "monotone",
+      "noise": "very noisy",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_066",
+    "text": "Unchiul meu s-a mutat recent în Timișoara și lucrează la o companie de software.",
+    "description": "A Romanian female speaker with a moderate pitch voice delivers a very monotone speech at a very fast pace. The recording has clean with the voice sounding very distant-sounding. The overall speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "moderate",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_067",
+    "text": "Poștașul trece pe la noi în fiecare zi la ora unsprezece fix.",
+    "description": "A Romanian female speaker with a moderate pitch voice speaks very slowly in a very monotone manner. The environment is moderate ambient sound and the speaker sounds very distant-sounding. The recording has moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "moderate",
+      "expressiveness": "very monotone",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_068",
+    "text": "Am cumpărat bilete de avion spre Barcelona pentru vacanța de vară din august.",
+    "description": "A Romanian female speaker with quite low-pitched pitch talks quite slowly. The delivery is slightly expressive and animated with slightly noisy in the background. The voice sounds slightly distant-sounding and the speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "low",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly noisy",
+      "reverberation": "slightly distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_069",
+    "text": "Vecinii de la etajul trei fac petreceri zgomotoase în fiecare vineri seara.",
+    "description": "A Romanian male speaker delivers quite monotone speech with a slightly fast speed and slightly high-pitched pitch. The recording is quite noisy, with the speaker's voice sounding very close-sounding. The speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "slightly high",
+      "expressiveness": "monotone",
+      "noise": "quite noisy",
+      "reverberation": "very close",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_070",
+    "text": "Râul care traversează orașul a fost curățat și amenajat cu alei pietonale moderne.",
+    "description": "A Romanian male speaker with a slightly high-pitched voice pronounces words very fast. The speech is quite monotone with very clean present. The voice sounds quite distant-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "slightly high",
+      "expressiveness": "monotone",
+      "noise": "very clean",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_071",
+    "text": "Am întârziat la întâlnire pentru că nu am găsit loc de parcare nicăieri.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice delivers a slightly expressive and animated speech at a quite fast pace. The recording has slightly noisy with the voice sounding very close-sounding. The overall speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "fast",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly noisy",
+      "reverberation": "very close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_072",
+    "text": "Emisiunea de televiziune preferată a fost mutată pe un alt canal fără nicio notificare.",
+    "description": "A Romanian female speaker with a very high-pitched voice speaks very slowly in a slightly expressive and animated manner. The environment is very noisy and the speaker sounds quite distant-sounding. The recording has slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "very high",
+      "expressiveness": "slightly expressive",
+      "noise": "very noisy",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_073",
+    "text": "Frigiderul nu mai funcționează și trebuie să chem un tehnician cât mai repede.",
+    "description": "A Romanian female speaker with very high-pitched pitch talks very fast. The delivery is quite monotone with moderate ambient sound in the background. The voice sounds very distant-sounding and the speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "very high",
+      "expressiveness": "monotone",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_074",
+    "text": "Prognoza meteo anunță temperaturi ridicate și caniculă pentru următoarele cinci zile consecutive.",
+    "description": "A Romanian female speaker delivers very monotone speech with a slightly fast speed and very high-pitched pitch. The recording is clean, with the speaker's voice sounding quite distant-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "very high",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_075",
+    "text": "Banca a aprobat cererea de credit și putem semna contractul săptămâna viitoare.",
+    "description": "A Romanian female speaker with a very low-pitched voice pronounces words slightly slowly. The speech is slightly expressive and animated with quite noisy present. The voice sounds quite distant-sounding and the quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "very low",
+      "expressiveness": "slightly expressive",
+      "noise": "quite noisy",
+      "reverberation": "quite distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_076",
+    "text": "Librăria din centru are o selecție impresionantă de cărți în limba română și engleză.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice delivers a slightly expressive and animated speech at a slightly slowly pace. The recording has very clean with the voice sounding very close-sounding. The overall speech quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_077",
+    "text": "Am alergat zece kilometri în parcul central și m-am simțit extraordinar de bine.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice speaks moderate speed in a very monotone manner. The environment is moderate ambient sound and the speaker sounds very distant-sounding. The recording has good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "slightly low",
+      "expressiveness": "very monotone",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_078",
+    "text": "Grădinița copilului meu organizează o serbare de Crăciun la care sunt invitați părinții.",
+    "description": "A Romanian female speaker with very low-pitched pitch talks very slowly. The delivery is very monotone with clean in the background. The voice sounds slightly distant-sounding and the speech quality is good speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "very low",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "slightly distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_079",
+    "text": "Trenul de noapte spre Budapesta pleacă de pe peronul trei la ora douăzeci trei.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a slightly fast speed and very low-pitched pitch. The recording is moderate ambient sound, with the speaker's voice sounding very distant-sounding. The speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "very low",
+      "expressiveness": "very expressive",
+      "noise": "moderate noise",
+      "reverberation": "very distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_080",
+    "text": "Profesorul de istorie ne-a povestit despre cetățile dacice și m-a fascinat complet.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice pronounces words slightly slowly. The speech is quite monotone with clean present. The voice sounds quite distant-sounding and the quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "monotone",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_081",
+    "text": "Apartamentul de deasupra noastră are o pierdere de apă care ne afectează tavanul.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice delivers a slightly monotone speech at a very fast pace. The recording has slightly clean with the voice sounding slightly distant-sounding. The overall speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very fast",
+      "pitch": "slightly low",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly clean",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_082",
+    "text": "Am terminat facultatea anul trecut și acum lucrez ca inginer la o fabrică.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks quite fast in a very monotone manner. The environment is slightly clean and the speaker sounds slightly close-sounding. The recording has wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "slightly high",
+      "expressiveness": "very monotone",
+      "noise": "slightly clean",
+      "reverberation": "slightly close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_083",
+    "text": "Câmpiile din sudul țării sunt acoperite de floarea soarelui vara și arată magnific.",
+    "description": "A Romanian female speaker with very low-pitched pitch talks slightly fast. The delivery is quite monotone with clean in the background. The voice sounds slightly distant-sounding and the speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "very low",
+      "expressiveness": "monotone",
+      "noise": "clean",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_084",
+    "text": "Pisica mea doarme toată ziua pe canapea și se trezește doar când îi dau mâncare.",
+    "description": "A Romanian male speaker delivers very monotone speech with a slightly fast speed and moderate pitch pitch. The recording is slightly noisy, with the speaker's voice sounding slightly close-sounding. The speech quality is moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "very monotone",
+      "noise": "slightly noisy",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_085",
+    "text": "Municipalitatea a instalat iluminat public nou pe toate străzile din cartierul nostru.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice pronounces words quite fast. The speech is quite monotone with very clean present. The voice sounds slightly close-sounding and the quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "slightly low",
+      "expressiveness": "monotone",
+      "noise": "very clean",
+      "reverberation": "slightly close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_086",
+    "text": "Am uitat parola contului de email și acum nu pot accesa niciunul din mesaje.",
+    "description": "A Romanian male speaker with a very low-pitched voice delivers a quite monotone speech at a quite slowly pace. The recording has slightly clean with the voice sounding very close-sounding. The overall speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slow",
+      "pitch": "very low",
+      "expressiveness": "monotone",
+      "noise": "slightly clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_087",
+    "text": "Nunta prietenilor mei va fi organizată la un conac vechi din zona Sibiului.",
+    "description": "A Romanian male speaker with a moderate pitch voice speaks moderate speed in a slightly expressive and animated manner. The environment is quite noisy and the speaker sounds quite distant-sounding. The recording has very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "quite noisy",
+      "reverberation": "quite distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_088",
+    "text": "Echipa de fotbal a pierdut meciul din cauza unei greșeli a arbitrului în prelungiri.",
+    "description": "A Romanian female speaker with very high-pitched pitch talks moderate speed. The delivery is slightly expressive and animated with slightly clean in the background. The voice sounds very distant-sounding and the speech quality is moderate speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "very high",
+      "expressiveness": "slightly expressive",
+      "noise": "slightly clean",
+      "reverberation": "very distant",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_089",
+    "text": "Am cumpărat o bicicletă nouă și merg cu ea la serviciu în fiecare zi.",
+    "description": "A Romanian female speaker delivers very monotone speech with a quite fast speed and quite low-pitched pitch. The recording is clean, with the speaker's voice sounding slightly distant-sounding. The speech quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "low",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "slightly distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_090",
+    "text": "Spitalul județean a fost dotat cu echipamente medicale moderne în valoare de milioane.",
+    "description": "A Romanian female speaker with a very low-pitched voice pronounces words slightly fast. The speech is very monotone with slightly clean present. The voice sounds very close-sounding and the quality is wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "very low",
+      "expressiveness": "very monotone",
+      "noise": "slightly clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_091",
+    "text": "Tânărul artist a expus picturile sale pentru prima dată la galeria din centrul vechi.",
+    "description": "A Romanian male speaker with a quite high-pitched voice delivers a slightly monotone speech at a slightly slowly pace. The recording has very clean with the voice sounding quite distant-sounding. The overall speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "high",
+      "expressiveness": "slightly monotone",
+      "noise": "very clean",
+      "reverberation": "quite distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_092",
+    "text": "Am pregătit o cină specială cu trei feluri de mâncare pentru aniversarea noastră.",
+    "description": "A Romanian female speaker with a slightly low-pitched voice speaks quite fast in a very monotone manner. The environment is clean and the speaker sounds quite distant-sounding. The recording has wonderful speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "fast",
+      "pitch": "slightly low",
+      "expressiveness": "very monotone",
+      "noise": "clean",
+      "reverberation": "quite distant",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_093",
+    "text": "Cursul de limba engleză începe luni și se desfășoară de trei ori pe săptămână.",
+    "description": "A Romanian female speaker with quite low-pitched pitch talks quite slowly. The delivery is slightly monotone with slightly clean in the background. The voice sounds slightly distant-sounding and the speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "low",
+      "expressiveness": "slightly monotone",
+      "noise": "slightly clean",
+      "reverberation": "slightly distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_094",
+    "text": "Pădurile din Carpați sunt printre cele mai frumoase și mai bine conservate din Europa.",
+    "description": "A Romanian male speaker delivers very expressive and animated speech with a very slowly speed and quite low-pitched pitch. The recording is slightly noisy, with the speaker's voice sounding very distant-sounding. The speech quality is good speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "very slow",
+      "pitch": "low",
+      "expressiveness": "very expressive",
+      "noise": "slightly noisy",
+      "reverberation": "very distant",
+      "quality": "good"
+    }
+  },
+  {
+    "id": "text_095",
+    "text": "Am primit rezultatele analizelor medicale și din fericire totul este în parametri normali.",
+    "description": "A Romanian female speaker with a very low-pitched voice pronounces words very fast. The speech is quite monotone with very noisy present. The voice sounds very close-sounding and the quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "very low",
+      "expressiveness": "monotone",
+      "noise": "very noisy",
+      "reverberation": "very close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_096",
+    "text": "Operatorul de telefonie mobilă oferă un abonament nou cu date nelimitate la preț redus.",
+    "description": "A Romanian female speaker with a moderate pitch voice delivers a very expressive and animated speech at a quite slowly pace. The recording has quite noisy with the voice sounding very close-sounding. The overall speech quality is very bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slow",
+      "pitch": "moderate",
+      "expressiveness": "very expressive",
+      "noise": "quite noisy",
+      "reverberation": "very close",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_097",
+    "text": "Gara din oraș a fost renovată și acum are săli de așteptare mult mai confortabile.",
+    "description": "A Romanian male speaker with a quite low-pitched voice speaks quite fast in a quite monotone manner. The environment is quite noisy and the speaker sounds slightly close-sounding. The recording has moderate speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "fast",
+      "pitch": "low",
+      "expressiveness": "monotone",
+      "noise": "quite noisy",
+      "reverberation": "slightly close",
+      "quality": "moderate"
+    }
+  },
+  {
+    "id": "text_098",
+    "text": "Am vizitat Castelul Bran în vacanță și am fost impresionat de istoria locului.",
+    "description": "A Romanian female speaker with quite low-pitched pitch talks very slowly. The delivery is slightly monotone with clean in the background. The voice sounds slightly distant-sounding and the speech quality is slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very slow",
+      "pitch": "low",
+      "expressiveness": "slightly monotone",
+      "noise": "clean",
+      "reverberation": "slightly distant",
+      "quality": "slightly bad"
+    }
+  },
+  {
+    "id": "text_099",
+    "text": "Supa de pui cu tăiței pe care o face mama este cea mai delicioasă.",
+    "description": "A Romanian male speaker delivers very monotone speech with a slightly slowly speed and moderate pitch pitch. The recording is very clean, with the speaker's voice sounding very distant-sounding. The speech quality is very bad speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "moderate",
+      "expressiveness": "very monotone",
+      "noise": "very clean",
+      "reverberation": "very distant",
+      "quality": "very bad"
+    }
+  },
+  {
+    "id": "text_100",
+    "text": "Am întâlnit un vechi prieten pe stradă după zece ani și am stat de vorbă.",
+    "description": "A Romanian female speaker with a very low-pitched voice pronounces words very fast. The speech is very monotone with very noisy present. The voice sounds very close-sounding and the quality is slightly bad speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "very fast",
+      "pitch": "very low",
+      "expressiveness": "very monotone",
+      "noise": "very noisy",
+      "reverberation": "very close",
+      "quality": "slightly bad"
+    }
+  }
+]

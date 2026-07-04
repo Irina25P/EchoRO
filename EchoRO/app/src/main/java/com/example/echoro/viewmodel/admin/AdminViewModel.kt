@@ -57,12 +57,16 @@ class AdminViewModel : ViewModel() {
                 val overviewDeferred = async { repository.getOverviewStats() }
                 val modelsDeferred = async { repository.getModelsStats() }
                 val trendDeferred = async { repository.getTrendStats(startDate, endDate) }
+                val abStatsDeferred = async { repository.getABTestStats() }
+                val abRankingsDeferred = async { repository.getABRankings() }
 
                 val overview = overviewDeferred.await()
                 val models = modelsDeferred.await()
                 val trend = trendDeferred.await()
+                val abStats = abStatsDeferred.await()
+                val abRankings = abRankingsDeferred.await()
 
-                _state.update { it.successAll(overview, models, trend) }
+                _state.update { it.successAll(overview, models, trend, abStats, abRankings) }
 
             } catch (e: Exception) {
                 val errorMsg = e.message ?: "Eroare la încărcarea statisticilor inițiale"

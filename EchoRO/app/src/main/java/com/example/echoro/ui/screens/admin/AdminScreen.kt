@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.draw.clip
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.DateRange
@@ -16,10 +17,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.echoro.R
 import com.example.echoro.ui.screens.generatevoice.EchoRoTopBar
 import com.example.echoro.ui.screens.generatevoice.LoadingScreen
 import com.example.echoro.ui.theme.BackgroundGray
@@ -44,7 +47,13 @@ fun AdminDashboardScreen(
     val state by viewModel.state.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val timeFilters = listOf("7 Days", "14 Days", "30 Days", "Custom")
+    val timeFilters = listOf(
+        stringResource(R.string.admin_filter_7_days),
+        stringResource(R.string.admin_filter_14_days),
+        stringResource(R.string.admin_filter_30_days),
+        stringResource(R.string.admin_filter_custom)
+    )
+    val strCustom = stringResource(R.string.admin_filter_custom)
     var selectedFilter by remember { mutableStateOf(timeFilters[0]) }
 
     var showDatePicker by remember { mutableStateOf(false) }
@@ -99,13 +108,13 @@ fun AdminDashboardScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 Text(
-                    text = "EchoRO Statistics",
+                    text = stringResource(R.string.admin_statistics_title),
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
                     color = NavyBlue
                 )
                 Text(
-                    text = "(Admin View)",
+                    text = stringResource(R.string.admin_view_subtitle),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = NavyBlue.copy(alpha = 0.8f)
@@ -118,12 +127,12 @@ fun AdminDashboardScreen(
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
                 ) {
                     SummaryStatCard(
-                        title = "TOTAL GENERATIONS",
+                        title = stringResource(R.string.admin_total_generations),
                         value = state.totalGenerations,
                         modifier = Modifier.weight(1f)
                     )
                     SummaryStatCard(
-                        title = "OVERALL AVERAGE\nMOS",
+                        title = stringResource(R.string.admin_overall_mos),
                         value = state.overallMos,
                         modifier = Modifier.weight(1f)
                     )
@@ -131,29 +140,29 @@ fun AdminDashboardScreen(
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                SectionTitle("SUBJECTIVE METRICS COMPARISON")
+                SectionTitle(stringResource(R.string.admin_subjective_metrics))
 
                 BarChartCard(
-                    title = "1. INTELLIGIBILITY",
+                    title = stringResource(R.string.admin_intelligibility_chart),
                     miniValue = state.miniIntelligibility,
                     largeValue = state.largeIntelligibility
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 BarChartCard(
-                    title = "2. NATURALNESS",
+                    title = stringResource(R.string.admin_naturalness_chart),
                     miniValue = state.miniNaturalness,
                     largeValue = state.largeNaturalness
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 BarChartCard(
-                    title = "3. ACCENT",
+                    title = stringResource(R.string.admin_accent_chart),
                     miniValue = state.miniAccent,
                     largeValue = state.largeAccent
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                SectionTitle("AVERAGE WORD ACCURACY")
+                SectionTitle(stringResource(R.string.admin_word_accuracy_section))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(containerColor = BackgroundGray),
@@ -165,12 +174,12 @@ fun AdminDashboardScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         AccuracyDonutChart(
-                            title = "MINI MODEL",
+                            title = stringResource(R.string.admin_mini_model),
                             percentage = state.miniWordAccuracy.toInt(),
                             color = MiniChartColor
                         )
                         AccuracyDonutChart(
-                            title = "LARGE MODEL",
+                            title = stringResource(R.string.admin_large_model),
                             percentage = state.largeWordAccuracy.toInt(),
                             color = Teal
                         )
@@ -179,7 +188,7 @@ fun AdminDashboardScreen(
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                SectionTitle("GENDER MATCH ACCURACY")
+                SectionTitle(stringResource(R.string.admin_gender_match_section))
                 Card(
                     modifier = Modifier.fillMaxWidth(),
                     colors = CardDefaults.cardColors(containerColor = BackgroundGray),
@@ -191,12 +200,12 @@ fun AdminDashboardScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         AccuracyDonutChart(
-                            title = "MINI MODEL",
+                            title = stringResource(R.string.admin_mini_model),
                             percentage = state.miniGenderMatch.toInt(),
                             color = MiniChartColor
                         )
                         AccuracyDonutChart(
-                            title = "LARGE MODEL",
+                            title = stringResource(R.string.admin_large_model),
                             percentage = state.largeGenderMatch.toInt(),
                             color = Teal
                         )
@@ -205,7 +214,7 @@ fun AdminDashboardScreen(
 
                 Spacer(modifier = Modifier.height(32.dp))
 
-                SectionTitle("MODEL PERFORMANCE PROFILE")
+                SectionTitle(stringResource(R.string.admin_model_profile_section))
                 LineChartCard(
                     xLabels = listOf("Intelligibility", "Naturalness", "Accent", "Word Accuracy"),
                     miniPoints = listOf(
@@ -229,7 +238,7 @@ fun AdminDashboardScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    SectionTitle("AVERAGE MOS TREND")
+                    SectionTitle(stringResource(R.string.admin_mos_trend_section))
                 }
 
                 LazyRow(
@@ -266,10 +275,10 @@ fun AdminDashboardScreen(
                                 .padding(horizontal = 16.dp, vertical = 8.dp)
                         ) {
                             Row(verticalAlignment = Alignment.CenterVertically) {
-                                if (filter == "Custom") {
+                                if (filter == strCustom) {
                                     Icon(
                                         imageVector = Icons.Filled.DateRange,
-                                        contentDescription = "Calendar",
+                                        contentDescription = stringResource(R.string.calendar_cd),
                                         tint = if (isSelected) Color.White else NavyBlue,
                                         modifier = Modifier.size(16.dp).padding(end = 4.dp)
                                     )
@@ -295,12 +304,51 @@ fun AdminDashboardScreen(
                         CircularProgressIndicator(color = Teal)
                     } else {
                         LineChartCard(
-                            xLabels = if (state.trendDates.isEmpty()) listOf("No Data") else state.trendDates,
+                            xLabels = if (state.trendDates.isEmpty()) listOf(stringResource(R.string.no_data_label)) else state.trendDates,
                             miniPoints = if (state.trendMini.isEmpty()) listOf(0f) else state.trendMini,
                             largePoints = if (state.trendLarge.isEmpty()) listOf(0f) else state.trendLarge
                         )
                     }
                 }
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                SectionTitle(stringResource(R.string.ab_testing_results_section))
+
+                SummaryStatCard(
+                    title = stringResource(R.string.admin_total_ab_answers),
+                    value = state.abTotalResults.toString(),
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(containerColor = BackgroundGray),
+                    shape = RoundedCornerShape(16.dp),
+                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+                ) {
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        Text(
+                            text = stringResource(R.string.ab_preference_description),
+                            fontSize = 11.sp,
+                            color = Color.Gray,
+                            modifier = Modifier.padding(bottom = 16.dp)
+                        )
+                        ABPreferenceRow(stringResource(R.string.naturalness_label),    state.abNaturalnessVoiceAPct,    state.abNaturalnessVoiceBPct,    state.abNaturalnessEqualPct)
+                        ABPreferenceRow(stringResource(R.string.intelligibility_label), state.abIntelligibilityVoiceAPct, state.abIntelligibilityVoiceBPct, state.abIntelligibilityEqualPct)
+                        ABPreferenceRow(stringResource(R.string.accent_label),          state.abAccentVoiceAPct,          state.abAccentVoiceBPct,          state.abAccentEqualPct)
+                        ABPreferenceRow(stringResource(R.string.word_accuracy_short),   state.abWordAccuracyVoiceAPct,    state.abWordAccuracyVoiceBPct,    state.abWordAccuracyEqualPct)
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(32.dp))
+
+                ABRankingsSection(
+                    totalTrials = state.abTotalTrials,
+                    rankings = state.abRankings
+                )
 
                 Spacer(modifier = Modifier.height(48.dp))
             }
@@ -309,7 +357,7 @@ fun AdminDashboardScreen(
                 DatePickerDialog(
                     onDismissRequest = {
                         showDatePicker = false
-                        if (customDateLabel.isEmpty()) selectedFilter = "7 Days"
+                        if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
                     },
                     confirmButton = {
                         TextButton(onClick = {
@@ -329,18 +377,18 @@ fun AdminDashboardScreen(
 
                                 viewModel.sendEvent(AdminEvent.LoadStats(apiStart, apiEnd))
                             } else {
-                                selectedFilter = "7 Days"
+                                selectedFilter = timeFilters[0]
                             }
                         }) {
-                            Text("Apply", color = Teal)
+                            Text(stringResource(R.string.apply_button), color = Teal)
                         }
                     },
                     dismissButton = {
                         TextButton(onClick = {
                             showDatePicker = false
-                            if (customDateLabel.isEmpty()) selectedFilter = "7 Days"
+                            if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
                         }) {
-                            Text("Cancel", color = Color.Gray)
+                            Text(stringResource(R.string.cancel_button), color = Color.Gray)
                         }
                     }
                 ) {
@@ -351,5 +399,59 @@ fun AdminDashboardScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun ABPreferenceRow(label: String, voiceAPct: Float, voiceBPct: Float, equalPct: Float) {
+    val colorA = Teal
+    val colorB = MiniChartColor
+    val colorEqual = Color(0xFFB0BEC5)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(bottom = 18.dp)
+    ) {
+        Text(text = label, fontSize = 13.sp, color = NavyBlue, fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(bottom = 6.dp))
+
+        // Segmented bar
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(12.dp)
+                .clip(RoundedCornerShape(6.dp))
+        ) {
+            if (voiceAPct > 0f) Box(Modifier.fillMaxHeight().weight(voiceAPct).background(colorA))
+            if (voiceBPct > 0f) Box(Modifier.fillMaxHeight().weight(voiceBPct).background(colorB))
+            val remainWeight = maxOf(100f - voiceAPct - voiceBPct, 0f)
+            if (remainWeight > 0f) Box(Modifier.fillMaxHeight().weight(remainWeight).background(colorEqual))
+        }
+
+        Spacer(modifier = Modifier.height(6.dp))
+
+        // Legend
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            LegendDot(color = colorA, label = stringResource(R.string.ab_legend_a_format, voiceAPct))
+            LegendDot(color = colorB, label = stringResource(R.string.ab_legend_b_format, voiceBPct))
+            LegendDot(color = colorEqual, label = stringResource(R.string.ab_legend_equal_format, equalPct))
+        }
+    }
+}
+
+@Composable
+fun LegendDot(color: Color, label: String) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Box(
+            modifier = Modifier
+                .size(8.dp)
+                .background(color, shape = RoundedCornerShape(4.dp))
+        )
+        Spacer(modifier = Modifier.width(4.dp))
+        Text(text = label, fontSize = 11.sp, color = Color.Gray)
     }
 }

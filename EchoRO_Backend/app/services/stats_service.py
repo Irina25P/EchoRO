@@ -24,8 +24,10 @@ def get_models() -> dict:
     try:
         raw_stats = feedback_repository.get_model_stats()
         model_stats = {
-            "Mini": {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
-            "Large": {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
+            "Eagle":    {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
+            "Wolf":     {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
+            "Reindeer": {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
+            "Sparrow":  {"intelligibility": 0.0, "naturalness": 0.0, "accent": 0.0, "word_accuracy": 0.0, "gender_match": 0.0},
         }
         for row in raw_stats:
             m_type = row["model_type"]
@@ -46,22 +48,26 @@ def get_models() -> dict:
 def get_trend(start_date: Optional[str] = None, end_date: Optional[str] = None) -> dict:
     try:
         raw = feedback_repository.get_trend(start_date, end_date)
+        model_names = ["Eagle", "Wolf", "Reindeer", "Sparrow"]
         trend_data: dict = {}
         for row in raw:
             day = row["day"]
             m_type = row["model_type"]
             mos = round(row["daily_mos"] or 0, 1)
             if day not in trend_data:
-                trend_data[day] = {"Mini": 0.0, "Large": 0.0}
-            trend_data[day][m_type] = mos
+                trend_data[day] = {m: 0.0 for m in model_names}
+            if m_type in model_names:
+                trend_data[day][m_type] = mos
 
         dates = list(trend_data.keys())
         return {
             "status": "success",
             "trend": {
                 "dates": dates,
-                "mini": [trend_data[d]["Mini"] for d in dates],
-                "large": [trend_data[d]["Large"] for d in dates],
+                "eagle":    [trend_data[d]["Eagle"]    for d in dates],
+                "wolf":     [trend_data[d]["Wolf"]     for d in dates],
+                "reindeer": [trend_data[d]["Reindeer"] for d in dates],
+                "sparrow":  [trend_data[d]["Sparrow"]  for d in dates],
             },
         }
     except Exception as e:

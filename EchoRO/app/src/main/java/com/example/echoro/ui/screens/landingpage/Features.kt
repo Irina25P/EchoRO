@@ -30,6 +30,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import com.example.echoro.R
 import com.example.echoro.ui.theme.NavyBlue
 import com.example.echoro.ui.theme.PinkAccent
 import com.example.echoro.ui.theme.Teal
@@ -42,36 +44,45 @@ fun FeaturesSection() {
         FeatureCard(
             icon = Icons.Default.Bolt,
             iconBgColor = NavyBlue,
-            title = "Dual AI Models",
+            title = stringResource(R.string.feature_dual_models_title),
             description = buildAnnotatedString {
-                append("Fast ")
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Mini Model") }
-                append(" for instant guest access, or highly accurate ")
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Large Model") }
-                append(" with advanced voice customization for Pro users.")
+                append(stringResource(R.string.feature_dual_fast))
+                append(" ")
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(stringResource(R.string.feature_mini_model)) }
+                append(" ")
+                append(stringResource(R.string.feature_dual_middle))
+                append(" ")
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(stringResource(R.string.feature_large_model)) }
+                append(" ")
+                append(stringResource(R.string.feature_dual_end))
             }
         )
 
         FeatureCard(
             icon = Icons.Default.Mic,
             iconBgColor = Teal,
-            title = "High-Fidelity Audio",
+            title = stringResource(R.string.feature_audio_title),
             description = buildAnnotatedString {
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("Natural intonation") }
-                append(" and ")
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("perfect Romanian pronunciation") }
-                append(" powered by Parler-TTS with context and emotion understanding.")
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(stringResource(R.string.feature_audio_intonation)) }
+                append(" ")
+                append(stringResource(R.string.feature_audio_and))
+                append(" ")
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(stringResource(R.string.feature_audio_pronunciation)) }
+                append(" ")
+                append(stringResource(R.string.feature_audio_end))
             }
         )
 
         FeatureCard(
             icon = Icons.Default.BarChart,
             iconBgColor = PinkAccent,
-            title = "Academic Evaluation",
+            title = stringResource(R.string.feature_academic_title),
             description = buildAnnotatedString {
-                append("Built-in ")
-                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append("MOS (Mean Opinion Score)") }
-                append(" feedback system for research evaluation and advancing Romanian TTS technology.")
+                append(stringResource(R.string.feature_academic_built_in))
+                append(" ")
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) { append(stringResource(R.string.feature_mos_label)) }
+                append(" ")
+                append(stringResource(R.string.feature_academic_end))
             }
         )
     }

@@ -13,10 +13,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.echoro.R
 import com.example.echoro.viewmodel.feedback.FeedbackEvent
 import com.example.echoro.viewmodel.feedback.FeedbackOSE
 import com.example.echoro.viewmodel.feedback.FeedbackViewModel
@@ -78,12 +80,12 @@ fun FeedbackScreen(
                             onClick = onLogoutClick,
                             colors = ButtonDefaults.buttonColors(containerColor = Teal),
                             shape = RoundedCornerShape(8.dp)
-                        ) { Text("Login", fontWeight = FontWeight.Bold, color = Color.White) }
+                        ) { Text(stringResource(R.string.login_button), fontWeight = FontWeight.Bold, color = Color.White) }
                     } else {
                         IconButton(
                             onClick = onLogoutClick,
                             modifier = Modifier.background(Teal, RoundedCornerShape(8.dp))
-                        ) { Icon(imageVector = Icons.AutoMirrored.Filled.ExitToApp, contentDescription = "Logout", tint = Color.White) }
+                        ) { Icon(imageVector = Icons.AutoMirrored.Filled.ExitToApp, contentDescription = stringResource(R.string.logout_cd), tint = Color.White) }
                     }
                 }
             )
@@ -108,7 +110,7 @@ fun FeedbackScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Did the voice match the selected gender?",
+                text = stringResource(R.string.gender_match_question),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = NavyBlue
@@ -121,7 +123,7 @@ fun FeedbackScreen(
                     onClick = { genderRespected = true },
                     colors = RadioButtonDefaults.colors(selectedColor = Teal, unselectedColor = Color.Gray)
                 )
-                Text("Yes", fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = true })
+                Text(stringResource(R.string.yes_option), fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = true })
 
                 Spacer(modifier = Modifier.width(32.dp))
 
@@ -130,13 +132,13 @@ fun FeedbackScreen(
                     onClick = { genderRespected = false },
                     colors = RadioButtonDefaults.colors(selectedColor = Teal, unselectedColor = Color.Gray)
                 )
-                Text("No", fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = false })
+                Text(stringResource(R.string.no_option), fontSize = 16.sp, color = NavyBlue, modifier = Modifier.clickable { genderRespected = false })
             }
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Detailed Feedback (including MOS)",
+                text = stringResource(R.string.detailed_feedback_title),
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 color = NavyBlue
@@ -144,24 +146,24 @@ fun FeedbackScreen(
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            StarRatingCategory("1. Intelligibility", intelligibility) { intelligibility = it }
+            StarRatingCategory(stringResource(R.string.intelligibility_category), intelligibility) { intelligibility = it }
             Spacer(modifier = Modifier.height(16.dp))
 
-            StarRatingCategory("2. Naturalness", naturalness) { naturalness = it }
+            StarRatingCategory(stringResource(R.string.naturalness_category), naturalness) { naturalness = it }
             Spacer(modifier = Modifier.height(16.dp))
 
-            StarRatingCategory("3. Accent", accent) { accent = it }
+            StarRatingCategory(stringResource(R.string.accent_category), accent) { accent = it }
 
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Percentage of words pronounced correctly",
+                text = stringResource(R.string.word_accuracy_label),
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = NavyBlue
             )
             Text(
-                text = "Slide to indicate the percentage of correctly pronounced words",
+                text = stringResource(R.string.word_accuracy_helper),
                 fontSize = 14.sp,
                 color = Color.Gray,
                 modifier = Modifier.padding(top = 4.dp, bottom = 16.dp)
@@ -207,7 +209,7 @@ fun FeedbackScreen(
             OutlinedTextField(
                 value = comments,
                 onValueChange = { comments = it },
-                placeholder = { Text("Optional comments...", color = Color.Gray) },
+                placeholder = { Text(stringResource(R.string.comments_placeholder), color = Color.Gray) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(120.dp),
@@ -223,7 +225,7 @@ fun FeedbackScreen(
             Spacer(modifier = Modifier.height(32.dp))
 
             EchoRoPrimaryButton(
-                text = if (state.isLoading) "Submitting..." else "Submit Feedback",
+                text = if (state.isLoading) stringResource(R.string.submitting_text) else stringResource(R.string.submit_feedback_button),
                 onClick = {
                     viewModel.sendEvent(
                         FeedbackEvent.SubmitClicked(

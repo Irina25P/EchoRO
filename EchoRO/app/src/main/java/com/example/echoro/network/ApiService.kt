@@ -94,6 +94,67 @@ data class TrendResponse(
     val trend: TrendData
 )
 
+data class ABTestPageResult(
+    val page_index: Int,
+    val model_a: String,
+    val model_b: String,
+    val naturalness: String,
+    val intelligibility: String,
+    val accent: String,
+    val word_accuracy: String
+)
+
+data class ABTestRequest(
+    val total_count: Int,
+    val results: List<ABTestPageResult>
+)
+
+data class ABTestResponse(
+    val status: String,
+    val message: String,
+    val session_id: Int? = null
+)
+
+data class ABTestAggregateStats(
+    val total_results: Int,
+    val naturalness_voice_a_pct: Float,
+    val naturalness_voice_b_pct: Float,
+    val naturalness_equal_pct: Float,
+    val intelligibility_voice_a_pct: Float,
+    val intelligibility_voice_b_pct: Float,
+    val intelligibility_equal_pct: Float,
+    val accent_voice_a_pct: Float,
+    val accent_voice_b_pct: Float,
+    val accent_equal_pct: Float,
+    val word_accuracy_voice_a_pct: Float,
+    val word_accuracy_voice_b_pct: Float,
+    val word_accuracy_equal_pct: Float
+)
+
+data class ABTestStatsResponse(
+    val status: String,
+    val stats: ABTestAggregateStats
+)
+
+data class ModelRanking(
+    val model: String,
+    val elo: Float,
+    val ci_low: Float,
+    val ci_high: Float
+)
+
+data class MeasureRankingData(
+    val rankings: List<ModelRanking>,
+    val win_rates: Map<String, Map<String, Float>>,
+    val significance: Map<String, Map<String, Boolean>>
+)
+
+data class ABRankingsResponse(
+    val status: String,
+    val total_trials: Int,
+    val measures: Map<String, MeasureRankingData>
+)
+
 interface EchoRoApi {
     @POST("login")
     suspend fun login(@Body request: LoginRequest): AuthResponse
@@ -118,6 +179,15 @@ interface EchoRoApi {
         @Query("start_date") startDate: String? = null,
         @Query("end_date") endDate: String? = null
     ): TrendResponse
+
+    @POST("ab-test")
+    suspend fun submitABTest(@Body request: ABTestRequest): ABTestResponse
+
+    @GET("admin/ab-test/stats")
+    suspend fun getABTestStats(): ABTestStatsResponse
+
+    @GET("admin/ab-test/rankings")
+    suspend fun getABRankings(): ABRankingsResponse
 }
 
 object TokenStore {
@@ -125,7 +195,8 @@ object TokenStore {
 }
 
 object RetrofitClient {
-    private const val BASE_URL = "http://10.0.2.2:8000/"
+    // 10.0.0.2
+    const val BASE_URL = "http://192.168.100.70:8000/"
 
     private class AuthInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {

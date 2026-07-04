@@ -12,5 +12,8 @@ sealed class Screen(val route: String) {
 
     object Loading : Screen("loading")
     object Feedback : Screen("feedback")
+    object ABTest : Screen("ab_test/{totalCount}") {
+        fun createRoute(totalCount: Int) = "ab_test/$totalCount"
+    }
     object AdminDashboard : Screen("admin_dashboard")
 }

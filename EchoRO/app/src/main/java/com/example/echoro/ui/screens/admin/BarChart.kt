@@ -28,11 +28,13 @@ import androidx.compose.ui.unit.sp
 import com.example.echoro.ui.theme.BackgroundGray
 import com.example.echoro.ui.theme.GridLineColor
 import com.example.echoro.ui.theme.MiniChartColor
+import com.example.echoro.ui.theme.ReindeerChartColor
+import com.example.echoro.ui.theme.SparrowChartColor
 import com.example.echoro.ui.theme.Teal
 
 
 @Composable
-fun BarChartCard(title: String, miniValue: Float, largeValue: Float) {
+fun BarChartCard(title: String, values: List<Pair<String, Float>>) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = BackgroundGray),
@@ -75,8 +77,10 @@ fun BarChartCard(title: String, miniValue: Float, largeValue: Float) {
                         horizontalArrangement = Arrangement.SpaceEvenly,
                         verticalAlignment = Alignment.Bottom
                     ) {
-                        BarColumn(value = miniValue, label = "Mini", color = MiniChartColor)
-                        BarColumn(value = largeValue, label = "Large", color = Teal)
+                        val modelColors = listOf(Teal, MiniChartColor, ReindeerChartColor, SparrowChartColor)
+                        values.forEachIndexed { index, (label, value) ->
+                            BarColumn(value = value, label = label, color = modelColors[index % modelColors.size])
+                        }
                     }
                 }
             }

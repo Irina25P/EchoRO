@@ -18,17 +18,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.echoro.R
 import com.example.echoro.ui.theme.NavyBlue
 import com.example.echoro.ui.theme.Teal
 import com.example.echoro.ui.theme.TextGray
 
 
 @Composable
-fun FirstSection(onGuestClick: () -> Unit, onRegisterClick: () -> Unit) {
+fun FirstSection(
+    onGuestClick: () -> Unit,
+    onRegisterClick: () -> Unit,
+    onABTestClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -57,7 +63,7 @@ fun FirstSection(onGuestClick: () -> Unit, onRegisterClick: () -> Unit) {
     Spacer(modifier = Modifier.height(24.dp))
 
     Text(
-        text = "Transform Text into Natural Romanian Voice",
+        text = stringResource(R.string.landing_main_title),
         fontSize = 28.sp,
         fontWeight = FontWeight.ExtraBold,
         color = NavyBlue,
@@ -68,7 +74,7 @@ fun FirstSection(onGuestClick: () -> Unit, onRegisterClick: () -> Unit) {
     Spacer(modifier = Modifier.height(16.dp))
 
     Text(
-        text = "AI-powered Text-to-Speech using advanced Parler-TTS technology for high-fidelity Romanian speech synthesis.",
+        text = stringResource(R.string.landing_description),
         fontSize = 14.sp,
         color = TextGray,
         textAlign = TextAlign.Center,
@@ -78,7 +84,7 @@ fun FirstSection(onGuestClick: () -> Unit, onRegisterClick: () -> Unit) {
     Spacer(modifier = Modifier.height(24.dp))
 
     LandingButton(
-        text = "Try as Guest (Mini Model)",
+        text = stringResource(R.string.try_guest_button),
         icon = Icons.Default.AutoAwesome,
         isOutlined = false,
         onClick = onGuestClick
@@ -87,9 +93,18 @@ fun FirstSection(onGuestClick: () -> Unit, onRegisterClick: () -> Unit) {
     Spacer(modifier = Modifier.height(12.dp))
 
     LandingButton(
-        text = "Log In / Register (Large Model)",
+        text = stringResource(R.string.login_register_button),
         icon = null,
         isOutlined = true,
         onClick = onRegisterClick
+    )
+
+    Spacer(modifier = Modifier.height(12.dp))
+
+    LandingButton(
+        text = stringResource(R.string.try_ab_testing_button),
+        icon = null,
+        isOutlined = false,
+        onClick = onABTestClick
     )
 }

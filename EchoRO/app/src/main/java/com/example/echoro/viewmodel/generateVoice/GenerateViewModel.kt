@@ -1,8 +1,10 @@
 package com.example.echoro.ui.screens.generate
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.echoro.R
 import com.example.echoro.viewmodel.Resource
 import com.example.echoro.viewmodel.generateVoice.GenerateRepository
 import com.example.echoro.viewmodel.generateVoice.GenerateScreenEvent
@@ -17,7 +19,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class GenerateViewModel : ViewModel() {
+class GenerateViewModel(private val app: Application) : AndroidViewModel(app) {
     private val repository = GenerateRepository()
 
     private val _state = MutableStateFlow(GenerateScreenStateHolder())
@@ -39,7 +41,7 @@ class GenerateViewModel : ViewModel() {
 
     private fun handleGeneration(text: String, description: String, modelType: String) {
         if (text.isBlank()) {
-            _state.update { it.showError("Textul nu poate fi gol.") }
+            _state.update { it.showError(app.getString(R.string.error_empty_text)) }
             return
         }
 
@@ -63,7 +65,7 @@ class GenerateViewModel : ViewModel() {
                     is Resource.Error -> {
                         _state.update { it.hideLoading() }
                         Log.e("GenerateVoice", "Eroare reală Retrofit: ", result.exception)
-                        emitOSE(GenerateScreenOSE.ShowError(result.exception.message ?: "Eroare la generare"))
+                        emitOSE(GenerateScreenOSE.ShowError(result.exception.message ?: app.getString(R.string.error_generation_failed)))
                     }
                 }
             }

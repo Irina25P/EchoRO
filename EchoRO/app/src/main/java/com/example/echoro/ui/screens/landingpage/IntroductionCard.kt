@@ -17,9 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.echoro.R
 import com.example.echoro.ui.theme.AcademicCardInnerBg
 import com.example.echoro.ui.theme.NavyBlue
 
@@ -39,13 +41,13 @@ fun IntroductionCard() {
                     .background(Color.White.copy(alpha = 0.2f))
                     .padding(horizontal = 12.dp, vertical = 6.dp)
             ) {
-                Text("BACHELOR'S THESIS", color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.intro_badge), color = Color.White, fontSize = 10.sp, fontWeight = FontWeight.Bold)
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "AI-Powered Romanian Text-to-Speech Synthesis",
+                text = stringResource(R.string.intro_title),
                 color = Color.White,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
@@ -56,16 +58,16 @@ fun IntroductionCard() {
 
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                 Column {
-                    Text("Developed by", color = Color.LightGray, fontSize = 12.sp)
-                    Text("Păcurar Irina", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.intro_developed_by), color = Color.LightGray, fontSize = 12.sp)
+                    Text(stringResource(R.string.intro_developer_name), color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
             Column {
-                Text("Scientific Coordinator", color = Color.LightGray, fontSize = 12.sp)
-                Text("Mărginean Anca", color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
+                Text(stringResource(R.string.intro_coordinator_label), color = Color.LightGray, fontSize = 12.sp)
+                Text(stringResource(R.string.intro_coordinator_name), color = Color.White, fontSize = 14.sp, fontWeight = FontWeight.Bold)
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -78,8 +80,8 @@ fun IntroductionCard() {
                     .padding(16.dp)
             ) {
                 Column {
-                    Text("Technical University of Cluj-Napoca", color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold)
-                    Text("Faculty of Automation and Computer Science", color = Color.LightGray, fontSize = 11.sp)
+                    Text(stringResource(R.string.footer_university), color = Color.White, fontSize = 12.sp, fontWeight = FontWeight.Bold)
+                    Text(stringResource(R.string.intro_faculty), color = Color.LightGray, fontSize = 11.sp)
                 }
             }
         }

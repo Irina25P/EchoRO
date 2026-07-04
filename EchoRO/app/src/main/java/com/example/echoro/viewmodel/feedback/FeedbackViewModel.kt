@@ -1,7 +1,9 @@
 package com.example.echoro.viewmodel.feedback
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.echoro.R
 import com.example.echoro.network.FeedbackRequest
 import com.example.echoro.viewmodel.Resource
 import kotlinx.coroutines.channels.Channel
@@ -13,7 +15,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class FeedbackViewModel : ViewModel() {
+class FeedbackViewModel(private val app: Application) : AndroidViewModel(app) {
     private val repository = FeedbackRepository()
 
     private val _state = MutableStateFlow(FeedbackStateHolder())
@@ -48,12 +50,12 @@ class FeedbackViewModel : ViewModel() {
                     }
                     is Resource.Success -> {
                         _state.update { it.hideLoading() }
-                        emitOSE(FeedbackOSE.ShowMessage("Feedback salvat cu succes! Mulțumim!"))
+                        emitOSE(FeedbackOSE.ShowMessage(app.getString(R.string.feedback_success)))
                         emitOSE(FeedbackOSE.NavigateBack)
                     }
                     is Resource.Error -> {
-                        _state.update { it.showError(result.exception.message ?: "Eroare") }
-                        emitOSE(FeedbackOSE.ShowMessage(result.exception.message ?: "A apărut o eroare."))
+                        _state.update { it.showError(result.exception.message ?: app.getString(R.string.error_generic_message)) }
+                        emitOSE(FeedbackOSE.ShowMessage(result.exception.message ?: app.getString(R.string.error_generic_message)))
                     }
                 }
             }

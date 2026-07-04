@@ -31,10 +31,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.echoro.ui.theme.GridLineColor
 import com.example.echoro.ui.theme.MiniChartColor
+import com.example.echoro.ui.theme.ReindeerChartColor
+import com.example.echoro.ui.theme.SparrowChartColor
 import com.example.echoro.ui.theme.Teal
 
+data class ChartSeries(val label: String, val points: List<Float>, val color: Color)
+
 @Composable
-fun LineChartCard(xLabels: List<String>, miniPoints: List<Float>, largePoints: List<Float>) {
+fun LineChartCard(xLabels: List<String>, series: List<ChartSeries>) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = Color.White),
@@ -96,8 +100,7 @@ fun LineChartCard(xLabels: List<String>, miniPoints: List<Float>, largePoints: L
                                 drawPath(path = path, color = color, style = Stroke(width = 2.dp.toPx()))
                             }
 
-                            drawDataLine(miniPoints, MiniChartColor)
-                            drawDataLine(largePoints, Teal)
+                            series.forEach { s -> drawDataLine(s.points, s.color) }
                         }
                     }
 
@@ -119,9 +122,10 @@ fun LineChartCard(xLabels: List<String>, miniPoints: List<Float>, largePoints: L
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                LegendItem("Mini Model", MiniChartColor)
-                Spacer(modifier = Modifier.width(24.dp))
-                LegendItem("Large Model", Teal)
+                series.forEachIndexed { index, s ->
+                    if (index > 0) Spacer(modifier = Modifier.width(16.dp))
+                    LegendItem(s.label, s.color)
+                }
             }
         }
     }

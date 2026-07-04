@@ -1,3 +1,164 @@
 <resources>
     <string name="app_name">EchoRO</string>
+
+    <string name="welcome_to">Welcome to</string>
+    <string name="splash_description">Romanian Text-to-Speech via Parler-TTS</string>
+    <string name="echoro_logo_cd">EchoRO Logo</string>
+
+    <string name="footer_tagline">AI-Powered Romanian TTS</string>
+    <string name="footer_copyright">© 2026 EchoRO - Bachelor\'s Thesis</string>
+    <string name="footer_university">Technical University of Cluj-Napoca</string>
+    <string name="footer_department">Computer Science</string>
+
+    <string name="intro_badge">BACHELOR\'S THESIS</string>
+    <string name="intro_title">AI-Powered Romanian Text-to-Speech Synthesis</string>
+    <string name="intro_developed_by">Developed by</string>
+    <string name="intro_developer_name">Păcurar Irina</string>
+    <string name="intro_coordinator_label">Scientific Coordinator</string>
+    <string name="intro_coordinator_name">Mărginean Anca</string>
+    <string name="intro_faculty">Faculty of Automation and Computer Science</string>
+
+    <string name="feature_dual_models_title">Dual AI Models</string>
+    <string name="feature_audio_title">High-Fidelity Audio</string>
+    <string name="feature_academic_title">Academic Evaluation</string>
+    <string name="feature_dual_fast">Fast</string>
+    <string name="feature_mini_model">Mini Model</string>
+    <string name="feature_dual_middle">for instant guest access, or highly accurate</string>
+    <string name="feature_large_model">Large Model</string>
+    <string name="feature_dual_end">with advanced voice customization for Pro users.</string>
+    <string name="feature_audio_intonation">Natural intonation</string>
+    <string name="feature_audio_and">and</string>
+    <string name="feature_audio_pronunciation">perfect Romanian pronunciation</string>
+    <string name="feature_audio_end">powered by Parler-TTS with context and emotion understanding.</string>
+    <string name="feature_academic_built_in">Built-in</string>
+    <string name="feature_mos_label">MOS (Mean Opinion Score)</string>
+    <string name="feature_academic_end">feedback system for research evaluation and advancing Romanian TTS technology.</string>
+
+    <string name="landing_main_title">Transform Text into Natural Romanian Voice</string>
+    <string name="landing_description">AI-powered Text-to-Speech using advanced Parler-TTS technology for high-fidelity Romanian speech synthesis.</string>
+    <string name="try_guest_button">Try as Guest (Mini Model)</string>
+    <string name="login_register_button">Log In / Register (Large Model)</string>
+    <string name="try_ab_testing_button">Try A/B Voice Testing</string>
+    <string name="powerful_features_title">Powerful Features</string>
+    <string name="register_button">Register</string>
+    <string name="login_button">Login</string>
+    <string name="ab_test_dialog_title">A/B Voice Testing</string>
+    <string name="ab_test_count_question">How many tests would you like to do?</string>
+    <string name="ten_tests_button">10 Tests</string>
+    <string name="twenty_tests_button">20 Tests</string>
+    <string name="cancel_button">Cancel</string>
+
+    <string name="echoro_pro_title">EchoRO Pro</string>
+    <string name="email_placeholder">Email</string>
+    <string name="password_placeholder">Password</string>
+    <string name="login_action_button">LOGIN</string>
+    <string name="create_account_link">Create a New Account</string>
+    <string name="full_name_placeholder">Full Name</string>
+    <string name="email_address_placeholder">Email Address</string>
+    <string name="confirm_password_placeholder">Confirm Password</string>
+    <string name="create_pro_account_button">CREATE PRO ACCOUNT</string>
+    <string name="have_account_text">Already have an account? </string>
+    <string name="login_link_text">Login.</string>
+    <string name="continue_guest_link">Continue as Guest</string>
+    <string name="password_toggle_cd">Toggle password visibility</string>
+
+    <string name="text_input_placeholder">Type text to synthesize in romanian</string>
+    <string name="model_dropdown_label">Model</string>
+    <string name="generate_voice_button">Generate Voice</string>
+    <string name="logout_cd">Logout</string>
+
+    <string name="voice_styles_title">Voice Styles</string>
+    <string name="pro_only_badge">PRO Only</string>
+    <string name="gender_label">Gender</string>
+    <string name="mood_label">Mood</string>
+    <string name="speech_pace_label">Speech Pace</string>
+    <string name="speech_pace_slow">Slow</string>
+    <string name="speech_pace_fast">Fast</string>
+
+    <string name="speed_label">Speed</string>
+    <string name="pitch_label">Pitch</string>
+    <string name="expressiveness_label">Expressiveness</string>
+    <string name="recording_quality_label">Recording Quality</string>
+    <string name="description_preview_label">Description Preview</string>
+
+    <string name="loading_title">Generating audio with trained Parler-TTS model</string>
+    <string name="estimated_time_text">Estimated time: 5-15 seconds</string>
+
+    <string name="gender_match_question">Did the voice match the selected gender?</string>
+    <string name="yes_option">Yes</string>
+    <string name="no_option">No</string>
+    <string name="detailed_feedback_title">Detailed Feedback (including MOS)</string>
+    <string name="intelligibility_category">1. Intelligibility</string>
+    <string name="naturalness_category">2. Naturalness</string>
+    <string name="accent_category">3. Accent</string>
+    <string name="word_accuracy_label">Percentage of words pronounced correctly</string>
+    <string name="word_accuracy_helper">Slide to indicate the percentage of correctly pronounced words</string>
+    <string name="comments_placeholder">Optional comments...</string>
+    <string name="submitting_text">Submitting...</string>
+    <string name="submit_feedback_button">Submit Feedback</string>
+
+    <string name="ab_testing_title">A/B Voice Comparison</string>
+    <string name="ab_test_progress">Test %1$d of %2$d</string>
+    <string name="ab_testing_instructions">Listen to both voices and select the one that performs better for each category.</string>
+    <string name="voice_a_label">Voice A</string>
+    <string name="voice_b_label">Voice B</string>
+    <string name="ab_naturalness_question">1. Which voice sounds more natural?</string>
+    <string name="ab_intelligibility_question">2. Which voice is easier to understand (Intelligibility)?</string>
+    <string name="ab_accent_question">3. Which voice has a better Romanian accent?</string>
+    <string name="ab_word_accuracy_question">4. Which voice pronounces words more accurately?</string>
+    <string name="submit_comparison_button">Submit Comparison</string>
+    <string name="next_button_label">Next → %1$d / %2$d</string>
+    <string name="back_button">Back</string>
+
+    <string name="admin_statistics_title">EchoRO Statistics</string>
+    <string name="admin_view_subtitle">(Admin View)</string>
+    <string name="admin_total_generations">TOTAL GENERATIONS</string>
+    <string name="admin_overall_mos">OVERALL AVERAGE\nMOS</string>
+    <string name="admin_subjective_metrics">SUBJECTIVE METRICS COMPARISON</string>
+    <string name="admin_intelligibility_chart">1. INTELLIGIBILITY</string>
+    <string name="admin_naturalness_chart">2. NATURALNESS</string>
+    <string name="admin_accent_chart">3. ACCENT</string>
+    <string name="admin_word_accuracy_section">AVERAGE WORD ACCURACY</string>
+    <string name="admin_mini_model">MINI MODEL</string>
+    <string name="admin_large_model">LARGE MODEL</string>
+    <string name="admin_gender_match_section">GENDER MATCH ACCURACY</string>
+    <string name="admin_model_profile_section">MODEL PERFORMANCE PROFILE</string>
+    <string name="admin_mos_trend_section">AVERAGE MOS TREND</string>
+    <string name="admin_filter_7_days">7 Days</string>
+    <string name="admin_filter_14_days">14 Days</string>
+    <string name="admin_filter_30_days">30 Days</string>
+    <string name="admin_filter_custom">Custom</string>
+    <string name="apply_button">Apply</string>
+    <string name="ab_testing_results_section">A/B TESTING RESULTS</string>
+    <string name="admin_total_ab_answers">TOTAL A/B ANSWERS</string>
+    <string name="ab_preference_description">%% of answers preferring Voice A (vs Voice B / Equal)</string>
+    <string name="naturalness_label">Naturalness</string>
+    <string name="intelligibility_label">Intelligibility</string>
+    <string name="accent_label">Accent</string>
+    <string name="word_accuracy_short">Word Accuracy</string>
+    <string name="no_data_label">No Data</string>
+    <string name="calendar_cd">Calendar</string>
+    <string name="ab_legend_a_format">A: %1$.1f%%</string>
+    <string name="ab_legend_b_format">B: %1$.1f%%</string>
+    <string name="ab_legend_equal_format">Equal: %1$.1f%%</string>
+    <string name="ab_rankings_section">BRADLEY-TERRY RANKINGS</string>
+    <string name="ab_win_rate_matrix_title">Win-Rate Matrix</string>
+    <string name="ab_total_trials_label">TOTAL TRIALS</string>
+    <string name="ab_elo_label">Elo</string>
+    <string name="ab_ci_label">95%% CI</string>
+    <string name="ab_ns_label">ns</string>
+
+    <string name="error_invalid_email">Adresă de email invalidă.</string>
+    <string name="error_password_required">Parola este obligatorie.</string>
+    <string name="error_full_name_required">Numele complet este obligatoriu.</string>
+    <string name="error_password_too_short">Parola trebuie să aibă minim 6 caractere.</string>
+    <string name="error_password_mismatch">Parolele nu se potrivesc.</string>
+    <string name="error_authentication">Eroare la autentificare</string>
+    <string name="error_registration">Eroare la înregistrare</string>
+    <string name="error_generic">Eroare</string>
+    <string name="error_empty_text">Textul nu poate fi gol.</string>
+    <string name="error_generation_failed">Eroare la generare</string>
+    <string name="feedback_success">Feedback salvat cu succes! Mulțumim!</string>
+    <string name="error_generic_message">A apărut o eroare.</string>
+    <string name="ab_test_success">Mulțumim! Rezultatele A/B au fost salvate.</string>
 </resources>

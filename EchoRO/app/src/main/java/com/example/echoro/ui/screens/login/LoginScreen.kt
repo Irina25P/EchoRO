@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -61,14 +62,14 @@ fun LoginScreen(
 
         Image(
             painter = painterResource(id = R.drawable.logo_echoro),
-            contentDescription = "EchoRO Logo",
+            contentDescription = stringResource(R.string.echoro_logo_cd),
             modifier = Modifier.fillMaxWidth(0.4f)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "EchoRO Pro",
+            text = stringResource(R.string.echoro_pro_title),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = NavyBlue
@@ -92,7 +93,7 @@ fun LoginScreen(
                 email = it
                 viewModel.sendEvent(AuthScreenEvent.EmailChanged(it))
             },
-            placeholder = { Text("Email", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.email_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.emailError != null,
@@ -113,7 +114,7 @@ fun LoginScreen(
                 password = it
                 viewModel.sendEvent(AuthScreenEvent.PasswordChanged(it))
             },
-            placeholder = { Text("Password", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.password_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.passwordError != null,
@@ -128,7 +129,7 @@ fun LoginScreen(
             trailingIcon = {
                 val image = if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff
                 IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                    Icon(imageVector = image, contentDescription = "Toggle password visibility", tint = Color.Gray)
+                    Icon(imageVector = image, contentDescription = stringResource(R.string.password_toggle_cd), tint = Color.Gray)
                 }
             }
         )
@@ -154,7 +155,7 @@ fun LoginScreen(
                 )
             } else {
                 Text(
-                    text = "LOGIN",
+                    text = stringResource(R.string.login_action_button),
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp
@@ -165,7 +166,7 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         Text(
-            text = "Create a New Account",
+            text = stringResource(R.string.create_account_link),
             color = Teal,
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold,

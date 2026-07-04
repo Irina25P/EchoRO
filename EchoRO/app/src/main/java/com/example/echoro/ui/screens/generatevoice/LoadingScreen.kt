@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,7 +40,7 @@ fun LoadingScreen() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.logo_echoro),
-            contentDescription = "EchoRO Logo",
+            contentDescription = stringResource(R.string.echoro_logo_cd),
             modifier = Modifier.fillMaxWidth(0.5f)
         )
 
@@ -54,7 +55,7 @@ fun LoadingScreen() {
         Spacer(modifier = Modifier.height(32.dp))
 
         Text(
-            text = "Generating audio with trained Parler-TTS model",
+            text = stringResource(R.string.loading_title),
             color = NavyBlue,
             fontSize = 16.sp,
             fontWeight = FontWeight.SemiBold,
@@ -65,7 +66,7 @@ fun LoadingScreen() {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Estimated time: 5-15 seconds",
+            text = stringResource(R.string.estimated_time_text),
             color = Teal,
             fontSize = 14.sp,
             fontWeight = FontWeight.Normal,

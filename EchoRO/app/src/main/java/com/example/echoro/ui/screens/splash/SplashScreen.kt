@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -43,7 +44,7 @@ fun SplashScreen(onNavigateNext: () -> Unit) {
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Welcome to",
+            text = stringResource(R.string.welcome_to),
             fontSize = 26.sp,
             fontWeight = FontWeight.Bold,
             color = navyBlue
@@ -53,14 +54,14 @@ fun SplashScreen(onNavigateNext: () -> Unit) {
 
         Image(
             painter = painterResource(id = R.drawable.logo_echoro),
-            contentDescription = "EchoRO Logo",
+            contentDescription = stringResource(R.string.echoro_logo_cd),
             modifier = Modifier.fillMaxWidth(0.5f)
         )
 
         Spacer(modifier = Modifier.height(40.dp))
 
         Text(
-            text = "Romanian Text-to-Speech via Parler-TTS",
+            text = stringResource(R.string.splash_description),
             fontSize = 16.sp,
             color = navyBlue,
             fontWeight = FontWeight.Normal

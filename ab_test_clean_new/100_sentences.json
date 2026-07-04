@@ -1,0 +1,1402 @@
+[
+  {
+    "id": "text_001",
+    "text": "Astăzi am mers la piață și am cumpărat mere proaspete.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_002",
+    "text": "Mama pregătește cafeaua în fiecare dimineață înainte să plece la serviciu.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_003",
+    "text": "Te rog să închizi ușa când ieși din cameră.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_004",
+    "text": "Ne vedem mâine după prânz în fața magazinului.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_005",
+    "text": "Copiii desenează animale colorate la masa din bucătărie.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_006",
+    "text": "Am pus hainele curate în dulapul din dormitor.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_007",
+    "text": "Tata citește ziarul lângă fereastră în fiecare seară.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_008",
+    "text": "Câinele așteaptă cuminte lângă ușă să ieșim afară.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_009",
+    "text": "Astăzi este cald și putem merge pe jos până acasă.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_010",
+    "text": "Am uitat umbrela pe scaunul din hol.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_011",
+    "text": "Sora mea face clătite cu lapte și gem.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_012",
+    "text": "Bunicul udă florile din curte în fiecare dimineață.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_013",
+    "text": "Am lăsat cheile pe masa din sufragerie.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_014",
+    "text": "Prietenii mei vin diseară să vedem un film.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_015",
+    "text": "Vreau să cumpăr o pâine și două sticle cu apă.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_016",
+    "text": "Autobuzul ajunge de obicei înainte de ora opt.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_017",
+    "text": "Am deschis fereastra pentru că era prea cald în cameră.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_018",
+    "text": "Pisica doarme liniștită pe pătură lângă calorifer.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_019",
+    "text": "Mâncarea este gata și putem să ne așezăm la masă.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_020",
+    "text": "Am găsit telefonul sub perna de pe canapea.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_021",
+    "text": "Fratele meu merge cu bicicleta până la școală.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_022",
+    "text": "Astăzi avem multă treabă și trebuie să începem devreme.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_023",
+    "text": "Te aștept în parc lângă banca de lemn.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_024",
+    "text": "Am cumpărat roșii, cartofi și ceapă pentru cină.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_025",
+    "text": "Dimineața beau ceai și mănânc o felie de pâine.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_026",
+    "text": "Camera este luminoasă și are două ferestre mari.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_027",
+    "text": "Am spălat vasele și am curățat masa din bucătărie.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_028",
+    "text": "Vecina mea are o grădină plină cu trandafiri.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_029",
+    "text": "Plecăm la munte sâmbătă dimineață cu mașina.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_030",
+    "text": "Am primit mesajul tău și îți răspund mai târziu.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_031",
+    "text": "Elevii ascultă astăzi cu atenție explicațiile profesorului.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_032",
+    "text": "Ploaia s-a oprit și soarele a ieșit dintre nori.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_033",
+    "text": "Am pus supa la încălzit pentru masa de prânz.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_034",
+    "text": "Colega mea a adus prăjituri pentru toată echipa.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_035",
+    "text": "Mergem la cumpărături după ce terminăm programul.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_036",
+    "text": "Bunica îmi povestește despre copilăria ei de la țară.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_037",
+    "text": "Am ales o cămașă simplă pentru întâlnirea de mâine.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_038",
+    "text": "Fetița se joacă liniștită cu păpușa ei preferată.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_039",
+    "text": "În frigider mai sunt ouă, lapte și puțin unt.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_040",
+    "text": "Am aprins lumina și am intrat în cameră.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_041",
+    "text": "Mâine dimineață plec mai devreme ca să evit aglomerația.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_042",
+    "text": "Am ascultat muzică în timp ce făceam curățenie.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_043",
+    "text": "Pachetul a ajuns astăzi și este pe masă.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_044",
+    "text": "Te rog să pui farfuriile lângă pahare.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_045",
+    "text": "Am mers la plimbare după ce s-a oprit ploaia.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_046",
+    "text": "Copilul ține mingea roșie cu ambele mâini.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_047",
+    "text": "Laptele este în frigider pe raftul de sus.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_048",
+    "text": "Am nevoie de câteva minute să termin această treabă.",
+    "description": "A Romanian male speaker with a low-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "low",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_049",
+    "text": "Ușa de la balcon a rămas deschisă toată noaptea.",
+    "description": "A Romanian male speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_050",
+    "text": "Ne întâlnim la stație și mergem împreună acasă.",
+    "description": "A Romanian male speaker with a slightly low-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "male",
+      "speed": "slightly slow",
+      "pitch": "slightly low",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_051",
+    "text": "Azi am pregătit o salată simplă cu legume.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_052",
+    "text": "Cărțile sunt așezate pe raft în ordine.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_053",
+    "text": "Am schimbat becul din lampa de lângă pat.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_054",
+    "text": "Afară bate vântul și frunzele cad pe trotuar.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_055",
+    "text": "Am trimis fotografia familiei mele după cină.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_056",
+    "text": "Fratele meu gătește foarte bine paste cu sos.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_057",
+    "text": "Masa din sufragerie este acoperită cu o față albă.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_058",
+    "text": "Ne-am întors acasă înainte să înceapă ploaia.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_059",
+    "text": "Am luat geanta și am coborât repede scările.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_060",
+    "text": "Astăzi lucrăm de acasă și terminăm mai devreme.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_061",
+    "text": "Am cumpărat un cadou simplu pentru ziua mamei.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_062",
+    "text": "Copiii au adunat frunzele uscate din curte.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_063",
+    "text": "Cafeaua este caldă și miroase foarte bine.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_064",
+    "text": "Am pus fructele într-un bol mare pe masă.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_065",
+    "text": "Seara aprindem televizorul și urmărim știrile împreună.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_066",
+    "text": "M-am trezit devreme și am deschis toate ferestrele.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_067",
+    "text": "Te sun după ce ajung înapoi la birou.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_068",
+    "text": "Am rezervat o masă pentru cina de vineri.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_069",
+    "text": "Bunicul repară astăzi scaunul vechi din bucătărie.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_070",
+    "text": "Am pus rufele la uscat pe balcon.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_071",
+    "text": "Magazinul este aproape și putem merge pe jos.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_072",
+    "text": "În fiecare seară citesc câteva pagini înainte de culcare.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_073",
+    "text": "Am pregătit ghiozdanul pentru ziua de mâine.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_074",
+    "text": "Vecinii au plecat dimineață și se întorc duminică.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_075",
+    "text": "Te rog să lași pachetul lângă ușa principală.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_076",
+    "text": "Am cumpărat flori galbene pentru masa din sufragerie.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_077",
+    "text": "Copilul a desenat o casă lângă un copac.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_078",
+    "text": "Astăzi am avut o zi liniștită la serviciu.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_079",
+    "text": "Am închis televizorul și m-am dus la culcare.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_080",
+    "text": "Părinții mei locuiesc într-o casă mică și luminoasă.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_081",
+    "text": "Vreau să beau un pahar cu apă rece.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_082",
+    "text": "Am găsit o monedă veche în sertarul bunicului.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_083",
+    "text": "Mâine mergem la bunici pentru masa de prânz.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_084",
+    "text": "Câinele aleargă prin curte după mingea albastră.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_085",
+    "text": "Am pus zahăr în ceai și l-am amestecat bine.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_086",
+    "text": "Fereastra din dormitor dă spre grădina casei.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_087",
+    "text": "Astăzi am purtat bluza pe care am cumpărat-o ieri.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_088",
+    "text": "Am lăsat mașina în parcarea de lângă bloc.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_089",
+    "text": "Pâinea este proaspătă și încă puțin caldă.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_090",
+    "text": "Prietena mea vine mâine să bem o cafea împreună.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_091",
+    "text": "Am spălat merele înainte să le pun pe masă.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_092",
+    "text": "Copiii au plecat bucuroși spre locul de joacă.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_093",
+    "text": "Am uitat cartea acasă și m-am întors după ea.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_094",
+    "text": "Seara este liniște pe strada din fața casei.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_095",
+    "text": "Te rog să îmi aduci haina din dormitor.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_096",
+    "text": "Am făcut ordine în sertarul cu acte.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_097",
+    "text": "Soarele intră dimineața prin fereastra din bucătărie.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a slightly fast pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly fast",
+      "pitch": "moderate",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_098",
+    "text": "Am cumpărat brânză și pâine pentru micul dejun.",
+    "description": "A Romanian female speaker with a high-pitched voice speaks clearly and naturally at a moderate pace, with natural and moderate expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "high",
+      "expressiveness": "moderately expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_099",
+    "text": "Fratele meu a ajuns acasă înaintea tuturor.",
+    "description": "A Romanian female speaker with a balanced, natural pitch speaks clearly and naturally at a moderate pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "moderate",
+      "pitch": "moderate",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  },
+  {
+    "id": "text_100",
+    "text": "Ne așezăm pe canapea și povestim despre ziua noastră.",
+    "description": "A Romanian female speaker with a slightly high-pitched voice speaks clearly and naturally at a slightly slow pace, with slight natural expressiveness. The recording is studio-quality, very clean, and free from background noise. The voice sounds clear and close, with wonderful overall speech quality.",
+    "params": {
+      "gender": "female",
+      "speed": "slightly slow",
+      "pitch": "slightly high",
+      "expressiveness": "slightly expressive",
+      "noise": "very clean",
+      "reverberation": "very close",
+      "quality": "wonderful"
+    }
+  }
+]

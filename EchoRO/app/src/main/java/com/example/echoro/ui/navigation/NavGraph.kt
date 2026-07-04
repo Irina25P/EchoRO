@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.echoro.network.TokenStore
+import com.example.echoro.ui.screens.abtesting.ABTestingFlowScreen
 import com.example.echoro.ui.screens.admin.AdminDashboardScreen
 import com.example.echoro.ui.screens.feedback.FeedbackScreen
 import com.example.echoro.ui.screens.generatevoice.GenerateVoiceScreen
@@ -60,6 +61,9 @@ fun NavGraph() {
                 onGuestClick = {
                     coroutineScope.launch { sessionManager.saveSession(0, true) }
                     navController.navigate(Screen.GenerateVoice.createRoute(isGuest = true))
+                },
+                onABTestClick = { count ->
+                    navController.navigate(Screen.ABTest.createRoute(count))
                 }
             )
         }
@@ -162,6 +166,22 @@ fun NavGraph() {
                 onLogoutClick = {
                     coroutineScope.launch { sessionManager.clearSession() }
                     navController.navigate(Screen.Landing.route) { popUpTo(0) }
+                }
+            )
+        }
+
+        composable(
+            route = Screen.ABTest.route,
+            arguments = listOf(navArgument("totalCount") { type = NavType.IntType })
+        ) { backStackEntry ->
+            val totalCount = backStackEntry.arguments?.getInt("totalCount") ?: 10
+            ABTestingFlowScreen(
+                totalCount = totalCount,
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToLanding = {
+                    navController.navigate(Screen.Landing.route) {
+                        popUpTo(0) { inclusive = true }
+                    }
                 }
             )
         }

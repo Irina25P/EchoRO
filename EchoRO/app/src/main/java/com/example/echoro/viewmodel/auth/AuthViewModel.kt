@@ -1,8 +1,10 @@
 package com.example.echoro.viewmodel.auth
 
+import android.app.Application
 import android.util.Patterns
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.echoro.R
 import com.example.echoro.viewmodel.Resource
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,7 +15,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class AuthViewModel : ViewModel() {
+class AuthViewModel(private val app: Application) : AndroidViewModel(app) {
 
     private val repository = AuthRepository()
 
@@ -47,11 +49,11 @@ class AuthViewModel : ViewModel() {
         _authState.update { it.clearFieldErrors() }
 
         if (event.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(event.email).matches()) {
-            _authState.update { it.copy(emailError = "Adresă de email invalidă.") }
+            _authState.update { it.copy(emailError = app.getString(R.string.error_invalid_email)) }
             hasError = true
         }
         if (event.password.isBlank()) {
-            _authState.update { it.copy(passwordError = "Parola este obligatorie.") }
+            _authState.update { it.copy(passwordError = app.getString(R.string.error_password_required)) }
             hasError = true
         }
 
@@ -70,8 +72,8 @@ class AuthViewModel : ViewModel() {
                         emitOSE(AuthScreenOSE.NavigateToApp(userId, userRole))
                     }
                     is Resource.Error -> {
-                        _authState.update { it.showError(result.exception.message ?: "Eroare la autentificare") }
-                        emitOSE(AuthScreenOSE.Error(result.exception.message ?: "Eroare"))
+                        _authState.update { it.showError(result.exception.message ?: app.getString(R.string.error_authentication)) }
+                        emitOSE(AuthScreenOSE.Error(result.exception.message ?: app.getString(R.string.error_generic)))
                     }
                 }
             }
@@ -83,19 +85,19 @@ class AuthViewModel : ViewModel() {
         _authState.update { it.clearFieldErrors() }
 
         if (event.fullName.isBlank()) {
-            _authState.update { it.copy(fullNameError = "Numele complet este obligatoriu.") }
+            _authState.update { it.copy(fullNameError = app.getString(R.string.error_full_name_required)) }
             hasError = true
         }
         if (event.email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(event.email).matches()) {
-            _authState.update { it.copy(emailError = "Adresă de email invalidă.") }
+            _authState.update { it.copy(emailError = app.getString(R.string.error_invalid_email)) }
             hasError = true
         }
         if (event.password.length < 6) {
-            _authState.update { it.copy(passwordError = "Parola trebuie să aibă minim 6 caractere.") }
+            _authState.update { it.copy(passwordError = app.getString(R.string.error_password_too_short)) }
             hasError = true
         }
         if (event.confirmPassword != event.password) {
-            _authState.update { it.copy(confirmPasswordError = "Parolele nu se potrivesc.") }
+            _authState.update { it.copy(confirmPasswordError = app.getString(R.string.error_password_mismatch)) }
             hasError = true
         }
 
@@ -114,8 +116,8 @@ class AuthViewModel : ViewModel() {
                         emitOSE(AuthScreenOSE.NavigateToApp(userId, userRole))
                     }
                     is Resource.Error -> {
-                        _authState.update { it.showError(result.exception.message ?: "Eroare la înregistrare") }
-                        emitOSE(AuthScreenOSE.Error(result.exception.message ?: "Eroare"))
+                        _authState.update { it.showError(result.exception.message ?: app.getString(R.string.error_registration)) }
+                        emitOSE(AuthScreenOSE.Error(result.exception.message ?: app.getString(R.string.error_generic)))
                     }
                 }
             }

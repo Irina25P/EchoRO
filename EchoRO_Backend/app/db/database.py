@@ -54,6 +54,39 @@ def init_db() -> None:
         )
     """)
 
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ab_test_session (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            total_count INTEGER NOT NULL,
+            completed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS ab_test_result (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id INTEGER NOT NULL,
+            page_index INTEGER NOT NULL,
+            model_a TEXT NOT NULL DEFAULT 'Eagle',
+            model_b TEXT NOT NULL DEFAULT 'Reindeer',
+            naturalness TEXT NOT NULL,
+            intelligibility TEXT NOT NULL,
+            accent TEXT NOT NULL,
+            word_accuracy TEXT NOT NULL,
+            FOREIGN KEY (session_id) REFERENCES ab_test_session(id)
+        )
+    """)
+
+    # Migration: add model_a / model_b if upgrading from older schema
+    for col, default in [("model_a", "Eagle"), ("model_b", "Reindeer")]:
+        try:
+            cursor.execute(
+                f"ALTER TABLE ab_test_result ADD COLUMN {col} TEXT NOT NULL DEFAULT '{default}'"
+            )
+        except Exception:
+            pass
+
     cursor.execute("SELECT id, password FROM users WHERE email = 'admin@echoro.com'")
     admin = cursor.fetchone()
     if not admin:

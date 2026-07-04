@@ -28,16 +28,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.echoro.R
 import com.example.echoro.viewmodel.generateVoice.GenerateScreenEvent
 import com.example.echoro.viewmodel.generateVoice.GenerateScreenOSE
 import com.example.echoro.ui.screens.generate.GenerateViewModel
@@ -58,16 +60,16 @@ fun GenerateVoiceScreen(
 ) {
     var textInput by remember { mutableStateOf("") }
 
-    val modelOptions = listOf("Mini", "Large")
-    var selectedModel by remember { mutableStateOf(if (isGuest) "Mini" else "Large") }
+    val modelOptions = listOf("Eagle", "Wolf", "Reindeer", "Sparrow")
+    var selectedModel by remember { mutableStateOf("Eagle") }
 
-    val genderOptions = listOf("Female", "Male")
     var selectedGender by remember { mutableStateOf("Female") }
+    var speedIndex by remember { mutableIntStateOf(3) }
+    var pitchIndex by remember { mutableIntStateOf(3) }
+    var expressivenessIndex by remember { mutableIntStateOf(3) }
+    var qualityIndex by remember { mutableIntStateOf(2) }
 
-    val moodOptions = listOf("clear", "natural", "steady", "professional", "calm", "crisp", "warm")
-    var selectedMood by remember { mutableStateOf("natural") }
-
-    var speechPace by remember { mutableFloatStateOf(50f) }
+    val description = buildTtsDescription(selectedGender, speedIndex, pitchIndex, expressivenessIndex, qualityIndex)
 
     val state by viewModel.state.collectAsState()
 
@@ -106,7 +108,7 @@ fun GenerateVoiceScreen(
                                 colors = ButtonDefaults.buttonColors(containerColor = Teal),
                                 shape = RoundedCornerShape(8.dp)
                             ) {
-                                Text("Login", fontWeight = FontWeight.Bold, color = Color.White)
+                                Text(stringResource(R.string.login_button), fontWeight = FontWeight.Bold, color = Color.White)
                             }
                         } else {
                             IconButton(
@@ -115,7 +117,7 @@ fun GenerateVoiceScreen(
                             ) {
                                 Icon(
                                     imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                                    contentDescription = "Logout",
+                                    contentDescription = stringResource(R.string.logout_cd),
                                     tint = Color.White
                                 )
                             }
@@ -142,7 +144,7 @@ fun GenerateVoiceScreen(
                         viewModel.sendEvent(GenerateScreenEvent.TextChanged(it))
                     },
                     placeholder = {
-                        Text("Type text to synthesize in romanian", color = Color.Gray)
+                        Text(stringResource(R.string.text_input_placeholder), color = Color.Gray)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -163,7 +165,7 @@ fun GenerateVoiceScreen(
                 Spacer(modifier = Modifier.height(24.dp))
 
                 EchoRoDropdown(
-                    label = "Model",
+                    label = stringResource(R.string.model_dropdown_label),
                     options = modelOptions,
                     selectedOption = selectedModel,
                     onOptionSelected = { selectedModel = it },
@@ -174,33 +176,29 @@ fun GenerateVoiceScreen(
 
                 VoiceStylesSection(
                     isGuest = isGuest,
-                    genderOptions = genderOptions,
                     selectedGender = selectedGender,
                     onGenderSelected = { selectedGender = it },
-                    moodOptions = moodOptions,
-                    selectedMood = selectedMood,
-                    onMoodSelected = { selectedMood = it },
-                    speechPace = speechPace,
-                    onPaceChanged = { speechPace = it }
+                    speedIndex = speedIndex,
+                    onSpeedChanged = { speedIndex = it },
+                    pitchIndex = pitchIndex,
+                    onPitchChanged = { pitchIndex = it },
+                    expressivenessIndex = expressivenessIndex,
+                    onExpressivenessChanged = { expressivenessIndex = it },
+                    qualityIndex = qualityIndex,
+                    onQualityChanged = { qualityIndex = it },
+                    description = description
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
 
                 EchoRoPrimaryButton(
-                    text = "Generate Voice",
+                    text = stringResource(R.string.generate_voice_button),
                     onClick = {
                         if (textInput.isNotBlank()) {
-                            val paceWord = when {
-                                speechPace < 25f -> "slow"
-                                speechPace > 75f -> "fast"
-                                else -> "fluent"
-                            }
-                            val dynamicDescription = "A ${selectedGender.lowercase()} Romanian speaker delivers the text with a $selectedMood voice, $paceWord pace in a clean background."
-
                             viewModel.sendEvent(
                                 GenerateScreenEvent.GenerateClicked(
                                     text = textInput,
-                                    description = dynamicDescription,
+                                    description = description,
                                     modelType = selectedModel
                                 )
                             )
@@ -213,4 +211,39 @@ fun GenerateVoiceScreen(
             }
         }
     }
+}
+
+private val ttsSpeedDesc = listOf(
+    "very slow", "quite slow", "slightly slow", "moderate",
+    "slightly fast", "quite fast", "very fast"
+)
+private val ttsPitchDesc = listOf(
+    "very low-pitched", "quite low-pitched", "slightly low-pitched", "moderate pitch",
+    "slightly high-pitched", "quite high-pitched", "very high-pitched"
+)
+private val ttsExpressivenessDesc = listOf(
+    "very little", "limited", "slight natural", "natural and moderate", "strong natural"
+)
+private val ttsQualityNoise = listOf("quite noisy", "slightly noisy", "clean", "very clean")
+private val ttsQualityReverb = listOf(
+    "quite distant-sounding", "slightly distant-sounding",
+    "slightly close-sounding", "very close-sounding"
+)
+private val ttsQualityPesq = listOf(
+    "slightly bad", "moderate",
+    "good", "wonderful"
+)
+
+private fun buildTtsDescription(
+    gender: String,
+    speedIndex: Int,
+    pitchIndex: Int,
+    expressivenessIndex: Int,
+    qualityIndex: Int
+): String {
+    return "A Romanian ${gender.lowercase()} speaker with a ${ttsPitchDesc[pitchIndex]} " +
+            "speaks clearly and naturally at a ${ttsSpeedDesc[speedIndex]} pace, with " +
+            "${ttsExpressivenessDesc[expressivenessIndex]} expressiveness. The recording is " +
+            "${ttsQualityNoise[qualityIndex]}, and the voice sounds " +
+            "${ttsQualityReverb[qualityIndex]}, with ${ttsQualityPesq[qualityIndex]} overall speech quality."
 }

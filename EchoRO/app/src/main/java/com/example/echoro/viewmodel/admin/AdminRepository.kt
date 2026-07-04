@@ -1,5 +1,7 @@
 package com.example.echoro.viewmodel.admin
 
+import com.example.echoro.network.ABRankingsResponse
+import com.example.echoro.network.ABTestStatsResponse
 import com.example.echoro.network.ModelsStatsResponse
 import com.example.echoro.network.OverviewResponse
 import com.example.echoro.network.RetrofitClient
@@ -17,5 +19,13 @@ class AdminRepository {
 
     suspend fun getTrendStats(startDate: String?, endDate: String?): TrendResponse {
         return RetrofitClient.instance.getTrendStats(startDate, endDate)
+    }
+
+    suspend fun getABTestStats(): ABTestStatsResponse {
+        return RetrofitClient.instance.getABTestStats()
+    }
+
+    suspend fun getABRankings(): ABRankingsResponse {
+        return RetrofitClient.instance.getABRankings()
     }
 }

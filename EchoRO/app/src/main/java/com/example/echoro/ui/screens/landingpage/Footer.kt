@@ -11,7 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import com.example.echoro.R
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.echoro.ui.theme.NavyBlue
@@ -25,14 +27,14 @@ fun LandingFooter() {
             .padding(vertical = 32.dp, horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text("EchoRO", color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.app_name), color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(4.dp))
-        Text("AI-Powered Romanian TTS", color = Color.LightGray, fontSize = 12.sp)
+        Text(stringResource(R.string.footer_tagline), color = Color.LightGray, fontSize = 12.sp)
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Text("© 2026 EchoRO - Bachelor's Thesis", color = Color.LightGray, fontSize = 10.sp)
-        Text("Technical University of Cluj-Napoca", color = Color.LightGray, fontSize = 10.sp)
-        Text("Computer Science", color = Color.LightGray, fontSize = 10.sp)
+        Text(stringResource(R.string.footer_copyright), color = Color.LightGray, fontSize = 10.sp)
+        Text(stringResource(R.string.footer_university), color = Color.LightGray, fontSize = 10.sp)
+        Text(stringResource(R.string.footer_department), color = Color.LightGray, fontSize = 10.sp)
     }
 }

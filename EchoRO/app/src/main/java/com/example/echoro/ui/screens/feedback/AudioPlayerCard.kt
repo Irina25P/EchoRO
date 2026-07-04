@@ -1,6 +1,7 @@
 package com.example.echoro.ui.screens.feedback
 
 import android.media.MediaPlayer
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 
@@ -28,6 +30,8 @@ fun AudioPlayerCard(
     navyBlue: Color,
     teal: Color
 ) {
+    val context = LocalContext.current
+
     var isPlaying by remember { mutableStateOf(false) }
     var progress by remember { mutableFloatStateOf(0f) }
     var isPrepared by remember { mutableStateOf(false) }
@@ -36,17 +40,26 @@ fun AudioPlayerCard(
 
     DisposableEffect(audioUrl) {
         val mp = MediaPlayer().apply {
-            val fullUrl = if (audioUrl.startsWith("http")) audioUrl else "http://10.0.2.2:8000$audioUrl"
-            setDataSource(fullUrl)
-            prepareAsync()
+            try {
+                val fullUrl = when {
+                    audioUrl.startsWith("http") -> audioUrl
+                    audioUrl.startsWith("android.resource") -> audioUrl
+                    else -> "http://192.168.10.81:8000$audioUrl"
+                }
 
-            setOnPreparedListener {
-                isPrepared = true
-            }
+                setDataSource(context, Uri.parse(fullUrl))
+                prepareAsync()
 
-            setOnCompletionListener {
-                isPlaying = false
-                progress = 1f
+                setOnPreparedListener {
+                    isPrepared = true
+                }
+
+                setOnCompletionListener {
+                    isPlaying = false
+                    progress = 1f
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
         mediaPlayer = mp

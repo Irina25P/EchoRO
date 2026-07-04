@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -67,14 +68,14 @@ fun RegisterScreen(
     ) {
         Image(
             painter = painterResource(id = R.drawable.logo_echoro),
-            contentDescription = "EchoRO Logo",
+            contentDescription = stringResource(R.string.echoro_logo_cd),
             modifier = Modifier.fillMaxWidth(0.35f)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "EchoRO Pro",
+            text = stringResource(R.string.echoro_pro_title),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = NavyBlue
@@ -98,7 +99,7 @@ fun RegisterScreen(
                 fullName = it
                 viewModel.sendEvent(AuthScreenEvent.FullNameChanged(it))
             },
-            placeholder = { Text("Full Name", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.full_name_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.fullNameError != null,
@@ -119,7 +120,7 @@ fun RegisterScreen(
                 email = it
                 viewModel.sendEvent(AuthScreenEvent.EmailChanged(it))
             },
-            placeholder = { Text("Email Address", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.email_address_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.emailError != null,
@@ -140,7 +141,7 @@ fun RegisterScreen(
                 password = it
                 viewModel.sendEvent(AuthScreenEvent.PasswordChanged(it))
             },
-            placeholder = { Text("Password", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.password_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.passwordError != null,
@@ -168,7 +169,7 @@ fun RegisterScreen(
                 confirmPassword = it
                 viewModel.sendEvent(AuthScreenEvent.ConfirmPasswordChanged(it))
             },
-            placeholder = { Text("Confirm Password", color = Color.Gray) },
+            placeholder = { Text(stringResource(R.string.confirm_password_placeholder), color = Color.Gray) },
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(12.dp),
             isError = authState.confirmPasswordError != null,
@@ -205,7 +206,7 @@ fun RegisterScreen(
                 CircularProgressIndicator(color = Color.White, modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
             } else {
                 Text(
-                    text = "CREATE PRO ACCOUNT",
+                    text = stringResource(R.string.create_pro_account_button),
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
                     fontSize = 14.sp
@@ -216,15 +217,15 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(20.dp))
 
         val loginText = buildAnnotatedString {
-            withStyle(style = SpanStyle(color = NavyBlue)) { append("Already have an account? ") }
-            withStyle(style = SpanStyle(color = Teal, fontWeight = FontWeight.Bold)) { append("Login.") }
+            withStyle(style = SpanStyle(color = NavyBlue)) { append(stringResource(R.string.have_account_text)) }
+            withStyle(style = SpanStyle(color = Teal, fontWeight = FontWeight.Bold)) { append(stringResource(R.string.login_link_text)) }
         }
         Text(text = loginText, fontSize = 14.sp, modifier = Modifier.clickable { onLoginClick() })
 
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(
-            text = "Continue as Guest",
+            text = stringResource(R.string.continue_guest_link),
             color = Teal,
             fontSize = 14.sp,
             fontWeight = FontWeight.SemiBold,
