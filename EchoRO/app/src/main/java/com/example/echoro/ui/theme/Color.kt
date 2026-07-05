@@ -20,5 +20,5 @@ val TextGray = Color(0xFF666666)
 val AcademicCardInnerBg = Color(0xFF3B468A)
 val MiniChartColor = Color(0xFF5C6BC0)
 val GridLineColor = Color(0xFFE0E0E0)
-val ReindeerChartColor = Color(0xFFFF8F00)
-val SparrowChartColor = Color(0xFF43A047)
+val ReindeerChartColor = Purple40
+val SparrowChartColor = PinkAccent

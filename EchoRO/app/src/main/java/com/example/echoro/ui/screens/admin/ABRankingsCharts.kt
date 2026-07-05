@@ -33,20 +33,26 @@ import com.example.echoro.R
 import com.example.echoro.network.MeasureRankingData
 import com.example.echoro.network.ModelRanking
 import com.example.echoro.ui.theme.BackgroundGray
+import com.example.echoro.ui.theme.MiniChartColor
 import com.example.echoro.ui.theme.NavyBlue
+import com.example.echoro.ui.theme.PinkAccent
+import com.example.echoro.ui.theme.ReindeerChartColor
+import com.example.echoro.ui.theme.SparrowChartColor
 import com.example.echoro.ui.theme.Teal
 
 private val AB_MODELS_ORDER = listOf("Eagle", "Reindeer", "Sparrow", "Wolf")
 
-private val MODEL_COLORS = listOf(
-    Color(0xFF00BCD4), // Eagle  – teal
-    Color(0xFF5C6BC0), // Reindeer – indigo
-    Color(0xFF66BB6A), // Sparrow – green
-    Color(0xFFFF7043)  // Wolf   – deep-orange
+private val MODEL_COLORS_BY_NAME = mapOf(
+    "Eagle" to Teal,
+    "Wolf" to MiniChartColor,
+    "Reindeer" to ReindeerChartColor,
+    "Sparrow" to SparrowChartColor
 )
 
+private val MODEL_COLORS = AB_MODELS_ORDER.map { MODEL_COLORS_BY_NAME.getValue(it) }
+
 private fun modelColor(model: String): Color =
-    MODEL_COLORS.getOrElse(AB_MODELS_ORDER.indexOf(model)) { Teal }
+    MODEL_COLORS_BY_NAME[model] ?: Teal
 
 // ---------------------------------------------------------------------------
 // Top-level: all 4 measures in one collapsible card
@@ -216,8 +222,8 @@ fun WinRateMatrix(
 fun WinRateCell(rate: Float, isSignificant: Boolean, modifier: Modifier = Modifier) {
     val fraction = (rate / 100f).coerceIn(0f, 1f)
     val bgColor = lerp(
-        start = Color(0xFFEF5350).copy(alpha = 0.6f),  // red for low win-rate
-        stop = Color(0xFF26A69A).copy(alpha = 0.8f),   // teal for high win-rate
+        start = PinkAccent.copy(alpha = 0.7f),  // app pink for low win-rate
+        stop = Teal.copy(alpha = 0.85f),        // app teal for high win-rate
         fraction = fraction
     )
     val nsColor = if (!isSignificant) Color.White.copy(alpha = 0.6f) else Color.Transparent
