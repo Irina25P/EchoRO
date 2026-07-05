@@ -14,7 +14,8 @@ import com.example.echoro.viewmodel.abtesting.ABTestingViewModel
 @Composable
 fun ABTestingFlowScreen(
     totalCount: Int,
-    onNavigateBack: () -> Unit
+    onNavigateBack: () -> Unit,
+    onNavigateToLanding: () -> Unit
 ) {
     val context = LocalContext.current
     val viewModel: ABTestingViewModel = viewModel(
@@ -27,16 +28,27 @@ fun ABTestingFlowScreen(
         viewModel.ose.collect { ose ->
             when (ose) {
                 is ABTestingOSE.NavigateBack -> onNavigateBack()
-                is ABTestingOSE.ShowMessage -> { /* Snackbars can be added here */ }
+                is ABTestingOSE.NavigateToLanding -> onNavigateToLanding()
+                is ABTestingOSE.ShowMessage -> { }
             }
         }
+    }
+
+    if (state.isSessionLoading) {
+        com.example.echoro.ui.screens.generatevoice.LoadingScreen()
+        return
     }
 
     ABTestingScreen(
         pageIndex = state.currentPage,
         totalCount = state.totalCount,
-        modelA = state.currentPair.first,
-        modelB = state.currentPair.second,
+        modelA = state.modelA,
+        modelB = state.modelB,
+        audioUrlA = state.currentAudioUrlA,
+        audioUrlB = state.currentAudioUrlB,
+        text = state.currentText,
+        description = state.currentDescription,
+        isPairLoading = false,
         savedAnswer = state.currentAnswer,
         isLoading = state.isLoading,
         onSaveAnswer = { modelA, modelB, naturalness, intelligibility, accent, wordAccuracy ->

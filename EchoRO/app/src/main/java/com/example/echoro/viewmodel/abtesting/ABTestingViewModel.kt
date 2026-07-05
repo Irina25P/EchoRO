@@ -25,6 +25,33 @@ class ABTestingViewModel(private val app: Application, totalCount: Int) : Androi
     private val _ose = Channel<ABTestingOSE>()
     val ose = _ose.receiveAsFlow()
 
+    init {
+        loadSession(totalCount)
+    }
+
+    private fun loadSession(count: Int) {
+        viewModelScope.launch {
+            repository.getSession(count).collectLatest { result ->
+                when (result) {
+                    is Resource.Loading -> _state.update { it.copy(isSessionLoading = true, error = null) }
+                    is Resource.Success -> _state.update {
+                        it.copy(
+                            isSessionLoading = false,
+                            modelA = result.data.model_a,
+                            modelB = result.data.model_b,
+                            totalCount = result.data.total_count,
+                            items = result.data.items
+                        )
+                    }
+                    is Resource.Error -> {
+                        _state.update { it.copy(isSessionLoading = false, error = result.exception.message) }
+                        emitOSE(ABTestingOSE.ShowMessage(result.exception.message ?: app.getString(R.string.error_generic_message)))
+                    }
+                }
+            }
+        }
+    }
+
     fun sendEvent(event: ABTestingEvent) {
         when (event) {
             is ABTestingEvent.SaveAnswer -> handleSaveAnswer(event)

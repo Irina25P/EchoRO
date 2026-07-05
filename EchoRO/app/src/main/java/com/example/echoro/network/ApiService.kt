@@ -74,8 +74,10 @@ data class ModelStats(
 
 data class TrendData(
     val dates: List<String>,
-    val mini: List<Float>,
-    val large: List<Float>
+    val eagle: List<Float>,
+    val wolf: List<Float>,
+    val reindeer: List<Float>,
+    val sparrow: List<Float>
 )
 
 data class OverviewResponse(
@@ -155,6 +157,22 @@ data class ABRankingsResponse(
     val measures: Map<String, MeasureRankingData>
 )
 
+data class ABTestSessionItem(
+    val page_index: Int,
+    val sentence_id: String,
+    val audio_url_a: String,
+    val audio_url_b: String,
+    val text: String,
+    val description: String
+)
+
+data class ABTestSessionResponse(
+    val model_a: String,
+    val model_b: String,
+    val total_count: Int,
+    val items: List<ABTestSessionItem>
+)
+
 interface EchoRoApi {
     @POST("login")
     suspend fun login(@Body request: LoginRequest): AuthResponse
@@ -183,6 +201,9 @@ interface EchoRoApi {
     @POST("ab-test")
     suspend fun submitABTest(@Body request: ABTestRequest): ABTestResponse
 
+    @GET("ab-test/session")
+    suspend fun getABTestSession(@Query("count") count: Int): ABTestSessionResponse
+
     @GET("admin/ab-test/stats")
     suspend fun getABTestStats(): ABTestStatsResponse
 
@@ -196,7 +217,7 @@ object TokenStore {
 
 object RetrofitClient {
     // 10.0.0.2
-    const val BASE_URL = "http://192.168.100.70:8000/"
+    const val BASE_URL = "http://192.168.10.81:8000/"
 
     private class AuthInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {

@@ -28,6 +28,8 @@ import com.example.echoro.ui.screens.generatevoice.LoadingScreen
 import com.example.echoro.ui.theme.BackgroundGray
 import com.example.echoro.ui.theme.MiniChartColor
 import com.example.echoro.ui.theme.NavyBlue
+import com.example.echoro.ui.theme.ReindeerChartColor
+import com.example.echoro.ui.theme.SparrowChartColor
 import com.example.echoro.ui.theme.Teal
 import com.example.echoro.viewmodel.admin.AdminEvent
 import com.example.echoro.viewmodel.admin.AdminOSE
@@ -144,20 +146,32 @@ fun AdminDashboardScreen(
 
                 BarChartCard(
                     title = stringResource(R.string.admin_intelligibility_chart),
-                    miniValue = state.miniIntelligibility,
-                    largeValue = state.largeIntelligibility
+                    values = listOf(
+                        "Eagle" to state.eagleIntelligibility,
+                        "Wolf" to state.wolfIntelligibility,
+                        "Reindeer" to state.reindeerIntelligibility,
+                        "Sparrow" to state.sparrowIntelligibility
+                    )
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 BarChartCard(
                     title = stringResource(R.string.admin_naturalness_chart),
-                    miniValue = state.miniNaturalness,
-                    largeValue = state.largeNaturalness
+                    values = listOf(
+                        "Eagle" to state.eagleNaturalness,
+                        "Wolf" to state.wolfNaturalness,
+                        "Reindeer" to state.reindeerNaturalness,
+                        "Sparrow" to state.sparrowNaturalness
+                    )
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 BarChartCard(
                     title = stringResource(R.string.admin_accent_chart),
-                    miniValue = state.miniAccent,
-                    largeValue = state.largeAccent
+                    values = listOf(
+                        "Eagle" to state.eagleAccent,
+                        "Wolf" to state.wolfAccent,
+                        "Reindeer" to state.reindeerAccent,
+                        "Sparrow" to state.sparrowAccent
+                    )
                 )
 
                 Spacer(modifier = Modifier.height(32.dp))
@@ -169,20 +183,24 @@ fun AdminDashboardScreen(
                     shape = RoundedCornerShape(16.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth().padding(24.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+                    Column(
+                        modifier = Modifier.fillMaxWidth().padding(24.dp)
                     ) {
-                        AccuracyDonutChart(
-                            title = stringResource(R.string.admin_mini_model),
-                            percentage = state.miniWordAccuracy.toInt(),
-                            color = MiniChartColor
-                        )
-                        AccuracyDonutChart(
-                            title = stringResource(R.string.admin_large_model),
-                            percentage = state.largeWordAccuracy.toInt(),
-                            color = Teal
-                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            AccuracyDonutChart("Eagle",    state.eagleWordAccuracy.toInt(),    Teal)
+                            AccuracyDonutChart("Wolf",     state.wolfWordAccuracy.toInt(),     MiniChartColor)
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            AccuracyDonutChart("Reindeer", state.reindeerWordAccuracy.toInt(), ReindeerChartColor)
+                            AccuracyDonutChart("Sparrow",  state.sparrowWordAccuracy.toInt(),  SparrowChartColor)
+                        }
                     }
                 }
 
@@ -195,20 +213,24 @@ fun AdminDashboardScreen(
                     shape = RoundedCornerShape(16.dp),
                     elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
                 ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth().padding(24.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+                    Column(
+                        modifier = Modifier.fillMaxWidth().padding(24.dp)
                     ) {
-                        AccuracyDonutChart(
-                            title = stringResource(R.string.admin_mini_model),
-                            percentage = state.miniGenderMatch.toInt(),
-                            color = MiniChartColor
-                        )
-                        AccuracyDonutChart(
-                            title = stringResource(R.string.admin_large_model),
-                            percentage = state.largeGenderMatch.toInt(),
-                            color = Teal
-                        )
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            AccuracyDonutChart("Eagle",    state.eagleGenderMatch.toInt(),    Teal)
+                            AccuracyDonutChart("Wolf",     state.wolfGenderMatch.toInt(),     MiniChartColor)
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            AccuracyDonutChart("Reindeer", state.reindeerGenderMatch.toInt(), ReindeerChartColor)
+                            AccuracyDonutChart("Sparrow",  state.sparrowGenderMatch.toInt(),  SparrowChartColor)
+                        }
                     }
                 }
 
@@ -217,17 +239,11 @@ fun AdminDashboardScreen(
                 SectionTitle(stringResource(R.string.admin_model_profile_section))
                 LineChartCard(
                     xLabels = listOf("Intelligibility", "Naturalness", "Accent", "Word Accuracy"),
-                    miniPoints = listOf(
-                        state.miniIntelligibility,
-                        state.miniNaturalness,
-                        state.miniAccent,
-                        state.miniWordAccuracy / 20f
-                    ),
-                    largePoints = listOf(
-                        state.largeIntelligibility,
-                        state.largeNaturalness,
-                        state.largeAccent,
-                        state.largeWordAccuracy / 20f
+                    series = listOf(
+                        ChartSeries("Eagle",    listOf(state.eagleIntelligibility,    state.eagleNaturalness,    state.eagleAccent,    state.eagleWordAccuracy    / 20f), Teal),
+                        ChartSeries("Wolf",     listOf(state.wolfIntelligibility,     state.wolfNaturalness,     state.wolfAccent,     state.wolfWordAccuracy     / 20f), MiniChartColor),
+                        ChartSeries("Reindeer", listOf(state.reindeerIntelligibility, state.reindeerNaturalness, state.reindeerAccent, state.reindeerWordAccuracy / 20f), ReindeerChartColor),
+                        ChartSeries("Sparrow",  listOf(state.sparrowIntelligibility,  state.sparrowNaturalness,  state.sparrowAccent,  state.sparrowWordAccuracy  / 20f), SparrowChartColor)
                     )
                 )
 
@@ -305,8 +321,12 @@ fun AdminDashboardScreen(
                     } else {
                         LineChartCard(
                             xLabels = if (state.trendDates.isEmpty()) listOf(stringResource(R.string.no_data_label)) else state.trendDates,
-                            miniPoints = if (state.trendMini.isEmpty()) listOf(0f) else state.trendMini,
-                            largePoints = if (state.trendLarge.isEmpty()) listOf(0f) else state.trendLarge
+                            series = listOf(
+                                ChartSeries("Eagle",    if (state.trendEagle.isEmpty())    listOf(0f) else state.trendEagle,    Teal),
+                                ChartSeries("Wolf",     if (state.trendWolf.isEmpty())     listOf(0f) else state.trendWolf,     MiniChartColor),
+                                ChartSeries("Reindeer", if (state.trendReindeer.isEmpty()) listOf(0f) else state.trendReindeer, ReindeerChartColor),
+                                ChartSeries("Sparrow",  if (state.trendSparrow.isEmpty())  listOf(0f) else state.trendSparrow,  SparrowChartColor)
+                            )
                         )
                     }
                 }

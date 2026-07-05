@@ -37,6 +37,11 @@ fun ABTestingScreen(
     totalCount: Int,
     modelA: String,
     modelB: String,
+    audioUrlA: String?,
+    audioUrlB: String?,
+    text: String,
+    description: String,
+    isPairLoading: Boolean,
     savedAnswer: ABTestAnswer?,
     isLoading: Boolean,
     onSaveAnswer: (
@@ -52,12 +57,13 @@ fun ABTestingScreen(
     onNavigateBack: () -> Unit
 ) {
     val context = LocalContext.current
-    val packageName = context.packageName
-
-    val audioUrlA = "android.resource://$packageName/${R.raw.audio_a}"
-    val audioUrlB = "android.resource://$packageName/${R.raw.audio_b}"
 
     val isLastPage = pageIndex == totalCount - 1
+
+    val scrollState = rememberScrollState()
+    LaunchedEffect(pageIndex) {
+        scrollState.animateScrollTo(0)
+    }
 
     var naturalnessPref by remember(pageIndex) { mutableStateOf(savedAnswer?.naturalness) }
     var intelligibilityPref by remember(pageIndex) { mutableStateOf(savedAnswer?.intelligibility) }
@@ -98,7 +104,7 @@ fun ABTestingScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
                 .padding(horizontal = 24.dp)
-                .verticalScroll(rememberScrollState()),
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(32.dp))
@@ -118,38 +124,69 @@ fun ABTestingScreen(
                 modifier = Modifier.padding(top = 4.dp)
             )
 
-            // Model pair badge
-            Surface(
-                color = NavyBlue.copy(alpha = 0.08f),
-                shape = androidx.compose.foundation.shape.RoundedCornerShape(20.dp),
-                modifier = Modifier.padding(top = 8.dp)
-            ) {
-                Text(
-                    text = "$modelA  vs  $modelB",
-                    fontSize = 13.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = NavyBlue,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
-                )
-            }
-
             Text(
                 text = stringResource(R.string.ab_testing_instructions),
                 fontSize = 14.sp,
                 color = Color.Gray,
-                modifier = Modifier.padding(top = 8.dp, bottom = 24.dp),
+                modifier = Modifier.padding(top = 8.dp, bottom = 16.dp),
                 textAlign = TextAlign.Center
             )
 
-            Text("${stringResource(R.string.voice_a_label)} ($modelA)", fontWeight = FontWeight.Bold, color = Teal, modifier = Modifier.align(Alignment.Start))
+            if (text.isNotBlank()) {
+                Card(
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
+                    colors = CardDefaults.cardColors(containerColor = androidx.compose.ui.graphics.Color(0xFFF4F6F9)),
+                    shape = androidx.compose.foundation.shape.RoundedCornerShape(12.dp)
+                ) {
+                    Column(modifier = Modifier.padding(16.dp)) {
+                        Text(
+                            text = "Text:",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = NavyBlue,
+                            modifier = Modifier.padding(bottom = 4.dp)
+                        )
+                        Text(text = text, fontSize = 14.sp, color = Color.DarkGray)
+                        if (description.isNotBlank()) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(
+                                text = "Style:",
+                                fontSize = 11.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = NavyBlue,
+                                modifier = Modifier.padding(bottom = 4.dp)
+                            )
+                            Text(text = description, fontSize = 12.sp, color = Color.Gray)
+                        }
+                    }
+                }
+            }
+
+            Text(stringResource(R.string.voice_a_label), fontWeight = FontWeight.Bold, color = Teal, modifier = Modifier.align(Alignment.Start))
             Spacer(modifier = Modifier.height(8.dp))
-            AudioPlayerCard(audioUrl = audioUrlA, navyBlue = NavyBlue, teal = Teal)
+            if (isPairLoading || audioUrlA == null) {
+                Box(modifier = Modifier.fillMaxWidth().height(72.dp), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = Teal)
+                }
+            } else {
+                key(audioUrlA) {
+                    AudioPlayerCard(audioUrl = audioUrlA, navyBlue = NavyBlue, teal = Teal)
+                }
+            }
 
             Spacer(modifier = Modifier.height(24.dp))
 
-            Text("${stringResource(R.string.voice_b_label)} ($modelB)", fontWeight = FontWeight.Bold, color = Teal, modifier = Modifier.align(Alignment.Start))
+            Text(stringResource(R.string.voice_b_label), fontWeight = FontWeight.Bold, color = Teal, modifier = Modifier.align(Alignment.Start))
             Spacer(modifier = Modifier.height(8.dp))
-            AudioPlayerCard(audioUrl = audioUrlB, navyBlue = NavyBlue, teal = Teal)
+            if (isPairLoading || audioUrlB == null) {
+                Box(modifier = Modifier.fillMaxWidth().height(72.dp), contentAlignment = Alignment.Center) {
+                    CircularProgressIndicator(color = Teal)
+                }
+            } else {
+                key(audioUrlB) {
+                    AudioPlayerCard(audioUrl = audioUrlB, navyBlue = NavyBlue, teal = Teal)
+                }
+            }
 
             Spacer(modifier = Modifier.height(32.dp))
             HorizontalDivider(color = Color.LightGray)

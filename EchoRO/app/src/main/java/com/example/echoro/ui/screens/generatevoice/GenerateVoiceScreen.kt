@@ -214,7 +214,7 @@ fun GenerateVoiceScreen(
 }
 
 private val ttsSpeedDesc = listOf(
-    "very slow", "quite slow", "slightly slow", "moderate",
+    "very slowly", "quite slowly", "slightly slowly", "moderate",
     "slightly fast", "quite fast", "very fast"
 )
 private val ttsPitchDesc = listOf(
@@ -222,7 +222,8 @@ private val ttsPitchDesc = listOf(
     "slightly high-pitched", "quite high-pitched", "very high-pitched"
 )
 private val ttsExpressivenessDesc = listOf(
-    "very little", "limited", "slight natural", "natural and moderate", "strong natural"
+    "very monotone", "quite monotone", "slightly monotone",
+    "slightly expressive and animated", "very expressive and animated"
 )
 private val ttsQualityNoise = listOf("quite noisy", "slightly noisy", "clean", "very clean")
 private val ttsQualityReverb = listOf(
@@ -241,9 +242,8 @@ private fun buildTtsDescription(
     expressivenessIndex: Int,
     qualityIndex: Int
 ): String {
-    return "A Romanian ${gender.lowercase()} speaker with a ${ttsPitchDesc[pitchIndex]} " +
-            "speaks clearly and naturally at a ${ttsSpeedDesc[speedIndex]} pace, with " +
-            "${ttsExpressivenessDesc[expressivenessIndex]} expressiveness. The recording is " +
-            "${ttsQualityNoise[qualityIndex]}, and the voice sounds " +
-            "${ttsQualityReverb[qualityIndex]}, with ${ttsQualityPesq[qualityIndex]} overall speech quality."
+    return "A Romanian ${gender.lowercase()} speaker delivers a ${ttsExpressivenessDesc[expressivenessIndex]} speech " +
+        "with a ${ttsSpeedDesc[speedIndex]} speed and ${ttsPitchDesc[pitchIndex]}. " +
+        "The recording is ${ttsQualityNoise[qualityIndex]}, with the speaker's voice sounding " +
+        "${ttsQualityReverb[qualityIndex]}. The speech quality is ${ttsQualityPesq[qualityIndex]}."
 }

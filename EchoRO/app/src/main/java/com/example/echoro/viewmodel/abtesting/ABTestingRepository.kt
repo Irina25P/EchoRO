@@ -3,12 +3,23 @@ package com.example.echoro.viewmodel.abtesting
 import com.example.echoro.network.ABTestPageResult
 import com.example.echoro.network.ABTestRequest
 import com.example.echoro.network.ABTestResponse
+import com.example.echoro.network.ABTestSessionResponse
 import com.example.echoro.network.RetrofitClient
 import com.example.echoro.viewmodel.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class ABTestingRepository {
+    suspend fun getSession(count: Int): Flow<Resource<ABTestSessionResponse>> = flow {
+        emit(Resource.Loading)
+        try {
+            val response = RetrofitClient.instance.getABTestSession(count)
+            emit(Resource.Success(response))
+        } catch (e: Exception) {
+            emit(Resource.Error(Exception(e.message ?: "Eroare de conexiune la server.")))
+        }
+    }
+
     suspend fun submitSession(
         totalCount: Int,
         answers: Map<Int, ABTestAnswer>

@@ -15,21 +15,35 @@ data class AdminStateHolder(
     val totalGenerations: String = "0",
     val overallMos: String = "0.0",
 
-    val miniIntelligibility: Float = 0f,
-    val miniNaturalness: Float = 0f,
-    val miniAccent: Float = 0f,
-    val miniWordAccuracy: Float = 0f,
-    val miniGenderMatch: Float = 0f,
+    val eagleIntelligibility: Float = 0f,
+    val eagleNaturalness: Float = 0f,
+    val eagleAccent: Float = 0f,
+    val eagleWordAccuracy: Float = 0f,
+    val eagleGenderMatch: Float = 0f,
 
-    val largeIntelligibility: Float = 0f,
-    val largeNaturalness: Float = 0f,
-    val largeAccent: Float = 0f,
-    val largeWordAccuracy: Float = 0f,
-    val largeGenderMatch: Float = 0f,
+    val wolfIntelligibility: Float = 0f,
+    val wolfNaturalness: Float = 0f,
+    val wolfAccent: Float = 0f,
+    val wolfWordAccuracy: Float = 0f,
+    val wolfGenderMatch: Float = 0f,
+
+    val reindeerIntelligibility: Float = 0f,
+    val reindeerNaturalness: Float = 0f,
+    val reindeerAccent: Float = 0f,
+    val reindeerWordAccuracy: Float = 0f,
+    val reindeerGenderMatch: Float = 0f,
+
+    val sparrowIntelligibility: Float = 0f,
+    val sparrowNaturalness: Float = 0f,
+    val sparrowAccent: Float = 0f,
+    val sparrowWordAccuracy: Float = 0f,
+    val sparrowGenderMatch: Float = 0f,
 
     val trendDates: List<String> = emptyList(),
-    val trendMini: List<Float> = emptyList(),
-    val trendLarge: List<Float> = emptyList(),
+    val trendEagle: List<Float> = emptyList(),
+    val trendWolf: List<Float> = emptyList(),
+    val trendReindeer: List<Float> = emptyList(),
+    val trendSparrow: List<Float> = emptyList(),
 
     val abTotalResults: Int = 0,
     val abNaturalnessVoiceAPct: Float = 0f,
@@ -62,8 +76,10 @@ data class AdminStateHolder(
         abStatsRes: ABTestStatsResponse,
         abRankingsRes: ABRankingsResponse
     ): AdminStateHolder {
-        val mini = modelsRes.models["Mini"]
-        val large = modelsRes.models["Large"]
+        val eagle = modelsRes.models["Eagle"]
+        val wolf = modelsRes.models["Wolf"]
+        val reindeer = modelsRes.models["Reindeer"]
+        val sparrow = modelsRes.models["Sparrow"]
         val ab = abStatsRes.stats
 
         return this.copy(
@@ -73,21 +89,35 @@ data class AdminStateHolder(
             totalGenerations = "%,d".format(overview.total_generations),
             overallMos = overview.overall_mos.toString(),
 
-            miniIntelligibility = mini?.intelligibility ?: 0f,
-            miniNaturalness = mini?.naturalness ?: 0f,
-            miniAccent = mini?.accent ?: 0f,
-            miniWordAccuracy = mini?.word_accuracy ?: 0f,
-            miniGenderMatch = mini?.gender_match ?: 0f,
+            eagleIntelligibility = eagle?.intelligibility ?: 0f,
+            eagleNaturalness = eagle?.naturalness ?: 0f,
+            eagleAccent = eagle?.accent ?: 0f,
+            eagleWordAccuracy = eagle?.word_accuracy ?: 0f,
+            eagleGenderMatch = eagle?.gender_match ?: 0f,
 
-            largeIntelligibility = large?.intelligibility ?: 0f,
-            largeNaturalness = large?.naturalness ?: 0f,
-            largeAccent = large?.accent ?: 0f,
-            largeWordAccuracy = large?.word_accuracy ?: 0f,
-            largeGenderMatch = large?.gender_match ?: 0f,
+            wolfIntelligibility = wolf?.intelligibility ?: 0f,
+            wolfNaturalness = wolf?.naturalness ?: 0f,
+            wolfAccent = wolf?.accent ?: 0f,
+            wolfWordAccuracy = wolf?.word_accuracy ?: 0f,
+            wolfGenderMatch = wolf?.gender_match ?: 0f,
+
+            reindeerIntelligibility = reindeer?.intelligibility ?: 0f,
+            reindeerNaturalness = reindeer?.naturalness ?: 0f,
+            reindeerAccent = reindeer?.accent ?: 0f,
+            reindeerWordAccuracy = reindeer?.word_accuracy ?: 0f,
+            reindeerGenderMatch = reindeer?.gender_match ?: 0f,
+
+            sparrowIntelligibility = sparrow?.intelligibility ?: 0f,
+            sparrowNaturalness = sparrow?.naturalness ?: 0f,
+            sparrowAccent = sparrow?.accent ?: 0f,
+            sparrowWordAccuracy = sparrow?.word_accuracy ?: 0f,
+            sparrowGenderMatch = sparrow?.gender_match ?: 0f,
 
             trendDates = trendRes.trend.dates,
-            trendMini = trendRes.trend.mini,
-            trendLarge = trendRes.trend.large,
+            trendEagle = trendRes.trend.eagle,
+            trendWolf = trendRes.trend.wolf,
+            trendReindeer = trendRes.trend.reindeer,
+            trendSparrow = trendRes.trend.sparrow,
 
             abTotalResults = ab.total_results,
             abNaturalnessVoiceAPct = ab.naturalness_voice_a_pct,
@@ -112,8 +142,10 @@ data class AdminStateHolder(
         return this.copy(
             isTrendLoading = false,
             trendDates = trendRes.trend.dates,
-            trendMini = trendRes.trend.mini,
-            trendLarge = trendRes.trend.large
+            trendEagle = trendRes.trend.eagle,
+            trendWolf = trendRes.trend.wolf,
+            trendReindeer = trendRes.trend.reindeer,
+            trendSparrow = trendRes.trend.sparrow
         )
     }
 }
