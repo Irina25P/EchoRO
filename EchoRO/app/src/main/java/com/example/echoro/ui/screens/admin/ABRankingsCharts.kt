@@ -64,14 +64,14 @@ fun ABRankingsSection(
         "word_accuracy" to stringResource(R.string.word_accuracy_short)
     )
 
-    SectionTitle(stringResource(R.string.ab_rankings_section))
+    SectionTitle(stringResource(R.string.ab_testing_results_section))
 
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         SummaryStatCard(
-            title = stringResource(R.string.ab_total_trials_label),
+            title = stringResource(R.string.admin_total_ab_answers),
             value = totalTrials.toString(),
             modifier = Modifier.weight(1f)
         )

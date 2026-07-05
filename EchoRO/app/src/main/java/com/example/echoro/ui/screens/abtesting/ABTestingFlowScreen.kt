@@ -34,11 +34,6 @@ fun ABTestingFlowScreen(
         }
     }
 
-    if (state.isSessionLoading) {
-        com.example.echoro.ui.screens.generatevoice.LoadingScreen()
-        return
-    }
-
     ABTestingScreen(
         pageIndex = state.currentPage,
         totalCount = state.totalCount,
@@ -48,7 +43,7 @@ fun ABTestingFlowScreen(
         audioUrlB = state.currentAudioUrlB,
         text = state.currentText,
         description = state.currentDescription,
-        isPairLoading = false,
+        isPairLoading = state.isSessionLoading,
         savedAnswer = state.currentAnswer,
         isLoading = state.isLoading,
         onSaveAnswer = { modelA, modelB, naturalness, intelligibility, accent, wordAccuracy ->

@@ -77,349 +77,314 @@ fun AdminDashboardScreen(
         }
     }
 
-    if (state.isInitialLoading) {
-        LoadingScreen()
-    } else {
-        Scaffold(
-            snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
-            topBar = {
-                EchoRoTopBar(
-                    actions = {
-                        IconButton(
-                            onClick = onLogoutClick,
-                            modifier = Modifier.background(Teal, RoundedCornerShape(8.dp))
-                        ) {
-                            Icon(
-                                imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                                contentDescription = "Logout",
-                                tint = Color.White
-                            )
-                        }
+    Scaffold(
+        snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
+        topBar = {
+            EchoRoTopBar(
+                actions = {
+                    IconButton(
+                        onClick = onLogoutClick,
+                        modifier = Modifier.background(Teal, RoundedCornerShape(8.dp))
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ExitToApp,
+                            contentDescription = "Logout",
+                            tint = Color.White
+                        )
                     }
-                )
-            },
-            containerColor = Color.White
-        ) { paddingValues ->
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(horizontal = 24.dp)
-                    .verticalScroll(rememberScrollState())
+                }
+            )
+        },
+        containerColor = Color.White
+    ) { paddingValues ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+                .padding(horizontal = 24.dp)
+                .verticalScroll(rememberScrollState())
+        ) {
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Text(
+                text = stringResource(R.string.admin_statistics_title),
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = NavyBlue
+            )
+            Text(
+                text = stringResource(R.string.admin_view_subtitle),
+                fontSize = 14.sp,
+                fontWeight = FontWeight.SemiBold,
+                color = NavyBlue.copy(alpha = 0.8f)
+            )
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Text(
-                    text = stringResource(R.string.admin_statistics_title),
-                    fontSize = 20.sp,
-                    fontWeight = FontWeight.Bold,
-                    color = NavyBlue
-                )
-                Text(
-                    text = stringResource(R.string.admin_view_subtitle),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    color = NavyBlue.copy(alpha = 0.8f)
-                )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    SummaryStatCard(
-                        title = stringResource(R.string.admin_total_generations),
-                        value = state.totalGenerations,
-                        modifier = Modifier.weight(1f)
-                    )
-                    SummaryStatCard(
-                        title = stringResource(R.string.admin_overall_mos),
-                        value = state.overallMos,
-                        modifier = Modifier.weight(1f)
-                    )
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                SectionTitle(stringResource(R.string.admin_subjective_metrics))
-
-                BarChartCard(
-                    title = stringResource(R.string.admin_intelligibility_chart),
-                    values = listOf(
-                        "Eagle" to state.eagleIntelligibility,
-                        "Wolf" to state.wolfIntelligibility,
-                        "Reindeer" to state.reindeerIntelligibility,
-                        "Sparrow" to state.sparrowIntelligibility
-                    )
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                BarChartCard(
-                    title = stringResource(R.string.admin_naturalness_chart),
-                    values = listOf(
-                        "Eagle" to state.eagleNaturalness,
-                        "Wolf" to state.wolfNaturalness,
-                        "Reindeer" to state.reindeerNaturalness,
-                        "Sparrow" to state.sparrowNaturalness
-                    )
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                BarChartCard(
-                    title = stringResource(R.string.admin_accent_chart),
-                    values = listOf(
-                        "Eagle" to state.eagleAccent,
-                        "Wolf" to state.wolfAccent,
-                        "Reindeer" to state.reindeerAccent,
-                        "Sparrow" to state.sparrowAccent
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                SectionTitle(stringResource(R.string.admin_word_accuracy_section))
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(containerColor = BackgroundGray),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.fillMaxWidth().padding(24.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            AccuracyDonutChart("Eagle",    state.eagleWordAccuracy.toInt(),    Teal)
-                            AccuracyDonutChart("Wolf",     state.wolfWordAccuracy.toInt(),     MiniChartColor)
-                        }
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            AccuracyDonutChart("Reindeer", state.reindeerWordAccuracy.toInt(), ReindeerChartColor)
-                            AccuracyDonutChart("Sparrow",  state.sparrowWordAccuracy.toInt(),  SparrowChartColor)
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                SectionTitle(stringResource(R.string.admin_gender_match_section))
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(containerColor = BackgroundGray),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-                ) {
-                    Column(
-                        modifier = Modifier.fillMaxWidth().padding(24.dp)
-                    ) {
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            AccuracyDonutChart("Eagle",    state.eagleGenderMatch.toInt(),    Teal)
-                            AccuracyDonutChart("Wolf",     state.wolfGenderMatch.toInt(),     MiniChartColor)
-                        }
-                        Spacer(modifier = Modifier.height(16.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            AccuracyDonutChart("Reindeer", state.reindeerGenderMatch.toInt(), ReindeerChartColor)
-                            AccuracyDonutChart("Sparrow",  state.sparrowGenderMatch.toInt(),  SparrowChartColor)
-                        }
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                SectionTitle(stringResource(R.string.admin_model_profile_section))
-                LineChartCard(
-                    xLabels = listOf("Intelligibility", "Naturalness", "Accent", "Word Accuracy"),
-                    series = listOf(
-                        ChartSeries("Eagle",    listOf(state.eagleIntelligibility,    state.eagleNaturalness,    state.eagleAccent,    state.eagleWordAccuracy    / 20f), Teal),
-                        ChartSeries("Wolf",     listOf(state.wolfIntelligibility,     state.wolfNaturalness,     state.wolfAccent,     state.wolfWordAccuracy     / 20f), MiniChartColor),
-                        ChartSeries("Reindeer", listOf(state.reindeerIntelligibility, state.reindeerNaturalness, state.reindeerAccent, state.reindeerWordAccuracy / 20f), ReindeerChartColor),
-                        ChartSeries("Sparrow",  listOf(state.sparrowIntelligibility,  state.sparrowNaturalness,  state.sparrowAccent,  state.sparrowWordAccuracy  / 20f), SparrowChartColor)
-                    )
-                )
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    SectionTitle(stringResource(R.string.admin_mos_trend_section))
-                }
-
-                LazyRow(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(timeFilters) { filter ->
-                        val isSelected = selectedFilter == filter
-                        Box(
-                            modifier = Modifier
-                                .background(
-                                    color = if (isSelected) Teal else BackgroundGray,
-                                    shape = RoundedCornerShape(16.dp)
-                                )
-                                .clickable {
-                                    selectedFilter = filter
-                                    if (filter == "Custom") {
-                                        showDatePicker = true
-                                    } else {
-                                        customDateLabel = ""
-                                        val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                                        val cal = Calendar.getInstance()
-                                        val endDateStr = formatter.format(cal.time)
-
-                                        when (filter) {
-                                            "7 Days" -> cal.add(Calendar.DAY_OF_YEAR, -7)
-                                            "14 Days" -> cal.add(Calendar.DAY_OF_YEAR, -14)
-                                            "30 Days" -> cal.add(Calendar.DAY_OF_YEAR, -30)
-                                        }
-                                        val startDateStr = formatter.format(cal.time)
-                                        viewModel.sendEvent(AdminEvent.LoadStats(startDateStr, endDateStr))
-                                    }
-                                }
-                                .padding(horizontal = 16.dp, vertical = 8.dp)
-                        ) {
-                            Row(verticalAlignment = Alignment.CenterVertically) {
-                                if (filter == strCustom) {
-                                    Icon(
-                                        imageVector = Icons.Filled.DateRange,
-                                        contentDescription = stringResource(R.string.calendar_cd),
-                                        tint = if (isSelected) Color.White else NavyBlue,
-                                        modifier = Modifier.size(16.dp).padding(end = 4.dp)
-                                    )
-                                }
-                                Text(
-                                    text = if (filter == "Custom" && customDateLabel.isNotEmpty()) customDateLabel else filter,
-                                    color = if (isSelected) Color.White else NavyBlue,
-                                    fontSize = 12.sp,
-                                    fontWeight = FontWeight.SemiBold
-                                )
-                            }
-                        }
-                    }
-                }
-
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(320.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    if (state.isTrendLoading) {
-                        CircularProgressIndicator(color = Teal)
-                    } else {
-                        LineChartCard(
-                            xLabels = if (state.trendDates.isEmpty()) listOf(stringResource(R.string.no_data_label)) else state.trendDates,
-                            series = listOf(
-                                ChartSeries("Eagle",    if (state.trendEagle.isEmpty())    listOf(0f) else state.trendEagle,    Teal),
-                                ChartSeries("Wolf",     if (state.trendWolf.isEmpty())     listOf(0f) else state.trendWolf,     MiniChartColor),
-                                ChartSeries("Reindeer", if (state.trendReindeer.isEmpty()) listOf(0f) else state.trendReindeer, ReindeerChartColor),
-                                ChartSeries("Sparrow",  if (state.trendSparrow.isEmpty())  listOf(0f) else state.trendSparrow,  SparrowChartColor)
-                            )
-                        )
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                SectionTitle(stringResource(R.string.ab_testing_results_section))
-
                 SummaryStatCard(
-                    title = stringResource(R.string.admin_total_ab_answers),
-                    value = state.abTotalResults.toString(),
-                    modifier = Modifier.fillMaxWidth()
+                    title = stringResource(R.string.admin_total_generations),
+                    value = state.totalGenerations,
+                    modifier = Modifier.weight(1f)
                 )
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Card(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = CardDefaults.cardColors(containerColor = BackgroundGray),
-                    shape = RoundedCornerShape(16.dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
-                ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            text = stringResource(R.string.ab_preference_description),
-                            fontSize = 11.sp,
-                            color = Color.Gray,
-                            modifier = Modifier.padding(bottom = 16.dp)
-                        )
-                        ABPreferenceRow(stringResource(R.string.naturalness_label),    state.abNaturalnessVoiceAPct,    state.abNaturalnessVoiceBPct,    state.abNaturalnessEqualPct)
-                        ABPreferenceRow(stringResource(R.string.intelligibility_label), state.abIntelligibilityVoiceAPct, state.abIntelligibilityVoiceBPct, state.abIntelligibilityEqualPct)
-                        ABPreferenceRow(stringResource(R.string.accent_label),          state.abAccentVoiceAPct,          state.abAccentVoiceBPct,          state.abAccentEqualPct)
-                        ABPreferenceRow(stringResource(R.string.word_accuracy_short),   state.abWordAccuracyVoiceAPct,    state.abWordAccuracyVoiceBPct,    state.abWordAccuracyEqualPct)
-                    }
-                }
-
-                Spacer(modifier = Modifier.height(32.dp))
-
-                ABRankingsSection(
-                    totalTrials = state.abTotalTrials,
-                    rankings = state.abRankings
+                SummaryStatCard(
+                    title = stringResource(R.string.admin_overall_mos),
+                    value = state.overallMos,
+                    modifier = Modifier.weight(1f)
                 )
-
-                Spacer(modifier = Modifier.height(48.dp))
             }
 
-            if (showDatePicker) {
-                DatePickerDialog(
-                    onDismissRequest = {
-                        showDatePicker = false
-                        if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
-                    },
-                    confirmButton = {
-                        TextButton(onClick = {
-                            showDatePicker = false
-                            val startMillis = dateRangePickerState.selectedStartDateMillis
-                            val endMillis = dateRangePickerState.selectedEndDateMillis
+            Spacer(modifier = Modifier.height(32.dp))
 
-                            if (startMillis != null && endMillis != null) {
-                                val displayFormatter = SimpleDateFormat("dd MMM", Locale.getDefault())
-                                val startDisplay = displayFormatter.format(Date(startMillis))
-                                val endDisplay = displayFormatter.format(Date(endMillis))
-                                customDateLabel = "$startDisplay - $endDisplay"
+            SectionTitle(stringResource(R.string.admin_subjective_metrics))
 
-                                val apiFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                                val apiStart = apiFormatter.format(Date(startMillis))
-                                val apiEnd = apiFormatter.format(Date(endMillis))
+            BarChartCard(
+                title = stringResource(R.string.admin_intelligibility_chart),
+                values = listOf(
+                    "Eagle" to state.eagleIntelligibility,
+                    "Wolf" to state.wolfIntelligibility,
+                    "Reindeer" to state.reindeerIntelligibility,
+                    "Sparrow" to state.sparrowIntelligibility
+                )
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            BarChartCard(
+                title = stringResource(R.string.admin_naturalness_chart),
+                values = listOf(
+                    "Eagle" to state.eagleNaturalness,
+                    "Wolf" to state.wolfNaturalness,
+                    "Reindeer" to state.reindeerNaturalness,
+                    "Sparrow" to state.sparrowNaturalness
+                )
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            BarChartCard(
+                title = stringResource(R.string.admin_accent_chart),
+                values = listOf(
+                    "Eagle" to state.eagleAccent,
+                    "Wolf" to state.wolfAccent,
+                    "Reindeer" to state.reindeerAccent,
+                    "Sparrow" to state.sparrowAccent
+                )
+            )
 
-                                viewModel.sendEvent(AdminEvent.LoadStats(apiStart, apiEnd))
-                            } else {
-                                selectedFilter = timeFilters[0]
+            Spacer(modifier = Modifier.height(32.dp))
+
+            SectionTitle(stringResource(R.string.admin_word_accuracy_section))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = BackgroundGray),
+                shape = RoundedCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(24.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        AccuracyDonutChart("Eagle",    state.eagleWordAccuracy.toInt(),    Teal)
+                        AccuracyDonutChart("Wolf",     state.wolfWordAccuracy.toInt(),     MiniChartColor)
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        AccuracyDonutChart("Reindeer", state.reindeerWordAccuracy.toInt(), ReindeerChartColor)
+                        AccuracyDonutChart("Sparrow",  state.sparrowWordAccuracy.toInt(),  SparrowChartColor)
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            SectionTitle(stringResource(R.string.admin_gender_match_section))
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = BackgroundGray),
+                shape = RoundedCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(defaultElevation = 0.dp)
+            ) {
+                Column(
+                    modifier = Modifier.fillMaxWidth().padding(24.dp)
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        AccuracyDonutChart("Eagle",    state.eagleGenderMatch.toInt(),    Teal)
+                        AccuracyDonutChart("Wolf",     state.wolfGenderMatch.toInt(),     MiniChartColor)
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        AccuracyDonutChart("Reindeer", state.reindeerGenderMatch.toInt(), ReindeerChartColor)
+                        AccuracyDonutChart("Sparrow",  state.sparrowGenderMatch.toInt(),  SparrowChartColor)
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            SectionTitle(stringResource(R.string.admin_model_profile_section))
+            LineChartCard(
+                xLabels = listOf("Intelligibility", "Naturalness", "Accent", "Word Accuracy"),
+                series = listOf(
+                    ChartSeries("Eagle",    listOf(state.eagleIntelligibility,    state.eagleNaturalness,    state.eagleAccent,    state.eagleWordAccuracy    / 20f), Teal),
+                    ChartSeries("Wolf",     listOf(state.wolfIntelligibility,     state.wolfNaturalness,     state.wolfAccent,     state.wolfWordAccuracy     / 20f), MiniChartColor),
+                    ChartSeries("Reindeer", listOf(state.reindeerIntelligibility, state.reindeerNaturalness, state.reindeerAccent, state.reindeerWordAccuracy / 20f), ReindeerChartColor),
+                    ChartSeries("Sparrow",  listOf(state.sparrowIntelligibility,  state.sparrowNaturalness,  state.sparrowAccent,  state.sparrowWordAccuracy  / 20f), SparrowChartColor)
+                )
+            )
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                SectionTitle(stringResource(R.string.admin_mos_trend_section))
+            }
+
+            LazyRow(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                items(timeFilters) { filter ->
+                    val isSelected = selectedFilter == filter
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = if (isSelected) Teal else BackgroundGray,
+                                shape = RoundedCornerShape(16.dp)
+                            )
+                            .clickable {
+                                selectedFilter = filter
+                                if (filter == "Custom") {
+                                    showDatePicker = true
+                                } else {
+                                    customDateLabel = ""
+                                    val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                                    val cal = Calendar.getInstance()
+                                    val endDateStr = formatter.format(cal.time)
+
+                                    when (filter) {
+                                        "7 Days" -> cal.add(Calendar.DAY_OF_YEAR, -7)
+                                        "14 Days" -> cal.add(Calendar.DAY_OF_YEAR, -14)
+                                        "30 Days" -> cal.add(Calendar.DAY_OF_YEAR, -30)
+                                    }
+                                    val startDateStr = formatter.format(cal.time)
+                                    viewModel.sendEvent(AdminEvent.LoadStats(startDateStr, endDateStr))
+                                }
                             }
-                        }) {
-                            Text(stringResource(R.string.apply_button), color = Teal)
-                        }
-                    },
-                    dismissButton = {
-                        TextButton(onClick = {
-                            showDatePicker = false
-                            if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
-                        }) {
-                            Text(stringResource(R.string.cancel_button), color = Color.Gray)
+                            .padding(horizontal = 16.dp, vertical = 8.dp)
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            if (filter == strCustom) {
+                                Icon(
+                                    imageVector = Icons.Filled.DateRange,
+                                    contentDescription = stringResource(R.string.calendar_cd),
+                                    tint = if (isSelected) Color.White else NavyBlue,
+                                    modifier = Modifier.size(16.dp).padding(end = 4.dp)
+                                )
+                            }
+                            Text(
+                                text = if (filter == "Custom" && customDateLabel.isNotEmpty()) customDateLabel else filter,
+                                color = if (isSelected) Color.White else NavyBlue,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.SemiBold
+                            )
                         }
                     }
-                ) {
-                    DateRangePicker(
-                        state = dateRangePickerState,
-                        modifier = Modifier.weight(1f)
+                }
+            }
+
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(320.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                if (state.isTrendLoading) {
+                    CircularProgressIndicator(color = Teal)
+                } else {
+                    LineChartCard(
+                        xLabels = if (state.trendDates.isEmpty()) listOf(stringResource(R.string.no_data_label)) else state.trendDates,
+                        series = listOf(
+                            ChartSeries("Eagle",    if (state.trendEagle.isEmpty())    listOf(0f) else state.trendEagle,    Teal),
+                            ChartSeries("Wolf",     if (state.trendWolf.isEmpty())     listOf(0f) else state.trendWolf,     MiniChartColor),
+                            ChartSeries("Reindeer", if (state.trendReindeer.isEmpty()) listOf(0f) else state.trendReindeer, ReindeerChartColor),
+                            ChartSeries("Sparrow",  if (state.trendSparrow.isEmpty())  listOf(0f) else state.trendSparrow,  SparrowChartColor)
+                        )
                     )
                 }
+            }
+
+            Spacer(modifier = Modifier.height(32.dp))
+
+            ABRankingsSection(
+                totalTrials = state.abTotalTrials,
+                rankings = state.abRankings
+            )
+
+            Spacer(modifier = Modifier.height(48.dp))
+        }
+
+        if (showDatePicker) {
+            DatePickerDialog(
+                onDismissRequest = {
+                    showDatePicker = false
+                    if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
+                },
+                confirmButton = {
+                    TextButton(onClick = {
+                        showDatePicker = false
+                        val startMillis = dateRangePickerState.selectedStartDateMillis
+                        val endMillis = dateRangePickerState.selectedEndDateMillis
+
+                        if (startMillis != null && endMillis != null) {
+                            val displayFormatter = SimpleDateFormat("dd MMM", Locale.getDefault())
+                            val startDisplay = displayFormatter.format(Date(startMillis))
+                            val endDisplay = displayFormatter.format(Date(endMillis))
+                            customDateLabel = "$startDisplay - $endDisplay"
+
+                            val apiFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                            val apiStart = apiFormatter.format(Date(startMillis))
+                            val apiEnd = apiFormatter.format(Date(endMillis))
+
+                            viewModel.sendEvent(AdminEvent.LoadStats(apiStart, apiEnd))
+                        } else {
+                            selectedFilter = timeFilters[0]
+                        }
+                    }) {
+                        Text(stringResource(R.string.apply_button), color = Teal)
+                    }
+                },
+                dismissButton = {
+                    TextButton(onClick = {
+                        showDatePicker = false
+                        if (customDateLabel.isEmpty()) selectedFilter = timeFilters[0]
+                    }) {
+                        Text(stringResource(R.string.cancel_button), color = Color.Gray)
+                    }
+                }
+            ) {
+                DateRangePicker(
+                    state = dateRangePickerState,
+                    modifier = Modifier.weight(1f)
+                )
             }
         }
     }
+
 }
 
 @Composable

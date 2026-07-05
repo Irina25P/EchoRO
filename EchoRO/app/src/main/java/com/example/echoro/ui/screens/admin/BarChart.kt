@@ -1,6 +1,8 @@
 package com.example.echoro.ui.screens.admin
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,6 +20,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -35,6 +41,8 @@ import com.example.echoro.ui.theme.Teal
 
 @Composable
 fun BarChartCard(title: String, values: List<Pair<String, Float>>) {
+    var selectedIndex by remember { mutableIntStateOf(-1) }
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = BackgroundGray),
@@ -79,7 +87,15 @@ fun BarChartCard(title: String, values: List<Pair<String, Float>>) {
                     ) {
                         val modelColors = listOf(Teal, MiniChartColor, ReindeerChartColor, SparrowChartColor)
                         values.forEachIndexed { index, (label, value) ->
-                            BarColumn(value = value, label = label, color = modelColors[index % modelColors.size])
+                            BarColumn(
+                                value = value,
+                                label = label,
+                                color = modelColors[index % modelColors.size],
+                                isSelected = selectedIndex == index,
+                                onClick = {
+                                    selectedIndex = if (selectedIndex == index) -1 else index
+                                }
+                            )
                         }
                     }
                 }
@@ -89,26 +105,57 @@ fun BarChartCard(title: String, values: List<Pair<String, Float>>) {
 }
 
 @Composable
-fun BarColumn(value: Float, label: String, color: Color) {
-    val heightFraction = value / 5f
+fun BarColumn(
+    value: Float,
+    label: String,
+    color: Color,
+    isSelected: Boolean,
+    onClick: () -> Unit
+) {
+    val heightFraction = (value / 5f).coerceIn(0f, 1f)
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.fillMaxHeight()
     ) {
-        Box(
+        Column(
             modifier = Modifier
                 .weight(1f)
-                .width(50.dp),
-            contentAlignment = Alignment.BottomCenter
+                .width(50.dp)
+                .clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = null,
+                    onClick = onClick
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Bottom
         ) {
+            // Empty space above the bar
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight((1f - heightFraction).coerceAtLeast(0.0001f))
+            )
+
+            // The bar itself; value is drawn at the top edge so it is always visible
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(heightFraction)
+                    .weight(heightFraction.coerceAtLeast(0.0001f))
                     .clip(RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp))
-                    .background(color)
-            )
+                    .background(color),
+                contentAlignment = Alignment.TopCenter
+            ) {
+                if (isSelected) {
+                    Text(
+                        text = "%.1f".format(value),
+                        fontSize = 11.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.White,
+                        modifier = Modifier.padding(top = 4.dp)
+                    )
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
